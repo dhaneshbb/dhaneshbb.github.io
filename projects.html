@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Dhanesh B.B. | Data Science Portfolio</title>
+    <meta name="description" content="Explore innovative data science projects by Dhanesh B.B. including machine learning models, Python libraries, and analytics solutions.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0061f2;
+            --primary-dark: #0056d3;
+            --secondary-color: #6900c7;
+            --accent-color: #fd7e14;
+            --success-color: #00ac69;
+            --info-color: #0dcaf0;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --text-muted: #a0aec0;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #edf2f7;
+            --border-color: #e2e8f0;
+            --card-bg: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
+            --card-hover: linear-gradient(135deg, #d1e9fc 0%, #e8f4fd 100%);
+            --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+            --shadow-xl: 0 2rem 4rem rgba(0, 123, 255, 0.2);
+            --border-radius: 0.375rem;
+            --border-radius-lg: 0.5rem;
+            --border-radius-xl: 0.75rem;
+            --border-radius-2xl: 1rem;
+            --border-radius-3xl: 1.5rem;
+            --font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-family-monospace: 'JetBrains Mono', 'SF Mono', Monaco, Inconsolata, monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family-sans-serif);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        /* Enhanced Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color) !important;
+            text-decoration: none;
+        }
+
+        .navbar-nav .nav-link {
+            position: relative;
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after {
+            width: 80%;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+            background: var(--bg-secondary);
+        }
+
+        /* Page Header Enhanced */
+        .page-header {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: headerFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes headerFloat {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-10px) translateY(-5px); }
+            50% { transform: translateX(10px) translateY(5px); }
+            75% { transform: translateX(-5px) translateY(10px); }
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Explore My Work Section - Contact Style */
+        .explore-section {
+            padding: 5rem 0;
+            background: var(--bg-primary);
+            position: relative;
+        }
+
+        .explore-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            border-radius: var(--border-radius-3xl);
+            padding: 4rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .availability-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(0, 97, 242, 0.4);
+            }
+            50% { 
+                box-shadow: 0 0 0 10px rgba(0, 97, 242, 0);
+            }
+        }
+
+        .explore-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .explore-description {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-method {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius-2xl);
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-method::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: var(--bg-primary);
+        }
+
+        .contact-method:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon.email {
+            background: linear-gradient(135deg, #333, #24292e);
+        }
+
+        .contact-icon.phone {
+            background: linear-gradient(135deg, #20BEFF, #1DA1F2);
+        }
+
+        .contact-icon.linkedin {
+            background: linear-gradient(135deg, #FF6B35, #F39C12);
+        }
+
+        .contact-method:hover .contact-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .contact-method h4 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .contact-method p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .contact-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .contact-link:hover::after {
+            width: 100%;
+        }
+
+        .location-info {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius-2xl);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .location-title {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .location-details {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .location-details strong {
+            color: var(--text-dark);
+        }
+
+        /* Projects Grid Enhanced */
+        .projects-section {
+            padding: 5rem 0;
+            background: 
+                linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+            position: relative;
+        }
+
+        .projects-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 97, 242, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(105, 0, 199, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-3xl);
+            padding: 2rem;
+            border: 1px solid rgba(0, 123, 255, 0.15);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(240, 248, 255, 0.6));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 20px 40px rgba(0, 123, 255, 0.15),
+                0 0 0 1px rgba(0, 123, 255, 0.1);
+            background: var(--card-hover);
+            border-color: rgba(0, 123, 255, 0.25);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .project-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 1rem;
+            margin-top: 0.25rem;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-icon {
+            color: var(--secondary-color);
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .project-title {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.3;
+            font-family: var(--font-family-monospace);
+            position: relative;
+            z-index: 3;
+            transition: color 0.3s ease;
+        }
+
+        .project-card:hover .project-title {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            position: relative;
+            z-index: 3;
+            font-size: 0.9rem;
+        }
+
+        .project-meta {
+            margin-top: auto;
+            position: relative;
+            z-index: 3;
+        }
+
+        .project-date {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-family-monospace);
+            padding: 0.5rem 1rem;
+            background: rgba(0, 123, 255, 0.05);
+            border-radius: var(--border-radius-lg);
+            border-left: 3px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-date {
+            background: rgba(0, 123, 255, 0.1);
+            border-left-color: var(--secondary-color);
+        }
+
+        .tech-icons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .tech-icon {
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tech-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .tech-icon:hover::before {
+            opacity: 1;
+        }
+
+        /* Additional Visual Enhancements */
+        .icon-database { 
+            background: linear-gradient(135deg, #336791, #5dade2); 
+            color: white; 
+        }
+        .icon-chart { 
+            background: linear-gradient(135deg, #ff6384, #ff9f40); 
+            color: white; 
+        }
+
+        /* Keyboard navigation styles */
+        .keyboard-nav .project-card:focus,
+        .keyboard-nav .platform-badge:focus,
+        .keyboard-nav .explore-link:focus {
+            outline: 3px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Enhanced responsive design */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .project-card {
+                padding: 1.75rem;
+            }
+            
+            .explore-title {
+                font-size: 2rem;
+            }
+            
+            .explore-container {
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .project-card {
+                padding: 2rem;
+            }
+            
+            .explore-container {
+                padding: 2.5rem;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.75rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .project-card {
+                padding: 2rem;
+            }
+            
+            .explore-title {
+                font-size: 2.25rem;
+            }
+            
+            .jupyter-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .jupyter-circle {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .platform-badges {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .platform-badge {
+                min-width: 200px;
+                text-align: center;
+            }
+            
+            .explore-container {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+            
+            .explore-title {
+                font-size: 2rem;
+            }
+            
+            .jupyter-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .jupyter-circle {
+                width: 100px;
+                height: 100px;
+            }
+            
+            /* Disable complex animations on mobile for better performance */
+            .project-card:hover {
+                transform: translateY(-4px) scale(1.01);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2.25rem;
+            }
+            
+            .project-card {
+                padding: 1.75rem;
+            }
+            
+            .explore-section {
+                padding: 3rem 0;
+            }
+            
+            .projects-section {
+                padding: 3rem 0;
+            }
+            
+            .project-title {
+                font-size: 1.25rem;
+            }
+            
+            .project-description {
+                font-size: 0.875rem;
+            }
+            
+            .explore-container {
+                padding: 1.5rem;
+                margin: 0 1rem;
+            }
+            
+            .explore-title {
+                font-size: 2rem;
+            }
+            
+            .contact-methods {
+                gap: 1rem;
+            }
+            
+            .contact-method {
+                padding: 1.5rem;
+            }
+            
+            .contact-icon {
+                width: 3rem;
+                height: 3rem;
+                font-size: 1.25rem;
+            }
+            
+            .tech-icons {
+                gap: 0.75rem;
+            }
+            
+            .tech-icon {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-color: #000000;
+                --text-light: #000000;
+                --card-bg: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            }
+            
+            .project-card {
+                border: 2px solid #000000;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .project-card:hover {
+                transform: none !important;
+            }
+            
+            .floating {
+                animation: none !important;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .navbar,
+            .platform-badges {
+                display: none;
+            }
+            
+            .project-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #000;
+            }
+            
+            .page-header {
+                background: none;
+                color: #000;
+            }
+        }
+
+        /* Dark mode preparation (future enhancement) */
+        @media (prefers-color-scheme: dark) {
+            /* This section can be expanded for dark mode support */
+        }
+
+        .tech-icon i {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .project-card {
+                padding: 1.5rem;
+            }
+            
+            .explore-title {
+                font-size: 2rem;
+            }
+            
+            .jupyter-logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .jupyter-circle {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .platform-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .project-card {
+                padding: 1.25rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in-delay-1 { transition-delay: 0.15s; }
+        .fade-in-delay-2 { transition-delay: 0.3s; }
+        .fade-in-delay-3 { transition-delay: 0.45s; }
+        .fade-in-delay-4 { transition-delay: 0.6s; }
+
+        /* Staggered animations for project cards */
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        .project-card:nth-child(7) { animation-delay: 0.7s; }
+        .project-card:nth-child(8) { animation-delay: 0.8s; }
+        .project-card:nth-child(9) { animation-delay: 0.9s; }
+
+        /* Enhanced scroll animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(80px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .slide-in-up {
+            animation: slideInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        }
+
+        /* Floating elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Glow effect for interactive elements */
+        .glow-on-hover {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow-on-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 97, 242, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .glow-on-hover:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Parallax effect for background elements */
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            opacity: 0.1;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Smooth scrolling improvements */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading state improvements */
+        .project-card.loading {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Dhanesh B.B.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title fade-in">Project Portfolio</h1>
+            <p class="page-subtitle fade-in fade-in-delay-1">Innovative Data Science Solutions & Machine Learning Applications</p>
+        </div>
+    </section>
+
+    <!-- Philosophy Quote Section -->
+    <section class="philosophy-section" style="padding: 4rem 0; background: var(--bg-primary);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="philosophy-quote fade-in fade-in-delay-2" style="
+                        background: linear-gradient(135deg, #f0f8ff 0%, #e8f4fd 100%);
+                        border-left: 5px solid var(--primary-color);
+                        padding: 3rem 3rem 3rem 4rem;
+                        border-radius: var(--border-radius-2xl);
+                        box-shadow: var(--shadow);
+                        position: relative;
+                        overflow: hidden;
+                    ">
+                        <div style="
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: radial-gradient(circle at 80% 20%, rgba(0, 97, 242, 0.05) 0%, transparent 50%);
+                            pointer-events: none;
+                        "></div>
+                        <blockquote style="
+                            font-size: 1.25rem;
+                            line-height: 1.7;
+                            color: var(--text-dark);
+                            font-style: italic;
+                            margin: 0;
+                            position: relative;
+                            z-index: 2;
+                            font-weight: 500;
+                        ">
+                            "I believe in the power of data to transform businesses and improve lives. My approach combines rigorous statistical analysis with practical business understanding to deliver solutions that are not only technically sound but also actionable and impactful."
+                        </blockquote>
+                        <div style="
+                            position: absolute;
+                            top: 1.5rem;
+                            left: 3rem;
+                            font-size: 4rem;
+                            color: var(--primary-color);
+                            opacity: 0.1;
+                            font-family: Georgia, serif;
+                            z-index: 1;
+                        ">"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="projects-grid">
+                
+                <!-- InsightfulPy Project -->
+                <div class="project-card fade-in glow-on-hover">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open project-icon floating"></i>
+                        <h3 class="project-title">insightfulpy</h3>
+                    </div>
+                    <p class="project-description">
+                        📊 Comprehensive Python library for automated exploratory data analysis with 25+ functions for EDA, outlier detection, and statistical summaries. Published on PyPI for global data science community with advanced statistical capabilities.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-date">📅 Created on 2024-06-15</div>
+                        <div class="tech-icons">
+                            <span class="tech-icon icon-python"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon icon-chart"><i class="fas fa-chart-bar"></i></span>
+                            <span class="tech-icon icon-jupyter"><i class="fas fa-laptop-code"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Loan Default Prediction -->
+                <div class="project-card fade-in fade-in-delay-1 glow-on-hover">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open project-icon floating"></i>
+                        <h3 class="project-title">home-loan-default-prediction</h3>
+                    </div>
+                    <p class="project-description">
+                        🏠 XGBoost model achieving 83% accuracy on 50M+ records for home loan default prediction. Advanced feature engineering and memory optimization reduced false positives by 22% and eliminated 1,200+ hours of manual review.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-date">📅 Created on 2024-04-20</div>
+                        <div class="tech-icons">
+                            <span class="tech-icon icon-python"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon icon-database"><i class="fas fa-database"></i></span>
+                            <span class="tech-icon icon-chart"><i class="fas fa-brain"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Employee Performance Analysis -->
+                <div class="project-card fade-in fade-in-delay-2 glow-on-hover">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open project-icon floating"></i>
+                        <h3 class="project-title">employee-performance-analysis</h3>
+                    </div>
+                    <p class="project-description">
+                        👥 Analyzed 1,200+ employee records using XGBoost achieving 92.5% accuracy with SHAP analysis. Deployed predictive hiring model for INX Future Inc boosting accuracy by 20% with comprehensive performance insights.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-date">📅 Created on 2024-03-10</div>
+                        <div class="tech-icons">
+                            <span class="tech-icon icon-python"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon icon-chart"><i class="fas fa-users"></i></span>
+                            <span class="tech-icon icon-jupyter"><i class="fas fa-chart-line"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AutoCSV Profiler Suite -->
+                <div class="project-card fade-in glow-on-hover">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open project-icon floating"></i>
+                        <h3 class="project-title">autocsv-profiler-suite</h3>
+                    </div>
+                    <p class="project-description">
+                        🔧 Dependency-isolated CSV analysis toolkit using Python to resolve library conflicts, enabling parallel execution of 5+ EDA tools via virtual environments. Advanced automation for seamless data profiling workflows.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-date">📅 Created on 2024-02-28</div>
+                        <div class="tech-icons">
+                            <span class="tech-icon icon-python"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon icon-shell"><i class="fas fa-terminal"></i></span>
+                            <span class="tech-icon icon-chart"><i class="fas fa-cogs"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sales Effectiveness Analysis -->
+                <div class="project-card fade-in fade-in-delay-1 glow-on-hover">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open project-icon floating"></i>
+                        <h3 class="project-title">sales-effectiveness-analysis</h3>
+                    </div>
+                    <p class="project-description">
+                        📈 XGBoost classifier for automated lead qualification reducing manual review time by 30%. Identified critical business trends including 20.4% lead inflow on Mondays and 46% peak conversions in November.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-date">📅 Created on 2024-01-15</div>
+                        <div class="tech-icons">
+                            <span class="tech-icon icon-python"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon icon-chart"><i class="fas fa-chart-line"></i></span>
+                            <span class="tech-icon icon-database"><i class="fas fa-bullseye"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Auto Price Prediction -->
+                <div class="project-card fade-in fade-in-delay-2 glow-on-hover">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open project-icon floating"></i>
+                        <h3 class="project-title">auto-price-prediction</h3>
+                    </div>
+                    <p class="project-description">
+                        🚗 Vehicle pricing strategy model using Lasso Regression achieving R²=0.917 and RMSE=1.987. Leveraged PCA for 95% variance retention in automotive pricing with luxury premium analysis of $6-7.3K.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-date">📅 Created on 2023-12-08</div>
+                        <div class="tech-icons">
+                            <span class="tech-icon icon-python"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon icon-chart"><i class="fas fa-car"></i></span>
+                            <span class="tech-icon icon-jupyter"><i class="fas fa-dollar-sign"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portuguese Bank Marketing -->
+                <div class="project-card fade-in glow-on-hover">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open project-icon floating"></i>
+                        <h3 class="project-title">portuguese-bank-marketing</h3>
+                    </div>
+                    <p class="project-description">
+                        🏦 LightGBM model achieving 88.8% accuracy for term deposit predictions. Comprehensive customer segmentation insights for marketing optimization strategies with enhanced ROI performance metrics.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-date">📅 Created on 2023-11-22</div>
+                        <div class="tech-icons">
+                            <span class="tech-icon icon-python"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon icon-chart"><i class="fas fa-university"></i></span>
+                            <span class="tech-icon icon-database"><i class="fas fa-handshake"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bike Rental Demand Analysis -->
+                <div class="project-card fade-in fade-in-delay-1 glow-on-hover">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open project-icon floating"></i>
+                        <h3 class="project-title">bike-rental-demand-analysis</h3>
+                    </div>
+                    <p class="project-description">
+                        🚲 Ridge Regression model achieving R²=0.86 for bike rental demand prediction. Fleet optimization reduced stockouts by 15% through intelligent allocation strategies and demand forecasting algorithms.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-date">📅 Created on 2023-10-14</div>
+                        <div class="tech-icons">
+                            <span class="tech-icon icon-python"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon icon-chart"><i class="fas fa-bicycle"></i></span>
+                            <span class="tech-icon icon-jupyter"><i class="fas fa-clock"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Satisfaction Research -->
+                <div class="project-card fade-in fade-in-delay-2 glow-on-hover">
+                    <div class="project-header">
+                        <i class="fas fa-folder-open project-icon floating"></i>
+                        <h3 class="project-title">job-satisfaction-research</h3>
+                    </div>
+                    <p class="project-description">
+                        📊 Statistical analysis of survey data from 205 IT professionals to identify dissatisfaction drivers. Delivered actionable HR strategies through comprehensive research methodology with 23.4% burnout rate insights.
+                    </p>
+                    <div class="project-meta">
+                        <div class="project-date">📅 Created on 2023-09-05</div>
+                        <div class="tech-icons">
+                            <span class="tech-icon icon-python"><i class="fab fa-python"></i></span>
+                            <span class="tech-icon icon-chart"><i class="fas fa-graduation-cap"></i></span>
+                            <span class="tech-icon icon-database"><i class="fas fa-poll"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Content Section -->
+    <section class="additional-content-section" style="padding: 4rem 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem;">
+                        Passionate About Data-Driven Innovation
+                    </h2>
+                    <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.7; margin-bottom: 2rem;">
+                        Each project represents a journey of discovery, problem-solving, and innovation. From processing 50+ million records to creating automated solutions that save thousands of hours, I'm committed to transforming complex data challenges into meaningful business outcomes.
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.5rem;">25+</div>
+                            <div style="color: var(--text-light); font-size: 0.875rem;">EDA Functions</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.5rem;">92.5%</div>
+                            <div style="color: var(--text-light); font-size: 0.875rem;">Best Accuracy</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0.5rem;">1200+</div>
+                            <div style="color: var(--text-light); font-size: 0.875rem;">Hours Saved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore My Work Section -->
+    <section class="explore-section">
+        <div class="container">
+            <div class="explore-container fade-in fade-in-delay-2">
+                <div class="availability-badge">
+                    <i class="fas fa-code me-2"></i>View My Code
+                </div>
+                <h2 class="explore-title">Explore My Work</h2>
+                <p class="explore-description">
+                    Dive deeper into my data science journey by exploring my Jupyter notebooks, Kaggle competitions, and open-source contributions. Each repository tells a story of problem-solving, innovation, and continuous learning in the field of data science and machine learning.
+                </p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon email">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h4>GitHub Repositories</h4>
+                        <p>Complete source code, detailed documentation, and comprehensive project implementations with step-by-step analysis</p>
+                        <a href="https://github.com/dhaneshbb" target="_blank" rel="noopener" class="contact-link">View GitHub Profile</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon phone">
+                            <i class="fab fa-kaggle"></i>
+                        </div>
+                        <h4>Kaggle Competitions</h4>
+                        <p>Data science competitions, datasets analysis, and machine learning challenges with innovative solutions</p>
+                        <a href="https://www.kaggle.com/dhaneshbb" target="_blank" rel="noopener" class="contact-link">Explore Kaggle Profile</a>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon linkedin">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Jupyter Notebooks</h4>
+                        <p>Interactive data analysis notebooks with visualizations, insights, and detailed methodology explanations</p>
+                        <a href="https://nbviewer.org/github/dhaneshbb" target="_blank" rel="noopener" class="contact-link">View Notebooks</a>
+                    </div>
+                </div>
+                
+                <div class="location-info">
+                    <h5 class="location-title">
+                        <i class="fab fa-python me-2"></i>Published Python Package
+                    </h5>
+                    <div class="location-details">
+                        <strong>InsightfulPy:</strong> Professional-grade Python library available on PyPI<br>
+                        <strong>Features:</strong> 25+ automated EDA functions for comprehensive data analysis<br>
+                        <strong>Usage:</strong> pip install insightfulpy<br>
+                        <strong>Documentation:</strong> Complete guides and examples available
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Enhanced navbar scroll effect with smooth transitions
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Add subtle navbar hide/show on scroll
+            if (scrollTop > lastScrollTop && scrollTop > 200) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Enhanced intersection observer with staggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                        
+                        // Add slide-in-up class for enhanced animation
+                        if (entry.target.classList.contains('project-card')) {
+                            entry.target.classList.add('slide-in-up');
+                        }
+                    }, index * 100); // Staggered animation
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations for all elements
+        document.querySelectorAll('.fade-in, .project-card').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Enhanced smooth reveal on load with performance optimization
+        window.addEventListener('load', function() {
+            // Remove any loading states
+            document.querySelectorAll('.project-card.loading').forEach(card => {
+                card.classList.remove('loading');
+            });
+            
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in').forEach((element, index) => {
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 50); // Faster stagger for better UX
+                });
+            }, 200);
+        });
+
+        // Enhanced hover effects for project cards with 3D transform
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                this.style.transform = `translateY(-8px) scale(1.02) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            });
+            
+            // Add click ripple effect
+            card.addEventListener('click', function(e) {
+                const ripple = document.createElement('div');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: radial-gradient(circle, rgba(0, 97, 242, 0.3) 0%, transparent 70%);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s ease-out;
+                    pointer-events: none;
+                    z-index: 1000;
+                `;
+                
+                this.style.position = 'relative';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Enhanced Jupyter logo animation
+        const jupyterLogo = document.querySelector('.jupyter-logo');
+        if (jupyterLogo) {
+            jupyterLogo.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.15) rotate(10deg)';
+                
+                // Animate dots
+                const dots = this.querySelectorAll('.dot');
+                dots.forEach((dot, index) => {
+                    setTimeout(() => {
+                        dot.style.transform = 'scale(1.3) translateY(-5px)';
+                    }, index * 100);
+                });
+            });
+            
+            jupyterLogo.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+                
+                const dots = this.querySelectorAll('.dot');
+                dots.forEach(dot => {
+                    dot.style.transform = 'scale(1) translateY(0)';
+                });
+            });
+        }
+
+        // Parallax effect for background elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Performance optimization with requestAnimationFrame
+        let ticking = false;
+
+        function updateOnScroll() {
+            const navbar = document.querySelector('.navbar');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateOnScroll);
+                ticking = true;
+            }
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Enhanced accessibility - keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('click', function() {
+            document.body.classList.remove('keyboard-nav');
+        });
+
+        // Preload images for better performance
+        window.addEventListener('load', function() {
+            const imageUrls = [
+                // Add any background images or assets here
+            ];
+            
+            imageUrls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+        });
+
+        // Enhanced tech icon hover effects
+        document.querySelectorAll('.tech-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.15) rotate(5deg)';
+            });
+            
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+            });
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

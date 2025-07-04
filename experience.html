@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.5, maximum-scale=3.0">
+    <title>Experience - Dhanesh B.B. | Data Scientist</title>
+    <meta name="description" content="Professional experience of Dhanesh B.B. in data science, analytics, and business coordination roles.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0061f2;
+            --secondary-color: #6900c7;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --border-color: #e5e7eb;
+            --success-color: #059669;
+            --warning-color: #d97706;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            padding-top: 5rem;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(0.625rem);
+            box-shadow: 0 0.125rem 1.25rem rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: var(--text-dark) !important;
+            margin: 0 0.625rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        /* Page Header Enhanced */
+        .page-header {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: headerFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes headerFloat {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            25% { transform: translateX(-10px) translateY(-5px); }
+            50% { transform: translateX(10px) translateY(5px); }
+            75% { transform: translateX(-5px) translateY(10px); }
+        }
+
+		.page-title {
+			font-size: 3.5rem;
+			font-weight: 800;
+			margin-bottom: 1rem;
+			position: relative;
+			z-index: 2;
+		}
+
+		.page-subtitle {
+			font-size: 1.25rem;
+			opacity: 0.9;
+			font-weight: 400;
+			position: relative;
+			z-index: 2;
+		}
+
+        /* Career Summary */
+        .career-summary {
+            background: white;
+            padding: 5rem 0;
+        }
+
+        .summary-card {
+            background: var(--bg-light);
+            padding: 3rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
+            border-left: 0.3125rem solid var(--primary-color);
+            text-align: center;
+        }
+
+        .summary-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-text {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .career-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .highlight-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 0.3125rem 1rem rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-number {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-label {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Experience Timeline */
+        .experience-section {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: clamp(1.875rem, 4vw, 2.2rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 5rem;
+            height: 0.25rem;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .experience-timeline {
+            position: relative;
+            max-width: 62.5rem;
+            margin: 0 auto;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 0.25rem;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 100%;
+        }
+
+        .experience-item:nth-child(odd) .experience-content {
+            margin-left: 0;
+            margin-right: 52%;
+            text-align: right;
+        }
+
+        .experience-item:nth-child(even) .experience-content {
+            margin-left: 52%;
+            margin-right: 0;
+            text-align: left;
+        }
+
+        .experience-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
+            border: 0.0625rem solid var(--border-color);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-content:hover {
+            transform: translateY(-0.3125rem);
+            box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.15);
+        }
+
+        .experience-marker {
+            position: absolute;
+            left: 50%;
+            top: 3.125rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            background: var(--primary-color);
+            border: 0.25rem solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 0.25rem var(--primary-color);
+            z-index: 2;
+        }
+
+        .company-logo {
+            width: 4rem;
+            height: 4rem;
+            background: var(--bg-light);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border: 0.125rem solid var(--border-color);
+        }
+
+        .experience-item:nth-child(odd) .company-logo {
+            margin-left: auto;
+        }
+
+        .company-logo i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .job-title {
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.625rem;
+        }
+
+        .company-name {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-duration {
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .job-location {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .job-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-size: 0.9375rem;
+        }
+
+        .key-results {
+            background: var(--bg-light);
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            border-left: 0.25rem solid var(--success-color);
+        }
+
+        .key-results h6 {
+            color: var(--success-color);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .result-item {
+            padding: 0.75rem;
+        }
+
+        .result-number {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--success-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .result-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            line-height: 1.2;
+        }
+
+        .achievements {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .achievements li {
+            padding: 0.625rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.05);
+            font-size: 0.9375rem;
+            line-height: 1.6;
+        }
+
+        .achievements li:last-child {
+            border-bottom: none;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            top: 0.625rem;
+            color: var(--primary-color);
+            font-size: 0.75rem;
+        }
+
+        .experience-item:nth-child(odd) .achievements li {
+            padding-left: 0;
+            padding-right: 1.5rem;
+        }
+
+        .experience-item:nth-child(odd) .achievements li::before {
+            right: 0;
+            left: auto;
+            content: '◀';
+        }
+
+        .skills-used {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 0.0625rem solid var(--border-color);
+        }
+
+        .skills-used h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-size: 0.875rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .experience-item:nth-child(odd) .skill-tags {
+            justify-content: flex-end;
+        }
+
+        .skill-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.9375rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Current Role Highlight */
+        .current-role {
+            border: 0.125rem solid var(--success-color);
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), rgba(5, 150, 105, 0.1));
+        }
+
+        .current-role .experience-marker {
+            background: var(--success-color);
+            box-shadow: 0 0 0 0.25rem var(--success-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0.25rem var(--success-color);
+            }
+            50% {
+                box-shadow: 0 0 0 0.25rem var(--success-color), 0 0 0 0.75rem rgba(5, 150, 105, 0.3);
+            }
+            100% {
+                box-shadow: 0 0 0 0.25rem var(--success-color);
+            }
+        }
+
+        .current-badge {
+            background: var(--success-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 1.25rem;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Development Section */
+        .skills-development {
+            background: white;
+            padding: 5rem 0;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            margin-bottom: 2rem;
+            border-left: 0.3125rem solid var(--primary-color);
+            box-shadow: 0 0.3125rem 1rem rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateX(0.625rem);
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+        }
+
+        .skill-category .skill-tags {
+            justify-content: flex-start;
+        }
+
+        .skill-category .skill-tag {
+            background: white;
+            color: var(--text-dark);
+            border: 0.0625rem solid var(--border-color);
+        }
+
+        .skill-category .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Career Journey */
+        .career-journey {
+            background: var(--bg-light);
+            padding: 5rem 0;
+        }
+
+        .journey-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .journey-icon {
+            width: 5rem;
+            height: 5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .journey-title {
+            font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .journey-description {
+            color: var(--text-light);
+            line-height: 1.6;
+            font-size: 0.9375rem;
+        }
+
+		.fade-in {
+			opacity: 0;
+			transform: translateY(50px);
+			transition: all 0.6s ease;
+		}
+
+		.fade-in.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.fade-in-delay-1 {
+			transition-delay: 0.1s;
+		}
+
+
+
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 1.875rem;
+            }
+            
+            .experience-item:nth-child(odd) .experience-content,
+            .experience-item:nth-child(even) .experience-content {
+                margin-left: 4.375rem;
+                margin-right: 0;
+                text-align: left;
+            }
+            
+            .experience-marker {
+                left: 1.875rem;
+            }
+            
+            .experience-item:nth-child(odd) .company-logo {
+                margin-left: 0;
+            }
+            
+            .experience-item:nth-child(odd) .achievements li {
+                padding-left: 1.5rem;
+                padding-right: 0;
+            }
+            
+            .experience-item:nth-child(odd) .achievements li::before {
+                left: 0;
+                right: auto;
+                content: '▶';
+            }
+            
+            .experience-item:nth-child(odd) .skill-tags {
+                justify-content: flex-start;
+            }
+            
+            .experience-content {
+                padding: 2rem;
+            }
+            
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .career-highlights {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .skill-category {
+                padding: 1.5rem;
+            }
+            
+            .journey-card {
+                padding: 2rem;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .experience-content,
+            .summary-card,
+            .journey-card {
+                image-rendering: -webkit-optimize-contrast;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Dhanesh B.B.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="experience.html">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+	<!-- Page Header -->
+	<section class="page-header">
+		<div class="container">
+			<h1 class="page-title fade-in">Professional Experience</h1>
+			<p class="page-subtitle fade-in fade-in-delay-1">My Journey in Data Science & Analytics Excellence</p>
+		</div>
+	</section>
+
+
+    <!-- Career Summary -->
+    <section class="career-summary">
+        <div class="container">
+            <div class="summary-card">
+                <h2 class="summary-title">Career Overview</h2>
+                <p class="summary-text">
+                    Results-driven Data Science professional with 3+ years of progressive experience in analytics, machine learning, and business intelligence. Proven track record of delivering measurable business impact through data-driven solutions, with expertise spanning from hands-on technical implementation to strategic business consulting.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="experience-section">
+        <div class="container">
+            <h2 class="section-title">Career Timeline</h2>
+            
+            <div class="experience-timeline">
+                <div class="timeline-line"></div>
+                
+                <!-- Current Role - Data Science Consultant -->
+                <div class="experience-item">
+                    <div class="experience-marker"></div>
+                    <div class="experience-content current-role">
+                        <div class="current-badge">
+                            <i class="fas fa-circle me-2"></i>Current Position
+                        </div>
+                        <div class="company-logo">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="job-title">Data Science Consultant Intern</h3>
+                        <div class="company-name">Rubixe™ - AI Solutions Company</div>
+                        <div class="job-duration">September 2024 - March 2025 (7 months)</div>
+                        <div class="job-location">Bangalore, India</div>
+                        
+                        <div class="job-description">
+                            Leading data science initiatives at a premier AI solutions company, focusing on executing proof-of-concept projects and translating complex data science theories into actionable business solutions. Collaborating with cross-functional teams to optimize operational workflows and enhance client satisfaction through tailored machine learning solutions and advanced analytics.
+                        </div>
+                        
+                        <div class="key-results">
+                            <h6><i class="fas fa-trophy me-2"></i>Key Business Results</h6>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <div class="result-number">85%</div>
+                                    <div class="result-label">Client Satisfaction</div>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-number">30%</div>
+                                    <div class="result-label">Efficiency Gains</div>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-number">$200K+</div>
+                                    <div class="result-label">Revenue Impact</div>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-number">5+</div>
+                                    <div class="result-label">POC Projects</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <ul class="achievements">
+                            <li><strong>ML Model Development:</strong> Built XGBoost classifier for FicZon Inc project, achieving 30% reduction in manual review time and 6.89% improvement in model performance through advanced hyperparameter tuning</li>
+                            <li><strong>Strategic Business Intelligence:</strong> Identified critical conversion patterns including 20.4% lead inflow on Mondays and 46% peak conversions in November, enabling data-driven campaign scheduling and resource optimization</li>
+                            <li><strong>Cross-functional Leadership:</strong> Collaborated with product, engineering, and business teams to resolve operational bottlenecks, earning recognition for delivering measurable efficiency improvements</li>
+                            <li><strong>Client Consulting Excellence:</strong> Enhanced client satisfaction by 85% through deployment of tailored machine learning solutions, including automated lead scoring and predictive analytics systems</li>
+                            <li><strong>Technical Innovation:</strong> Developed end-to-end ML pipelines from data ingestion to model deployment, demonstrating full-stack data science capabilities</li>
+                        </ul>
+                        
+                        <div class="skills-used">
+                            <h6>Technologies & Skills Applied</h6>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">XGBoost</span>
+                                <span class="skill-tag">Machine Learning</span>
+                                <span class="skill-tag">GridSearchCV</span>
+                                <span class="skill-tag">Lead Scoring</span>
+                                <span class="skill-tag">Business Analytics</span>
+                                <span class="skill-tag">Client Consultation</span>
+                                <span class="skill-tag">POC Development</span>
+                                <span class="skill-tag">Statistical Analysis</span>
+                                <span class="skill-tag">Data Visualization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous Role - Coordinator -->
+                <div class="experience-item">
+                    <div class="experience-marker"></div>
+                    <div class="experience-content">
+                        <div class="company-logo">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3 class="job-title">Coordinator - Operations & Analytics</h3>
+                        <div class="company-name">Aditya Birla Fashion & Retail Ltd.</div>
+                        <div class="job-duration">April 2022 - March 2023 (1 year)</div>
+                        <div class="job-location">Bengaluru, India</div>
+                        
+                        <div class="job-description">
+                            Managed critical business operations at one of India's largest fashion retail companies, overseeing financial transactions, cross-departmental workflows, and data-driven process improvements. Responsible for high-volume daily operations while contributing to strategic sales initiatives through analytical insights and process optimization.
+                        </div>
+                        
+                        <div class="key-results">
+                            <h6><i class="fas fa-chart-line me-2"></i>Key Performance Metrics</h6>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <div class="result-number">99%</div>
+                                    <div class="result-label">Accuracy Rate</div>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-number">100+</div>
+                                    <div class="result-label">Daily Transactions</div>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-number">15%</div>
+                                    <div class="result-label">Accuracy Improvement</div>
+                                </div>
+                                <div class="result-item">
+                                    <div class="result-number">10%</div>
+                                    <div class="result-label">Sales Target Boost</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <ul class="achievements">
+                            <li><strong>Operational Excellence:</strong> Processed 100+ daily financial transactions with 99% accuracy, maintaining exceptional precision in high-volume, time-sensitive operations</li>
+                            <li><strong>Process Improvement:</strong> Systematically analyzed and resolved discrepancies in sales reports, achieving 15% improvement in reporting accuracy through data validation and process refinement</li>
+                            <li><strong>Cross-departmental Collaboration:</strong> Streamlined workflows across finance, operations, and sales teams by implementing standardized communication protocols and data sharing procedures</li>
+                            <li><strong>Strategic Impact:</strong> Contributed to 10% improvement in monthly sales targets through enhanced operational efficiency and data-driven workflow optimization</li>
+                            <li><strong>Analytical Foundation:</strong> Developed strong analytical and problem-solving skills in financial data processing, laying groundwork for data science career transition</li>
+                            <li><strong>Business Operations:</strong> Gained comprehensive understanding of large-scale retail operations, customer data management, and cross-functional team dynamics</li>
+                        </ul>
+                        
+                        <div class="skills-used">
+                            <h6>Technologies & Skills Applied</h6>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Excel Advanced</span>
+                                <span class="skill-tag">Financial Analysis</span>
+                                <span class="skill-tag">Data Processing</span>
+                                <span class="skill-tag">Report Generation</span>
+                                <span class="skill-tag">Process Optimization</span>
+                                <span class="skill-tag">Quality Assurance</span>
+                                <span class="skill-tag">Team Collaboration</span>
+                                <span class="skill-tag">Retail Operations</span>
+                                <span class="skill-tag">Project Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Journey -->
+    <section class="career-journey">
+        <div class="container">
+            <h2 class="section-title">Career Evolution & Growth</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="journey-card">
+                        <div class="journey-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="journey-title">Academic Foundation</h4>
+                        <p class="journey-description">
+                            Built strong analytical foundation through Master's in Economics from Bangalore University, developing expertise in econometrics, statistical analysis, and research methodology that forms the core of my data science approach.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="journey-card">
+                        <div class="journey-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h4 class="journey-title">Business Operations</h4>
+                        <p class="journey-description">
+                            Gained practical business experience at Aditya Birla Fashion & Retail, mastering operational excellence, data accuracy, and cross-functional collaboration while processing high-volume financial transactions.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="journey-card">
+                        <div class="journey-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4 class="journey-title">Data Science Leadership</h4>
+                        <p class="journey-description">
+                            Transitioned to AI consulting at Rubixe™, leading data science initiatives, developing ML solutions, and delivering measurable business impact through advanced analytics and strategic consulting.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Development -->
+    <section class="skills-development">
+        <div class="container">
+            <h2 class="section-title">Professional Skills Development</h2>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-brain me-2"></i>Technical Leadership & Innovation</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Machine Learning Architecture</span>
+                            <span class="skill-tag">Advanced Python Programming</span>
+                            <span class="skill-tag">MLOps & Model Deployment</span>
+                            <span class="skill-tag">XGBoost & LightGBM</span>
+                            <span class="skill-tag">SHAP Analysis & Interpretability</span>
+                            <span class="skill-tag">Feature Engineering</span>
+                            <span class="skill-tag">Statistical Modeling</span>
+                            <span class="skill-tag">Data Pipeline Development</span>
+                            <span class="skill-tag">Open Source Contribution</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-users me-2"></i>Business Strategy & Consulting</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Strategic Client Consulting</span>
+                            <span class="skill-tag">Cross-functional Leadership</span>
+                            <span class="skill-tag">Business Intelligence</span>
+                            <span class="skill-tag">Process Optimization</span>
+                            <span class="skill-tag">Stakeholder Management</span>
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Executive Communication</span>
+                            <span class="skill-tag">Change Management</span>
+                            <span class="skill-tag">ROI Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-chart-bar me-2"></i>Analytics & Data Science</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Predictive Modeling</span>
+                            <span class="skill-tag">Lead Scoring Systems</span>
+                            <span class="skill-tag">Customer Analytics</span>
+                            <span class="skill-tag">Performance Analysis</span>
+                            <span class="skill-tag">A/B Testing</span>
+                            <span class="skill-tag">KPI Development</span>
+                            <span class="skill-tag">Trend Analysis</span>
+                            <span class="skill-tag">Report Automation</span>
+                            <span class="skill-tag">Data Visualization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-industry me-2"></i>Industry Expertise & Applications</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Retail & E-commerce Analytics</span>
+                            <span class="skill-tag">Financial Services & Risk</span>
+                            <span class="skill-tag">Sales & Marketing Analytics</span>
+                            <span class="skill-tag">HR Analytics & Performance</span>
+                            <span class="skill-tag">Customer Segmentation</span>
+                            <span class="skill-tag">Revenue Optimization</span>
+                            <span class="skill-tag">Operational Efficiency</span>
+                            <span class="skill-tag">AI Solution Architecture</span>
+                            <span class="skill-tag">Digital Transformation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		const fadeObserver = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		}, { threshold: 0.1 });
+
+		document.querySelectorAll('.fade-in').forEach(element => {
+			fadeObserver.observe(element);
+		});
+
+		// Optional: show all on load (if you want it without scroll trigger)
+		window.addEventListener('load', () => {
+			document.querySelectorAll('.fade-in').forEach((element, index) => {
+				setTimeout(() => {
+					element.classList.add('visible');
+				}, index * 100);
+			});
+		});
+	</script>
+
+    
+    <!-- Custom animations -->
+    <script>
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations
+        document.querySelectorAll('.experience-content, .skill-category, .journey-card, .highlight-item').forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = `all 0.6s ease ${index * 0.1}s`;
+            observer.observe(element);
+        });
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Enhanced hover effects for interactive elements
+        document.querySelectorAll('.skill-tag, .highlight-item').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
