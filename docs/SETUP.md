@@ -435,34 +435,6 @@ npm uninstall unused-package
 npm run optimize:images
 ```
 
-
-## Security Setup
-
-### Basic Security
-
-1. **Environment Variables**
-   - Never commit secrets to Git
-   - Use `.env.local` for local secrets
-   - Use environment variables in production
-
-2. **Dependencies**
-
-   ```bash
-   # Check for vulnerabilities
-   npm audit
-
-   # Fix automatically
-   npm audit fix
-
-   # Check specific package
-   npm audit --package-lock-only
-   ```
-
-3. **Content Security Policy**
-   - Configure CSP headers
-   - Test with browser DevTools
-   - Monitor for violations
-
 ## Performance Optimization
 
 ### Image Optimization
