@@ -446,6 +446,31 @@
             line-height: 1.6;
         }
 
+		/* Certificate View Button Styles */
+		.cert-view-btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.6rem 1.2rem;
+			background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+			color: white;
+			text-decoration: none;
+			border-radius: 1.5rem;
+			font-size: 0.8rem;
+			font-weight: 600;
+			transition: all 0.3s ease;
+			margin-top: auto;
+			align-self: flex-start;
+		}
+
+		.cert-view-btn:hover {
+			color: white;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(0, 97, 242, 0.3);
+			background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+			text-decoration: none;
+		}
+
         /* Certifications Grid Enhanced */
         .cert-grid {
             display: grid;
@@ -454,16 +479,20 @@
             margin-top: 3rem;
         }
 
-        .cert-card {
-            background: var(--bg-primary);
-            padding: 2rem;
-            border-radius: var(--border-radius-2xl);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
+		/* Updated Certificate Card for Flexbox Layout */
+		.cert-card {
+			background: var(--bg-primary);
+			padding: 2rem;
+			border-radius: var(--border-radius-2xl);
+			box-shadow: var(--shadow);
+			border: 1px solid var(--border-color);
+			transition: all 0.3s ease;
+			position: relative;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
 
         .cert-card::before {
             content: '';
@@ -500,11 +529,64 @@
             margin-bottom: 0.5rem;
         }
 
-        .cert-date {
-            color: var(--text-light);
-            font-size: 0.875rem;
-            font-family: var(--font-family-monospace);
-        }
+		/* Updated Certificate Date for Better Spacing */
+		.cert-date {
+			color: var(--text-light);
+			font-size: 0.875rem;
+			font-family: var(--font-family-monospace);
+			margin-bottom: 1.5rem;
+		}
+
+
+		/* Credential ID and URL Styles */
+		.cert-credential {
+			margin-bottom: 0.75rem;
+			font-size: 0.8rem;
+		}
+
+		.credential-label {
+			color: var(--text-light);
+			font-weight: 600;
+			display: block;
+			margin-bottom: 0.25rem;
+		}
+
+		.credential-id {
+			color: var(--text-dark);
+			font-family: var(--font-family-monospace);
+			font-weight: 600;
+			background: var(--bg-secondary);
+			padding: 0.25rem 0.5rem;
+			border-radius: var(--border-radius);
+			font-size: 0.75rem;
+			display: inline-block;
+		}
+
+		.cert-url {
+			margin-bottom: 1.5rem;
+			font-size: 0.8rem;
+		}
+
+		.url-label {
+			color: var(--text-light);
+			font-weight: 600;
+			display: block;
+			margin-bottom: 0.25rem;
+		}
+
+		.cert-url-link {
+			color: var(--primary-color);
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 0.75rem;
+			transition: color 0.3s ease;
+		}
+
+		.cert-url-link:hover {
+			color: var(--secondary-color);
+			text-decoration: underline;
+		}
+
 
         /* Sidebar Enhanced */
         .sidebar-card {
@@ -558,6 +640,258 @@
 
         .contact-item a:hover {
             color: var(--primary-color);
+        }
+
+
+        /* Footer Enhanced */
+        .footer-section {
+            background: linear-gradient(135deg, var(--text-dark), #1a202c);
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 97, 242, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(105, 0, 199, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .footer-brand h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .footer-description {
+            color: #cbd5e0;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 97, 242, 0.4);
+        }
+
+        .footer-links h5 {
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-links h5::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 2rem;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links ul li a {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .footer-links ul li a::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 0.7rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 1.5rem;
+        }
+
+        .footer-contact h5 {
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-contact h5::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 2rem;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .contact-info .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #cbd5e0;
+            font-size: 0.9rem;
+        }
+
+        .contact-info .contact-item i {
+            color: var(--primary-color);
+            margin-right: 0.75rem;
+            width: 1rem;
+            text-align: center;
+        }
+
+        .contact-info .contact-item a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info .contact-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .availability-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding: 0.75rem;
+            background: rgba(0, 172, 105, 0.1);
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--success-color);
+        }
+
+        .status-indicator {
+            width: 0.5rem;
+            height: 0.5rem;
+            background: var(--success-color);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .availability-status span:last-child {
+            color: #cbd5e0;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright {
+            color: #a0aec0;
+            margin: 0;
+            font-size: 0.85rem;
+        }
+
+        .footer-badges {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 1.5rem;
+            font-size: 0.8rem;
+            color: #cbd5e0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .badge-item i {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Footer */
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 3rem 0 1.5rem;
+            }
+            
+            .footer-badges {
+                justify-content: flex-start;
+                margin-top: 1rem;
+            }
+            
+            .footer-badges .badge-item {
+                font-size: 0.75rem;
+                padding: 0.375rem 0.75rem;
+            }
+            
+            .footer-bottom {
+                text-align: center;
+            }
+            
+            .footer-bottom .row > div {
+                text-align: center !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-badges {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .badge-item {
+                justify-content: center;
+            }
         }
 
 
@@ -632,6 +966,40 @@
             white-space: normal;
             max-width: 100%;
         }
+
+        /* Kaggle Certificates Flowing Layout */
+        .kaggle-certs-list {
+            margin-top: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .kaggle-cert-item {
+            display: inline;
+        }
+
+        .kaggle-cert-item:not(:last-child)::after {
+            content: ' • ';
+            color: var(--text-light);
+            font-weight: 400;
+            margin: 0 0.25rem;
+        }
+
+        .kaggle-cert-link {
+            display: inline;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .kaggle-cert-link:hover {
+            color: var(--secondary-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
 
         /* Animations */
         .fade-in {
@@ -941,36 +1309,94 @@
                     <div class="fade-in">
                         <h2 class="section-title">Certifications & Continuous Learning</h2>
                         <p class="section-subtitle">Commitment to professional development and staying current with industry trends</p>
-                        <div class="cert-grid">
+						<div class="cert-grid">
                             <div class="cert-card">
                                 <div class="cert-title">Certified Data Scientist (Grade A)</div>
                                 <div class="cert-org">IABAC® (International Association of Business Analytics Certifications)</div>
                                 <div class="cert-date">April 2025</div>
+                                <div class="cert-credential">
+                                    <span class="credential-label">Credential ID:</span>
+                                    <span class="credential-id">IAB1120175634</span>
+                                </div>
+                                <div class="cert-url">
+                                    <span class="url-label">Verification URL:</span>
+                                    <a href="https://iabac.org/certifications/verify-certificate?certNum=IAB1120175634" target="_blank" rel="noopener" class="cert-url-link">iabac.org/verify</a>
+                                </div>
+                                <a href="https://i.ibb.co/mF1nbs93/iabac-Certified-Data-Scientist-IAB1120175634-2025-04-15-1744724022.jpg" target="_blank" rel="noopener" class="cert-view-btn">
+                                    <i class="fas fa-external-link-alt me-1"></i>View Certificate
+                                </a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-title">Certified Data Scientist (Gold Level)</div>
                                 <div class="cert-org">NASSCOM (National Association of Software and Service Companies)</div>
                                 <div class="cert-date">April 2025</div>
+                                <div class="cert-credential">
+                                    <span class="credential-label">Credential ID:</span>
+                                    <span class="credential-id">FSP/2025/4/10200847</span>
+                                </div>
+                                <a href="https://i.ibb.co/ksjj7HDs/nasscom-Certified-Data-Scientist-page-001.jpg" target="_blank" rel="noopener" class="cert-view-btn">
+                                    <i class="fas fa-external-link-alt me-1"></i>View Certificate
+                                </a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-title">Certified Data Scientist Certification Training</div>
                                 <div class="cert-org">Datamites (Authorized Training Partner)</div>
                                 <div class="cert-date">June 2024</div>
+                                <div class="cert-credential">
+                                    <span class="credential-label">Credential ID:</span>
+                                    <span class="credential-id">20250308691108</span>
+                                </div>
+                                <div class="cert-url">
+                                    <span class="url-label">Verification URL:</span>
+                                    <a href="https://datamites.com/verify-certificate/" target="_blank" rel="noopener" class="cert-url-link">datamites.com/certificate</a>
+                                </div>
+                                <a href="https://i.ibb.co/VcHDmyj5/from-datamites.jpg" target="_blank" rel="noopener" class="cert-view-btn">
+                                    <i class="fas fa-external-link-alt me-1"></i>View Certificate
+                                </a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-title">The Complete Data Science Course</div>
                                 <div class="cert-org">365 Careers (Online Learning Platform)</div>
                                 <div class="cert-date">April 2025</div>
+                                <div class="cert-credential">
+                                    <span class="credential-label">Credential ID:</span>
+                                    <span class="credential-id">UC‑71c44f53‑517f‑47c8‑8686‑e5e037cd185f</span>
+                                </div>
+                                <div class="cert-url">
+                                    <span class="url-label">Verification URL:</span>
+                                    <a href="https://www.udemy.com/certificate/UC-71c44f53-517f-47c8-8686-e5e037cd185f/" target="_blank" rel="noopener" class="cert-url-link">365datascience.com/certificates</a>
+                                </div>
+                                <a href="https://www.udemy.com/certificate/UC-71c44f53-517f-47c8-8686-e5e037cd185f/" target="_blank" rel="noopener" class="cert-view-btn">
+                                    <i class="fas fa-external-link-alt me-1"></i>View Certificate
+                                </a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-title">Data Science Foundation</div>
                                 <div class="cert-org">IABAC® (International Association of Business Analytics Certifications)</div>
                                 <div class="cert-date">March 2025</div>
+                                <div class="cert-credential">
+                                    <span class="credential-label">Credential ID:</span>
+                                    <span class="credential-id">IAB1120175399   </span>
+                                </div>
+                                <div class="cert-url">
+                                    <span class="url-label">Verification URL:</span>
+                                    <a href="https://iabac.org/certifications/verify-certificate?certNum=IAB1120175399" target="_blank" rel="noopener" class="cert-url-link">iabac.org/verify</a>
+                                </div>
+                                <a href="https://i.ibb.co/fYkzC1vL/iabac-Data-Science-Foundation-IAB1120175399-2025-03-20-1742470923.jpg" target="_blank" rel="noopener" class="cert-view-btn">
+                                    <i class="fas fa-external-link-alt me-1"></i>View Certificate
+                                </a>
                             </div>
                             <div class="cert-card">
                                 <div class="cert-title">Kaggle Learn Certifications</div>
                                 <div class="cert-org">Kaggle (Google's Machine Learning Platform)</div>
-                                <div class="cert-date">Advanced SQL, Machine Learning, Python, Data Cleaning, Feature Engineering, Time Series Analysis</div>
+                                <div class="cert-date">17 Micro-Certificates</div>
+                                <div class="cert-credential">
+                                    <span class="credential-label">Profile:</span>
+                                    <span class="credential-id">@dhaneshbb</span>
+                                </div>
+                                <div class="kaggle-certs-list">
+                                    <span class="kaggle-cert-item"><a href="https://i.ibb.co/bMB5XxFz/Advanced-SQL.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Advanced SQL</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/5XsBbVDV/Computer-Vision.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Computer Vision</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/0NxzT1B/Data-Cleaning.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Data Cleaning</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/1tYy90sm/Data-Visualization.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Data Visualization</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/ZRLK7mQ2/Feature-Engineering.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Feature Engineering</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/bM7xZ64V/Geospatial-Analysis.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Geospatial Analysis</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/T6FtJzC/Intermediate-Machine-Learning.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intermediate Machine Learning</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/WvTGNf18/Intro-to-Al-Ethics.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to AI Ethics</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/zhSBF46p/Intro-to-Deep-Learning.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to Deep Learning</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/Ztsf9zs/Intro-to-Game-Al-and-Reinforcement-Learning.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to Game AI and Reinforcement Learning</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/TBD6R1n5/Intro-to-Machine-Learning.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to Machine Learning</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/JR9759mk/Intro-to-Programming.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to Programming</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/0jLBk0nw/Intro-to-SQL.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to SQL</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/6RQ0fwdK/Machine-Learning-Explainability.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Machine Learning Explainability</a></span><span class="kaggle-cert-item"><a href="" target="_blank" rel="noopener" class="kaggle-cert-link">Pandas</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/qLHJq6pv/Pandas.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Python</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/Cp3RNghT/Time-Series.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Time Series</a></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -978,6 +1404,109 @@
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+        <footer class="footer-section">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- About Section -->
+                    <div class="col-lg-4">
+                        <div class="footer-brand">
+                            <h3>Dhanesh B.B.</h3>
+                            <p class="footer-description">
+                                Data Science Consultant specializing in machine learning models and business intelligence solutions. Transforming complex data into actionable insights that drive business growth.
+                            </p>
+                            <div class="footer-social">
+                                <a href="https://linkedin.com/in/dhaneshbb/" target="_blank" rel="noopener" class="social-icon">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="https://github.com/dhaneshbb" target="_blank" rel="noopener" class="social-icon">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.kaggle.com/dhaneshbb" target="_blank" rel="noopener" class="social-icon">
+                                    <i class="fab fa-kaggle"></i>
+                                </a>
+                                <a href="mailto:dhaneshbb5@gmail.com" class="social-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6">
+                        <div class="footer-links">
+                            <h5>Quick Links</h5>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="experience.html">Experience</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Services -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-links">
+                            <h5>Services</h5>
+                            <ul>
+                                <li><a href="#predictive-analytics">Predictive Analytics</a></li>
+                                <li><a href="#machine-learning">Machine Learning</a></li>
+                                <li><a href="#data-visualization">Data Visualization</a></li>
+                                <li><a href="#business-intelligence">Business Intelligence</a></li>
+                                <li><a href="#automation">Process Automation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="col-lg-3">
+                        <div class="footer-contact">
+                            <h5>Contact</h5>
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Bengaluru, Karnataka, India</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <a href="tel:+918050835879">+91 80508 35879</a>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:dhaneshbb5@gmail.com">dhaneshbb5@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="availability-status">
+                                <span class="status-indicator"></span>
+                                <span>Available for new projects</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <p class="copyright">
+                                © 2025 Dhanesh B.B. All rights reserved.
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="footer-badges">
+                                <span class="badge-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>Certified Data Scientist</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
