@@ -436,7 +436,7 @@ npm run optimize:images
 ```
 
 
-## 🔒 Security Setup
+## Security Setup
 
 ### Basic Security
 
