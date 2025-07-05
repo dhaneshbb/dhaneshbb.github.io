@@ -1,1633 +1,2089 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About - Dhanesh B.B. | Data Scientist</title>
-    <meta name="description" content="Learn about Dhanesh B.B., a professional Data Scientist with Master's in Economics and expertise in Python, Machine Learning, and Analytics.">
-    
+    <meta
+      name="description"
+      content="Learn about Dhanesh B.B., a professional Data Scientist with Master's in Economics and expertise in Python, Machine Learning, and Analytics."
+    />
+
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        :root {
-            --primary-color: #0061f2;
-            --primary-dark: #0056d3;
-            --secondary-color: #6900c7;
-            --accent-color: #fd7e14;
-            --success-color: #00ac69;
-            --info-color: #0dcaf0;
-            --warning-color: #ffc107;
-            --danger-color: #dc3545;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --text-dark: #2d3748;
-            --text-light: #718096;
-            --text-muted: #a0aec0;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f7fafc;
-            --bg-tertiary: #edf2f7;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-            --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-            --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
-            --border-radius: 0.375rem;
-            --border-radius-lg: 0.5rem;
-            --border-radius-xl: 0.75rem;
-            --border-radius-2xl: 1rem;
-            --font-family-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-family-monospace: 'JetBrains Mono', 'SF Mono', Monaco, Inconsolata, monospace;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-family-sans-serif);
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-primary);
-            overflow-x: hidden;
-        }
-
-        /* Enhanced Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1030;
-            padding: 1rem 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            padding: 0.5rem 0;
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: var(--shadow);
-        }
-
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-color) !important;
-            text-decoration: none;
-        }
-
-        .navbar-nav .nav-link {
-            position: relative;
-            font-weight: 500;
-            color: var(--text-dark) !important;
-            margin: 0 0.5rem;
-            padding: 0.5rem 1rem !important;
-            border-radius: var(--border-radius);
-            transition: all 0.3s ease;
-        }
-
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 80%;
-        }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: var(--primary-color) !important;
-            background: var(--bg-secondary);
-        }
-
-        /* Page Header Enhanced */
-        .page-header {
-            padding: 120px 0 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-            animation: headerFloat 20s ease-in-out infinite;
-        }
-
-        @keyframes headerFloat {
-            0%, 100% { transform: translateX(0) translateY(0); }
-            25% { transform: translateX(-10px) translateY(-5px); }
-            50% { transform: translateX(10px) translateY(5px); }
-            75% { transform: translateX(-5px) translateY(10px); }
-        }
-
-        .page-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .page-subtitle {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            font-weight: 400;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Main Content Enhanced */
-        .main-content {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 4rem;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            position: absolute;
-            bottom: -0.75rem;
-            left: 0;
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            color: var(--text-light);
-            font-size: 1.125rem;
-            margin-bottom: 3rem;
-            max-width: 600px;
-        }
-
-        /* Highlight Box Enhanced */
-        .highlight-box {
-            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-            padding: 3rem;
-            border-radius: var(--border-radius-2xl);
-            border-left: 5px solid var(--primary-color);
-            margin-bottom: 3rem;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 97, 242, 0.05), rgba(105, 0, 199, 0.05));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .highlight-box:hover::before {
-            opacity: 1;
-        }
-
-        .highlight-box .lead {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        /* Timeline Enhanced */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-            margin: 3rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0.9375rem;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
-            border-radius: 1.5px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.3125rem;
-            top: 0.5rem;
-            width: 1.125rem;
-            height: 1.125rem;
-            border-radius: 50%;
-            background: var(--primary-color);
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px var(--primary-color), var(--shadow);
-            z-index: 2;
-        }
-
-        .timeline-content {
-            background: var(--bg-primary);
-            padding: 2.5rem;
-            border-radius: var(--border-radius-2xl);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .timeline-content:hover::before {
-            transform: scaleX(1);
-        }
-
-        .timeline-date {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 1rem;
-            font-family: var(--font-family-monospace);
-        }
-
-        .timeline-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .timeline-subtitle {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            font-weight: 500;
-        }
-
-        /* Achievement Items Enhanced */
-        .achievement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .achievement-item {
-            background: var(--bg-primary);
-            padding: 2.5rem;
-            border-radius: var(--border-radius-2xl);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .achievement-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .achievement-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .achievement-item:hover::before {
-            transform: scaleX(1);
-        }
-
-        .achievement-icon {
-            width: 4rem;
-            height: 4rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: var(--border-radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .achievement-item h5 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 1rem;
-        }
-
-        .achievement-item p {
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Personality Traits Enhanced */
-        .personality-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .personality-trait {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 2rem;
-            border-radius: var(--border-radius-2xl);
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .personality-trait::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s ease;
-            opacity: 0;
-        }
-
-        .personality-trait:hover {
-            transform: translateY(-5px) scale(1.02);
-        }
-
-        .personality-trait:hover::before {
-            opacity: 1;
-            transform: rotate(45deg) translate(50%, 50%);
-        }
-
-        .personality-trait h5 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .personality-trait p {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-		/* Certificate View Button Styles */
-		.cert-view-btn {
-			display: inline-flex;
-			align-items: center;
-			gap: 0.5rem;
-			padding: 0.6rem 1.2rem;
-			background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-			color: white;
-			text-decoration: none;
-			border-radius: 1.5rem;
-			font-size: 0.8rem;
-			font-weight: 600;
-			transition: all 0.3s ease;
-			margin-top: auto;
-			align-self: flex-start;
-		}
-
-		.cert-view-btn:hover {
-			color: white;
-			transform: translateY(-2px);
-			box-shadow: 0 4px 12px rgba(0, 97, 242, 0.3);
-			background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-			text-decoration: none;
-		}
-
-        /* Certifications Grid Enhanced */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-		/* Updated Certificate Card for Flexbox Layout */
-		.cert-card {
-			background: var(--bg-primary);
-			padding: 2rem;
-			border-radius: var(--border-radius-2xl);
-			box-shadow: var(--shadow);
-			border: 1px solid var(--border-color);
-			transition: all 0.3s ease;
-			position: relative;
-			overflow: hidden;
-			display: flex;
-			flex-direction: column;
-			height: 100%;
-		}
-
-        .cert-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .cert-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .cert-title {
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.75rem;
-            font-size: 1.125rem;
-            line-height: 1.4;
-        }
-
-        .cert-org {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-		/* Updated Certificate Date for Better Spacing */
-		.cert-date {
-			color: var(--text-light);
-			font-size: 0.875rem;
-			font-family: var(--font-family-monospace);
-			margin-bottom: 1.5rem;
-		}
-
-
-		/* Credential ID and URL Styles */
-		.cert-credential {
-			margin-bottom: 0.75rem;
-			font-size: 0.8rem;
-		}
-
-		.credential-label {
-			color: var(--text-light);
-			font-weight: 600;
-			display: block;
-			margin-bottom: 0.25rem;
-		}
-
-		.credential-id {
-			color: var(--text-dark);
-			font-family: var(--font-family-monospace);
-			font-weight: 600;
-			background: var(--bg-secondary);
-			padding: 0.25rem 0.5rem;
-			border-radius: var(--border-radius);
-			font-size: 0.75rem;
-			display: inline-block;
-		}
-
-		.cert-url {
-			margin-bottom: 1.5rem;
-			font-size: 0.8rem;
-		}
-
-		.url-label {
-			color: var(--text-light);
-			font-weight: 600;
-			display: block;
-			margin-bottom: 0.25rem;
-		}
-
-		.cert-url-link {
-			color: var(--primary-color);
-			text-decoration: none;
-			font-weight: 600;
-			font-size: 0.75rem;
-			transition: color 0.3s ease;
-		}
-
-		.cert-url-link:hover {
-			color: var(--secondary-color);
-			text-decoration: underline;
-		}
-
-
-        /* Sidebar Enhanced */
-        .sidebar-card {
-            background: var(--bg-primary);
-            padding: 2.5rem;
-            border-radius: var(--border-radius-2xl);
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .sidebar-card h4,
-        .sidebar-card h5 {
-            color: var(--text-dark);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding: 0.75rem;
-            border-radius: var(--border-radius);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: var(--bg-secondary);
-        }
-
-        .contact-item i {
-            color: var(--primary-color);
-            margin-right: 1rem;
-            width: 1.25rem;
-            text-align: center;
-        }
-
-        .contact-item a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--primary-color);
-        }
-
-
-        /* Footer Enhanced */
+      :root {
+        --primary-color: #0061f2;
+        --primary-dark: #0056d3;
+        --secondary-color: #6900c7;
+        --accent-color: #fd7e14;
+        --success-color: #00ac69;
+        --info-color: #0dcaf0;
+        --warning-color: #ffc107;
+        --danger-color: #dc3545;
+        --light-color: #f8f9fa;
+        --dark-color: #212529;
+        --text-dark: #2d3748;
+        --text-light: #718096;
+        --text-muted: #a0aec0;
+        --bg-primary: #ffffff;
+        --bg-secondary: #f7fafc;
+        --bg-tertiary: #edf2f7;
+        --border-color: #e2e8f0;
+        --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+        --border-radius: 0.375rem;
+        --border-radius-lg: 0.5rem;
+        --border-radius-xl: 0.75rem;
+        --border-radius-2xl: 1rem;
+        --font-family-sans-serif:
+          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          sans-serif;
+        --font-family-monospace:
+          'JetBrains Mono', 'SF Mono', Monaco, Inconsolata, monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-family-sans-serif);
+        line-height: 1.6;
+        color: var(--text-dark);
+        background: var(--bg-primary);
+        overflow-x: hidden;
+      }
+
+      /* Enhanced Navigation */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1030;
+        padding: 1rem 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        padding: 0.5rem 0;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: var(--shadow);
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--primary-color) !important;
+        text-decoration: none;
+      }
+
+      .navbar-nav .nav-link {
+        position: relative;
+        font-weight: 500;
+        color: var(--text-dark) !important;
+        margin: 0 0.5rem;
+        padding: 0.5rem 1rem !important;
+        border-radius: var(--border-radius);
+        transition: all 0.3s ease;
+      }
+
+      .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .navbar-nav .nav-link:hover::after,
+      .navbar-nav .nav-link.active::after {
+        width: 80%;
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        color: var(--primary-color) !important;
+        background: var(--bg-secondary);
+      }
+
+      /* Page Header Enhanced */
+      .page-header {
+        padding: 120px 0 80px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%
+          );
+        animation: headerFloat 20s ease-in-out infinite;
+      }
+
+      @keyframes headerFloat {
+        0%,
+        100% {
+          transform: translateX(0) translateY(0);
+        }
+        25% {
+          transform: translateX(-10px) translateY(-5px);
+        }
+        50% {
+          transform: translateX(10px) translateY(5px);
+        }
+        75% {
+          transform: translateX(-5px) translateY(10px);
+        }
+      }
+
+      .page-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      .page-subtitle {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        font-weight: 400;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Main Content Enhanced */
+      .main-content {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: '';
+        width: 4rem;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        position: absolute;
+        bottom: -0.75rem;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .section-subtitle {
+        color: var(--text-light);
+        font-size: 1.125rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+      }
+
+      /* Highlight Box Enhanced */
+      .highlight-box {
+        background: linear-gradient(
+          135deg,
+          var(--bg-secondary),
+          var(--bg-tertiary)
+        );
+        padding: 3rem;
+        border-radius: var(--border-radius-2xl);
+        border-left: 5px solid var(--primary-color);
+        margin-bottom: 3rem;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .highlight-box::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 97, 242, 0.05),
+          rgba(105, 0, 199, 0.05)
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .highlight-box:hover::before {
+        opacity: 1;
+      }
+
+      .highlight-box .lead {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--text-dark);
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      /* Timeline Enhanced */
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+        margin: 3rem 0;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 0.9375rem;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(
+          180deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border-radius: 1.5px;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+      }
+
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -2.3125rem;
+        top: 0.5rem;
+        width: 1.125rem;
+        height: 1.125rem;
+        border-radius: 50%;
+        background: var(--primary-color);
+        border: 3px solid white;
+        box-shadow:
+          0 0 0 3px var(--primary-color),
+          var(--shadow);
+        z-index: 2;
+      }
+
+      .timeline-content {
+        background: var(--bg-primary);
+        padding: 2.5rem;
+        border-radius: var(--border-radius-2xl);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .timeline-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .timeline-content:hover::before {
+        transform: scaleX(1);
+      }
+
+      .timeline-date {
+        color: var(--primary-color);
+        font-weight: 700;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 1rem;
+        font-family: var(--font-family-monospace);
+      }
+
+      .timeline-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--text-dark);
+      }
+
+      .timeline-subtitle {
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      /* Achievement Items Enhanced */
+      .achievement-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .achievement-item {
+        background: var(--bg-primary);
+        padding: 2.5rem;
+        border-radius: var(--border-radius-2xl);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .achievement-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .achievement-item:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .achievement-item:hover::before {
+        transform: scaleX(1);
+      }
+
+      .achievement-icon {
+        width: 4rem;
+        height: 4rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        border-radius: var(--border-radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .achievement-item h5 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+      }
+
+      .achievement-item p {
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+
+      /* Personality Traits Enhanced */
+      .personality-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 3rem 0;
+      }
+
+      .personality-trait {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 2rem;
+        border-radius: var(--border-radius-2xl);
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .personality-trait::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        transform: rotate(45deg);
+        transition: all 0.6s ease;
+        opacity: 0;
+      }
+
+      .personality-trait:hover {
+        transform: translateY(-5px) scale(1.02);
+      }
+
+      .personality-trait:hover::before {
+        opacity: 1;
+        transform: rotate(45deg) translate(50%, 50%);
+      }
+
+      .personality-trait h5 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .personality-trait p {
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+
+      /* Certificate View Button Styles */
+      .cert-view-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        text-decoration: none;
+        border-radius: 1.5rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin-top: auto;
+        align-self: flex-start;
+      }
+
+      .cert-view-btn:hover {
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 97, 242, 0.3);
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        text-decoration: none;
+      }
+
+      /* Certifications Grid Enhanced */
+      .cert-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      /* Updated Certificate Card for Flexbox Layout */
+      .cert-card {
+        background: var(--bg-primary);
+        padding: 2rem;
+        border-radius: var(--border-radius-2xl);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .cert-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .cert-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .cert-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .cert-title {
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 0.75rem;
+        font-size: 1.125rem;
+        line-height: 1.4;
+      }
+
+      .cert-org {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Updated Certificate Date for Better Spacing */
+      .cert-date {
+        color: var(--text-light);
+        font-size: 0.875rem;
+        font-family: var(--font-family-monospace);
+        margin-bottom: 1.5rem;
+      }
+
+      /* Credential ID and URL Styles */
+      .cert-credential {
+        margin-bottom: 0.75rem;
+        font-size: 0.8rem;
+      }
+
+      .credential-label {
+        color: var(--text-light);
+        font-weight: 600;
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+
+      .credential-id {
+        color: var(--text-dark);
+        font-family: var(--font-family-monospace);
+        font-weight: 600;
+        background: var(--bg-secondary);
+        padding: 0.25rem 0.5rem;
+        border-radius: var(--border-radius);
+        font-size: 0.75rem;
+        display: inline-block;
+      }
+
+      .cert-url {
+        margin-bottom: 1.5rem;
+        font-size: 0.8rem;
+      }
+
+      .url-label {
+        color: var(--text-light);
+        font-weight: 600;
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+
+      .cert-url-link {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.75rem;
+        transition: color 0.3s ease;
+      }
+
+      .cert-url-link:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+      }
+
+      /* Sidebar Enhanced */
+      .sidebar-card {
+        background: var(--bg-primary);
+        padding: 2.5rem;
+        border-radius: var(--border-radius-2xl);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        margin-bottom: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .sidebar-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .sidebar-card h4,
+      .sidebar-card h5 {
+        color: var(--text-dark);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        border-radius: var(--border-radius);
+        transition: all 0.3s ease;
+      }
+
+      .contact-item:hover {
+        background: var(--bg-secondary);
+      }
+
+      .contact-item i {
+        color: var(--primary-color);
+        margin-right: 1rem;
+        width: 1.25rem;
+        text-align: center;
+      }
+
+      .contact-item a {
+        color: var(--text-dark);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .contact-item a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Footer Enhanced */
+      .footer-section {
+        background: linear-gradient(135deg, var(--text-dark), #1a202c);
+        color: white;
+        padding: 4rem 0 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(0, 97, 242, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(105, 0, 199, 0.1) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+
+      .footer-brand h3 {
+        color: var(--primary-color);
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .footer-description {
+        color: #cbd5e0;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .social-icon:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 97, 242, 0.4);
+      }
+
+      .footer-links h5 {
+        color: white;
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .footer-links h5::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 0;
+        width: 2rem;
+        height: 2px;
+        background: var(--primary-color);
+      }
+
+      .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-links ul li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links ul li a {
+        color: #cbd5e0;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        position: relative;
+        padding-left: 1rem;
+      }
+
+      .footer-links ul li a::before {
+        content: '▶';
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+        font-size: 0.7rem;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links ul li a:hover {
+        color: var(--primary-color);
+        padding-left: 1.5rem;
+      }
+
+      .footer-contact h5 {
+        color: white;
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .footer-contact h5::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 0;
+        width: 2rem;
+        height: 2px;
+        background: var(--primary-color);
+      }
+
+      .contact-info .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        color: #cbd5e0;
+        font-size: 0.9rem;
+      }
+
+      .contact-info .contact-item i {
+        color: var(--primary-color);
+        margin-right: 0.75rem;
+        width: 1rem;
+        text-align: center;
+      }
+
+      .contact-info .contact-item a {
+        color: #cbd5e0;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .contact-info .contact-item a:hover {
+        color: var(--primary-color);
+      }
+
+      .availability-status {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        padding: 0.75rem;
+        background: rgba(0, 172, 105, 0.1);
+        border-radius: var(--border-radius);
+        border-left: 3px solid var(--success-color);
+      }
+
+      .status-indicator {
+        width: 0.5rem;
+        height: 0.5rem;
+        background: var(--success-color);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      .availability-status span:last-child {
+        color: #cbd5e0;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      .footer-bottom {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .copyright {
+        color: #a0aec0;
+        margin: 0;
+        font-size: 0.85rem;
+      }
+
+      .footer-badges {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1rem;
+      }
+
+      .badge-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.5rem 1rem;
+        border-radius: 1.5rem;
+        font-size: 0.8rem;
+        color: #cbd5e0;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .badge-item i {
+        color: var(--primary-color);
+      }
+
+      /* Responsive Footer */
+      @media (max-width: 768px) {
         .footer-section {
-            background: linear-gradient(135deg, var(--text-dark), #1a202c);
-            color: white;
-            padding: 4rem 0 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 97, 242, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(105, 0, 199, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .footer-brand h3 {
-            color: var(--primary-color);
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .footer-description {
-            color: #cbd5e0;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-icon {
-            width: 2.5rem;
-            height: 2.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .social-icon:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 97, 242, 0.4);
-        }
-
-        .footer-links h5 {
-            color: white;
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .footer-links h5::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 0;
-            width: 2rem;
-            height: 2px;
-            background: var(--primary-color);
-        }
-
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links ul li a {
-            color: #cbd5e0;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-left: 1rem;
-        }
-
-        .footer-links ul li a::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-size: 0.7rem;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--primary-color);
-            padding-left: 1.5rem;
-        }
-
-        .footer-contact h5 {
-            color: white;
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .footer-contact h5::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 0;
-            width: 2rem;
-            height: 2px;
-            background: var(--primary-color);
-        }
-
-        .contact-info .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            color: #cbd5e0;
-            font-size: 0.9rem;
-        }
-
-        .contact-info .contact-item i {
-            color: var(--primary-color);
-            margin-right: 0.75rem;
-            width: 1rem;
-            text-align: center;
-        }
-
-        .contact-info .contact-item a {
-            color: #cbd5e0;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info .contact-item a:hover {
-            color: var(--primary-color);
-        }
-
-        .availability-status {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-            padding: 0.75rem;
-            background: rgba(0, 172, 105, 0.1);
-            border-radius: var(--border-radius);
-            border-left: 3px solid var(--success-color);
-        }
-
-        .status-indicator {
-            width: 0.5rem;
-            height: 0.5rem;
-            background: var(--success-color);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        .availability-status span:last-child {
-            color: #cbd5e0;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .footer-bottom {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .copyright {
-            color: #a0aec0;
-            margin: 0;
-            font-size: 0.85rem;
+          padding: 3rem 0 1.5rem;
         }
 
         .footer-badges {
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
+          justify-content: flex-start;
+          margin-top: 1rem;
+        }
+
+        .footer-badges .badge-item {
+          font-size: 0.75rem;
+          padding: 0.375rem 0.75rem;
+        }
+
+        .footer-bottom {
+          text-align: center;
+        }
+
+        .footer-bottom .row > div {
+          text-align: center !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-badges {
+          flex-direction: column;
+          gap: 0.5rem;
         }
 
         .badge-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 1.5rem;
-            font-size: 0.8rem;
-            color: #cbd5e0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+          justify-content: center;
+        }
+      }
+
+      /* Stats Enhanced */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        background: var(--bg-secondary);
+        padding: 2.5rem;
+        border-radius: var(--border-radius-2xl);
+        margin: 3rem 0;
+        max-width: 100%;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: var(--bg-primary);
+        border-radius: var(--border-radius-xl);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        min-height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .stat-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .stat-item:hover::before {
+        transform: scaleX(1);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.75rem;
+        font-family: var(--font-family-monospace);
+        line-height: 1;
+        display: block;
+      }
+
+      .stat-label {
+        color: var(--text-light);
+        font-weight: 500;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        text-align: center;
+        white-space: normal;
+        max-width: 100%;
+      }
+
+      /* Kaggle Certificates Flowing Layout */
+      .kaggle-certs-list {
+        margin-top: 1.5rem;
+        line-height: 1.8;
+      }
+
+      .kaggle-cert-item {
+        display: inline;
+      }
+
+      .kaggle-cert-item:not(:last-child)::after {
+        content: ' • ';
+        color: var(--text-light);
+        font-weight: 400;
+        margin: 0 0.25rem;
+      }
+
+      .kaggle-cert-link {
+        display: inline;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid transparent;
+      }
+
+      .kaggle-cert-link:hover {
+        color: var(--secondary-color);
+        text-decoration: none;
+        border-bottom: 1px solid var(--secondary-color);
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .fade-in-delay-1 {
+        transition-delay: 0.1s;
+      }
+      .fade-in-delay-2 {
+        transition-delay: 0.2s;
+      }
+      .fade-in-delay-3 {
+        transition-delay: 0.3s;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .page-title {
+          font-size: 2.5rem;
         }
 
-        .badge-item i {
-            color: var(--primary-color);
+        .timeline {
+          padding-left: 1.5rem;
         }
 
-        /* Responsive Footer */
-        @media (max-width: 768px) {
-            .footer-section {
-                padding: 3rem 0 1.5rem;
-            }
-            
-            .footer-badges {
-                justify-content: flex-start;
-                margin-top: 1rem;
-            }
-            
-            .footer-badges .badge-item {
-                font-size: 0.75rem;
-                padding: 0.375rem 0.75rem;
-            }
-            
-            .footer-bottom {
-                text-align: center;
-            }
-            
-            .footer-bottom .row > div {
-                text-align: center !important;
-            }
+        .timeline-item::before {
+          left: -1.8125rem;
         }
 
-        @media (max-width: 480px) {
-            .footer-badges {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .badge-item {
-                justify-content: center;
-            }
+        .highlight-box,
+        .timeline-content,
+        .achievement-item,
+        .sidebar-card {
+          padding: 2rem;
         }
 
+        .achievement-grid {
+          grid-template-columns: 1fr;
+        }
 
-		/* Stats Enhanced */
+        .personality-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cert-grid {
+          grid-template-columns: 1fr;
+        }
+
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            background: var(--bg-secondary);
-            padding: 2.5rem;
-            border-radius: var(--border-radius-2xl);
-            margin: 3rem 0;
-            max-width: 100%;
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-title {
+          font-size: 2rem;
         }
 
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: var(--bg-primary);
-            border-radius: var(--border-radius-xl);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            min-height: 140px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .section-title {
+          font-size: 2rem;
         }
 
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+        .highlight-box,
+        .timeline-content,
+        .achievement-item,
+        .sidebar-card {
+          padding: 1.5rem;
         }
+      }
 
-        .stat-item:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+      /* Accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
         }
-
-        .stat-item:hover::before {
-            transform: scaleX(1);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.75rem;
-            font-family: var(--font-family-monospace);
-            line-height: 1;
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-weight: 500;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            text-align: center;
-            white-space: normal;
-            max-width: 100%;
-        }
-
-        /* Kaggle Certificates Flowing Layout */
-        .kaggle-certs-list {
-            margin-top: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .kaggle-cert-item {
-            display: inline;
-        }
-
-        .kaggle-cert-item:not(:last-child)::after {
-            content: ' • ';
-            color: var(--text-light);
-            font-weight: 400;
-            margin: 0 0.25rem;
-        }
-
-        .kaggle-cert-link {
-            display: inline;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid transparent;
-        }
-
-        .kaggle-cert-link:hover {
-            color: var(--secondary-color);
-            text-decoration: none;
-            border-bottom: 1px solid var(--secondary-color);
-        }
-
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-in-delay-1 { transition-delay: 0.1s; }
-        .fade-in-delay-2 { transition-delay: 0.2s; }
-        .fade-in-delay-3 { transition-delay: 0.3s; }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .page-title {
-                font-size: 2.5rem;
-            }
-            
-            .timeline {
-                padding-left: 1.5rem;
-            }
-            
-            .timeline-item::before {
-                left: -1.8125rem;
-            }
-            
-            .highlight-box,
-            .timeline-content,
-            .achievement-item,
-            .sidebar-card {
-                padding: 2rem;
-            }
-            
-            .achievement-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .personality-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cert-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .page-title {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .highlight-box,
-            .timeline-content,
-            .achievement-item,
-            .sidebar-card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Dhanesh B.B.</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="projects.html">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="experience.html">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Dhanesh B.B.</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="experience.html">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Page Header -->
     <section class="page-header">
-        <div class="container">
-            <h1 class="page-title fade-in">About Me</h1>
-            <p class="page-subtitle fade-in fade-in-delay-1">Data Science Professional | ML Engineer | Analytics Expert</p>
-        </div>
+      <div class="container">
+        <h1 class="page-title fade-in">About Me</h1>
+        <p class="page-subtitle fade-in fade-in-delay-1">
+          Data Science Professional | ML Engineer | Analytics Expert
+        </p>
+      </div>
     </section>
 
     <!-- Main Content -->
     <section class="main-content">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <!-- Professional Summary -->
-                    <div class="mb-5 fade-in">
-                        <h2 class="section-title">Professional Summary</h2>
-                        <p class="section-subtitle">Transforming complex data challenges into innovative business solutions</p>
-                        <div class="highlight-box">
-                            <p class="lead">
-                                I am a passionate Data Science professional with a unique blend of economic theory and advanced analytics expertise. With a Master's degree in Economics and comprehensive hands-on experience in machine learning, I specialize in transforming complex datasets into actionable business insights.
-                            </p>
-                            <p>
-                                My journey in data science has been marked by significant achievements including the development of <strong>InsightfulPy</strong>, a Python library with 25+ automated EDA functions published on PyPI, and successful deployment of ML models that have <strong>reduced manual effort by 40%</strong> and <strong>accelerated reporting speed by 25%</strong>.
-                            </p>
-                            <p>
-                                I excel in designing end-to-end data workflows, from data collection and preprocessing to model deployment and monitoring. My expertise spans across various domains including financial modeling, customer analytics, employee performance analysis, and predictive maintenance.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Key Achievements -->
-                    <div class="mb-5 fade-in fade-in-delay-1">
-                        <h2 class="section-title">Key Achievements</h2>
-                        <p class="section-subtitle">Measurable impact through innovative data science solutions</p>
-                        <div class="achievement-grid">
-                            <div class="achievement-item">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <h5>Open Source Contribution</h5>
-                                <p>Published <strong>InsightfulPy</strong> on PyPI - a comprehensive Python toolkit with 25+ EDA functions used by data scientists globally for automated exploratory data analysis.</p>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-database"></i>
-                                </div>
-                                <h5>Big Data Processing</h5>
-                                <p>Successfully processed <strong>50M+ records</strong> for home loan default prediction, optimizing memory usage by 70-80% through advanced feature engineering techniques.</p>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <h5>Model Performance</h5>
-                                <p>Achieved <strong>92.5% accuracy</strong> in employee performance prediction using XGBoost with SHAP analysis for interpretability and actionable insights.</p>
-                            </div>
-                            <div class="achievement-item">
-                                <div class="achievement-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <h5>Automation Impact</h5>
-                                <p>Eliminated <strong>1,200+ hours</strong> of manual review through automated ML solutions, improving operational efficiency by 30% across multiple projects.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Education Timeline -->
-                    <div class="mb-5 fade-in fade-in-delay-2">
-                        <h2 class="section-title">Education</h2>
-                        <p class="section-subtitle">Strong academic foundation in economics and research methodology</p>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div class="timeline-content">
-                                    <div class="timeline-date">November 2023</div>
-                                    <h4 class="timeline-title">Master of Arts in Economics</h4>
-                                    <p class="timeline-subtitle">Bangalore University • Graduate Degree</p>
-                                    <p>Specialized in Econometrics, Financial Modeling, and Research Methodology. Conducted extensive research on "Job Satisfaction & Work-Life Balance in Bangalore's IT Sector" analyzing survey data from 205 professionals using advanced statistical techniques.</p>
-                                    <p><strong>Relevant Coursework:</strong> Econometrics, Financial Modeling, Research Methodology, Statistical Analysis, Economic Planning, International Trade & Policy</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-content">
-                                    <div class="timeline-date">August 2021</div>
-                                    <h4 class="timeline-title">Bachelor of Arts (Economics, History, Political Science)</h4>
-                                    <p class="timeline-subtitle">Bangalore University • Undergraduate Degree</p>
-                                    <p>Strong foundation in economic principles, policy analysis, and quantitative methods. Developed analytical thinking and research skills that form the backbone of my data science approach. Gained comprehensive understanding of economic systems and decision-making processes.</p>
-                                    <p><strong>Key Areas:</strong> Economic Theory, Policy Analysis, Statistical Methods, Research Methodology, Data-Driven Decision Making</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Professional Philosophy -->
-                    <div class="mb-5 fade-in fade-in-delay-3">
-                        <h2 class="section-title">Professional Philosophy</h2>
-                        <p class="section-subtitle">Core values that drive my approach to data science</p>
-                        <div class="personality-grid">
-                            <div class="personality-trait">
-                                <h5><i class="fas fa-lightbulb me-2"></i>Innovation-Driven</h5>
-                                <p>Constantly exploring new methodologies and cutting-edge tools to solve complex business problems with creative data science solutions.</p>
-                            </div>
-                            <div class="personality-trait">
-                                <h5><i class="fas fa-users me-2"></i>Collaborative</h5>
-                                <p>Strong cross-functional collaboration skills with proven client communication abilities and experience in stakeholder management.</p>
-                            </div>
-                            <div class="personality-trait">
-                                <h5><i class="fas fa-target me-2"></i>Results-Oriented</h5>
-                                <p>Focus on delivering measurable business impact through data-driven solutions that create real value for organizations.</p>
-                            </div>
-                        </div>
-                        <div class="highlight-box">
-                            <p class="lead">
-                                "I believe in the power of data to transform businesses and improve lives. My approach combines rigorous statistical analysis with practical business understanding to deliver solutions that are not only technically sound but also actionable and impactful."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sidebar -->
-                <div class="col-lg-4">
-                    <!-- Contact Info -->
-                    <div class="sidebar-card fade-in">
-                        <h4>Contact Information</h4>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Bengaluru, Karnataka, India</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <a href="tel:+918050835879">+91 80508 35879</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:dhaneshbb5@gmail.com">dhaneshbb5@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <a href="https://linkedin.com/in/dhaneshbb/" target="_blank" rel="noopener">LinkedIn Profile</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <a href="https://github.com/dhaneshbb" target="_blank" rel="noopener">GitHub Portfolio</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-python"></i>
-                            <a href="https://pypi.org/user/dhaneshbb" target="_blank" rel="noopener">PyPI Packages</a>
-                        </div>
-                    </div>
-
-                    <!-- Statistics -->
-                    <div class="sidebar-card fade-in fade-in-delay-1">
-                        <h4>Career Statistics</h4>
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <div class="stat-number" data-count="3">0</div>
-                                <div class="stat-label">Years Experience</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-count="50">0</div>
-                                <div class="stat-label">Million Records</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-count="9">0</div>
-                                <div class="stat-label">Major Projects</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-number" data-count="10">0</div>
-                                <div class="stat-label">Certifications</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Languages -->
-                    <div class="sidebar-card fade-in fade-in-delay-2">
-                        <h5>Languages</h5>
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <span>English (Professional Working Proficiency)</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <span>Hindi (Full Professional Proficiency)</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <span>Kannada (Native Language)</span>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <!-- Professional Summary -->
+            <div class="mb-5 fade-in">
+              <h2 class="section-title">Professional Summary</h2>
+              <p class="section-subtitle">
+                Transforming complex data challenges into innovative business
+                solutions
+              </p>
+              <div class="highlight-box">
+                <p class="lead">
+                  I am a passionate Data Science professional with a unique
+                  blend of economic theory and advanced analytics expertise.
+                  With a Master's degree in Economics and comprehensive hands-on
+                  experience in machine learning, I specialize in transforming
+                  complex datasets into actionable business insights.
+                </p>
+                <p>
+                  My journey in data science has been marked by significant
+                  achievements including the development of
+                  <strong>InsightfulPy</strong>, a Python library with 25+
+                  automated EDA functions published on PyPI, and successful
+                  deployment of ML models that have
+                  <strong>reduced manual effort by 40%</strong> and
+                  <strong>accelerated reporting speed by 25%</strong>.
+                </p>
+                <p>
+                  I excel in designing end-to-end data workflows, from data
+                  collection and preprocessing to model deployment and
+                  monitoring. My expertise spans across various domains
+                  including financial modeling, customer analytics, employee
+                  performance analysis, and predictive maintenance.
+                </p>
+              </div>
             </div>
 
-            <!-- Certifications Section -->
-            <div class="row mt-5">
-                <div class="col-12">
-                    <div class="fade-in">
-                        <h2 class="section-title">Certifications & Continuous Learning</h2>
-                        <p class="section-subtitle">Commitment to professional development and staying current with industry trends</p>
-						<div class="cert-grid">
-                            <div class="cert-card">
-                                <div class="cert-title">Certified Data Scientist (Grade A)</div>
-                                <div class="cert-org">IABAC® (International Association of Business Analytics Certifications)</div>
-                                <div class="cert-date">April 2025</div>
-                                <div class="cert-credential">
-                                    <span class="credential-label">Credential ID:</span>
-                                    <span class="credential-id">IAB1120175634</span>
-                                </div>
-                                <div class="cert-url">
-                                    <span class="url-label">Verification URL:</span>
-                                    <a href="https://iabac.org/certifications/verify-certificate?certNum=IAB1120175634" target="_blank" rel="noopener" class="cert-url-link">iabac.org/verify</a>
-                                </div>
-                                <a href="https://i.ibb.co/mF1nbs93/iabac-Certified-Data-Scientist-IAB1120175634-2025-04-15-1744724022.jpg" target="_blank" rel="noopener" class="cert-view-btn">
-                                    <i class="fas fa-external-link-alt me-1"></i>View Certificate
-                                </a>
-                            </div>
-                            <div class="cert-card">
-                                <div class="cert-title">Certified Data Scientist (Gold Level)</div>
-                                <div class="cert-org">NASSCOM (National Association of Software and Service Companies)</div>
-                                <div class="cert-date">April 2025</div>
-                                <div class="cert-credential">
-                                    <span class="credential-label">Credential ID:</span>
-                                    <span class="credential-id">FSP/2025/4/10200847</span>
-                                </div>
-                                <a href="https://i.ibb.co/ksjj7HDs/nasscom-Certified-Data-Scientist-page-001.jpg" target="_blank" rel="noopener" class="cert-view-btn">
-                                    <i class="fas fa-external-link-alt me-1"></i>View Certificate
-                                </a>
-                            </div>
-                            <div class="cert-card">
-                                <div class="cert-title">Certified Data Scientist Certification Training</div>
-                                <div class="cert-org">Datamites (Authorized Training Partner)</div>
-                                <div class="cert-date">June 2024</div>
-                                <div class="cert-credential">
-                                    <span class="credential-label">Credential ID:</span>
-                                    <span class="credential-id">20250308691108</span>
-                                </div>
-                                <div class="cert-url">
-                                    <span class="url-label">Verification URL:</span>
-                                    <a href="https://datamites.com/verify-certificate/" target="_blank" rel="noopener" class="cert-url-link">datamites.com/certificate</a>
-                                </div>
-                                <a href="https://i.ibb.co/VcHDmyj5/from-datamites.jpg" target="_blank" rel="noopener" class="cert-view-btn">
-                                    <i class="fas fa-external-link-alt me-1"></i>View Certificate
-                                </a>
-                            </div>
-                            <div class="cert-card">
-                                <div class="cert-title">The Complete Data Science Course</div>
-                                <div class="cert-org">365 Careers (Online Learning Platform)</div>
-                                <div class="cert-date">April 2025</div>
-                                <div class="cert-credential">
-                                    <span class="credential-label">Credential ID:</span>
-                                    <span class="credential-id">UC‑71c44f53‑517f‑47c8‑8686‑e5e037cd185f</span>
-                                </div>
-                                <div class="cert-url">
-                                    <span class="url-label">Verification URL:</span>
-                                    <a href="https://www.udemy.com/certificate/UC-71c44f53-517f-47c8-8686-e5e037cd185f/" target="_blank" rel="noopener" class="cert-url-link">365datascience.com/certificates</a>
-                                </div>
-                                <a href="https://www.udemy.com/certificate/UC-71c44f53-517f-47c8-8686-e5e037cd185f/" target="_blank" rel="noopener" class="cert-view-btn">
-                                    <i class="fas fa-external-link-alt me-1"></i>View Certificate
-                                </a>
-                            </div>
-                            <div class="cert-card">
-                                <div class="cert-title">Data Science Foundation</div>
-                                <div class="cert-org">IABAC® (International Association of Business Analytics Certifications)</div>
-                                <div class="cert-date">March 2025</div>
-                                <div class="cert-credential">
-                                    <span class="credential-label">Credential ID:</span>
-                                    <span class="credential-id">IAB1120175399   </span>
-                                </div>
-                                <div class="cert-url">
-                                    <span class="url-label">Verification URL:</span>
-                                    <a href="https://iabac.org/certifications/verify-certificate?certNum=IAB1120175399" target="_blank" rel="noopener" class="cert-url-link">iabac.org/verify</a>
-                                </div>
-                                <a href="https://i.ibb.co/fYkzC1vL/iabac-Data-Science-Foundation-IAB1120175399-2025-03-20-1742470923.jpg" target="_blank" rel="noopener" class="cert-view-btn">
-                                    <i class="fas fa-external-link-alt me-1"></i>View Certificate
-                                </a>
-                            </div>
-                            <div class="cert-card">
-                                <div class="cert-title">Kaggle Learn Certifications</div>
-                                <div class="cert-org">Kaggle (Google's Machine Learning Platform)</div>
-                                <div class="cert-date">17 Micro-Certificates</div>
-                                <div class="cert-credential">
-                                    <span class="credential-label">Profile:</span>
-                                    <span class="credential-id">@dhaneshbb</span>
-                                </div>
-                                <div class="kaggle-certs-list">
-                                    <span class="kaggle-cert-item"><a href="https://i.ibb.co/bMB5XxFz/Advanced-SQL.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Advanced SQL</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/5XsBbVDV/Computer-Vision.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Computer Vision</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/0NxzT1B/Data-Cleaning.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Data Cleaning</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/1tYy90sm/Data-Visualization.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Data Visualization</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/ZRLK7mQ2/Feature-Engineering.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Feature Engineering</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/bM7xZ64V/Geospatial-Analysis.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Geospatial Analysis</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/T6FtJzC/Intermediate-Machine-Learning.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intermediate Machine Learning</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/WvTGNf18/Intro-to-Al-Ethics.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to AI Ethics</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/zhSBF46p/Intro-to-Deep-Learning.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to Deep Learning</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/Ztsf9zs/Intro-to-Game-Al-and-Reinforcement-Learning.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to Game AI and Reinforcement Learning</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/TBD6R1n5/Intro-to-Machine-Learning.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to Machine Learning</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/JR9759mk/Intro-to-Programming.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to Programming</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/0jLBk0nw/Intro-to-SQL.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Intro to SQL</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/6RQ0fwdK/Machine-Learning-Explainability.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Machine Learning Explainability</a></span><span class="kaggle-cert-item"><a href="" target="_blank" rel="noopener" class="kaggle-cert-link">Pandas</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/qLHJq6pv/Pandas.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Python</a></span><span class="kaggle-cert-item"><a href="https://i.ibb.co/Cp3RNghT/Time-Series.jpg" target="_blank" rel="noopener" class="kaggle-cert-link">Time Series</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Key Achievements -->
+            <div class="mb-5 fade-in fade-in-delay-1">
+              <h2 class="section-title">Key Achievements</h2>
+              <p class="section-subtitle">
+                Measurable impact through innovative data science solutions
+              </p>
+              <div class="achievement-grid">
+                <div class="achievement-item">
+                  <div class="achievement-icon">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <h5>Open Source Contribution</h5>
+                  <p>
+                    Published <strong>InsightfulPy</strong> on PyPI - a
+                    comprehensive Python toolkit with 25+ EDA functions used by
+                    data scientists globally for automated exploratory data
+                    analysis.
+                  </p>
                 </div>
+                <div class="achievement-item">
+                  <div class="achievement-icon">
+                    <i class="fas fa-database"></i>
+                  </div>
+                  <h5>Big Data Processing</h5>
+                  <p>
+                    Successfully processed <strong>50M+ records</strong> for
+                    home loan default prediction, optimizing memory usage by
+                    70-80% through advanced feature engineering techniques.
+                  </p>
+                </div>
+                <div class="achievement-item">
+                  <div class="achievement-icon">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <h5>Model Performance</h5>
+                  <p>
+                    Achieved <strong>92.5% accuracy</strong> in employee
+                    performance prediction using XGBoost with SHAP analysis for
+                    interpretability and actionable insights.
+                  </p>
+                </div>
+                <div class="achievement-item">
+                  <div class="achievement-icon">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <h5>Automation Impact</h5>
+                  <p>
+                    Eliminated <strong>1,200+ hours</strong> of manual review
+                    through automated ML solutions, improving operational
+                    efficiency by 30% across multiple projects.
+                  </p>
+                </div>
+              </div>
             </div>
+
+            <!-- Education Timeline -->
+            <div class="mb-5 fade-in fade-in-delay-2">
+              <h2 class="section-title">Education</h2>
+              <p class="section-subtitle">
+                Strong academic foundation in economics and research methodology
+              </p>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-date">November 2023</div>
+                    <h4 class="timeline-title">Master of Arts in Economics</h4>
+                    <p class="timeline-subtitle">
+                      Bangalore University • Graduate Degree
+                    </p>
+                    <p>
+                      Specialized in Econometrics, Financial Modeling, and
+                      Research Methodology. Conducted extensive research on "Job
+                      Satisfaction & Work-Life Balance in Bangalore's IT Sector"
+                      analyzing survey data from 205 professionals using
+                      advanced statistical techniques.
+                    </p>
+                    <p>
+                      <strong>Relevant Coursework:</strong> Econometrics,
+                      Financial Modeling, Research Methodology, Statistical
+                      Analysis, Economic Planning, International Trade & Policy
+                    </p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-date">August 2021</div>
+                    <h4 class="timeline-title">
+                      Bachelor of Arts (Economics, History, Political Science)
+                    </h4>
+                    <p class="timeline-subtitle">
+                      Bangalore University • Undergraduate Degree
+                    </p>
+                    <p>
+                      Strong foundation in economic principles, policy analysis,
+                      and quantitative methods. Developed analytical thinking
+                      and research skills that form the backbone of my data
+                      science approach. Gained comprehensive understanding of
+                      economic systems and decision-making processes.
+                    </p>
+                    <p>
+                      <strong>Key Areas:</strong> Economic Theory, Policy
+                      Analysis, Statistical Methods, Research Methodology,
+                      Data-Driven Decision Making
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Professional Philosophy -->
+            <div class="mb-5 fade-in fade-in-delay-3">
+              <h2 class="section-title">Professional Philosophy</h2>
+              <p class="section-subtitle">
+                Core values that drive my approach to data science
+              </p>
+              <div class="personality-grid">
+                <div class="personality-trait">
+                  <h5>
+                    <i class="fas fa-lightbulb me-2"></i>Innovation-Driven
+                  </h5>
+                  <p>
+                    Constantly exploring new methodologies and cutting-edge
+                    tools to solve complex business problems with creative data
+                    science solutions.
+                  </p>
+                </div>
+                <div class="personality-trait">
+                  <h5><i class="fas fa-users me-2"></i>Collaborative</h5>
+                  <p>
+                    Strong cross-functional collaboration skills with proven
+                    client communication abilities and experience in stakeholder
+                    management.
+                  </p>
+                </div>
+                <div class="personality-trait">
+                  <h5><i class="fas fa-target me-2"></i>Results-Oriented</h5>
+                  <p>
+                    Focus on delivering measurable business impact through
+                    data-driven solutions that create real value for
+                    organizations.
+                  </p>
+                </div>
+              </div>
+              <div class="highlight-box">
+                <p class="lead">
+                  "I believe in the power of data to transform businesses and
+                  improve lives. My approach combines rigorous statistical
+                  analysis with practical business understanding to deliver
+                  solutions that are not only technically sound but also
+                  actionable and impactful."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="col-lg-4">
+            <!-- Contact Info -->
+            <div class="sidebar-card fade-in">
+              <h4>Contact Information</h4>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Bengaluru, Karnataka, India</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+918050835879">+91 80508 35879</a>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:dhaneshbb5@gmail.com">dhaneshbb5@gmail.com</a>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a
+                  href="https://linkedin.com/in/dhaneshbb/"
+                  target="_blank"
+                  rel="noopener"
+                  >LinkedIn Profile</a
+                >
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <a
+                  href="https://github.com/dhaneshbb"
+                  target="_blank"
+                  rel="noopener"
+                  >GitHub Portfolio</a
+                >
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-python"></i>
+                <a
+                  href="https://pypi.org/user/dhaneshbb"
+                  target="_blank"
+                  rel="noopener"
+                  >PyPI Packages</a
+                >
+              </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="sidebar-card fade-in fade-in-delay-1">
+              <h4>Career Statistics</h4>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-number" data-count="3">0</div>
+                  <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number" data-count="50">0</div>
+                  <div class="stat-label">Million Records</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number" data-count="9">0</div>
+                  <div class="stat-label">Major Projects</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number" data-count="10">0</div>
+                  <div class="stat-label">Certifications</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="sidebar-card fade-in fade-in-delay-2">
+              <h5>Languages</h5>
+              <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <span>English (Professional Working Proficiency)</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <span>Hindi (Full Professional Proficiency)</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <span>Kannada (Native Language)</span>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Certifications Section -->
+        <div class="row mt-5">
+          <div class="col-12">
+            <div class="fade-in">
+              <h2 class="section-title">
+                Certifications & Continuous Learning
+              </h2>
+              <p class="section-subtitle">
+                Commitment to professional development and staying current with
+                industry trends
+              </p>
+              <div class="cert-grid">
+                <div class="cert-card">
+                  <div class="cert-title">
+                    Certified Data Scientist (Grade A)
+                  </div>
+                  <div class="cert-org">
+                    IABAC® (International Association of Business Analytics
+                    Certifications)
+                  </div>
+                  <div class="cert-date">April 2025</div>
+                  <div class="cert-credential">
+                    <span class="credential-label">Credential ID:</span>
+                    <span class="credential-id">IAB1120175634</span>
+                  </div>
+                  <div class="cert-url">
+                    <span class="url-label">Verification URL:</span>
+                    <a
+                      href="https://iabac.org/certifications/verify-certificate?certNum=IAB1120175634"
+                      target="_blank"
+                      rel="noopener"
+                      class="cert-url-link"
+                      >iabac.org/verify</a
+                    >
+                  </div>
+                  <a
+                    href="https://i.ibb.co/mF1nbs93/iabac-Certified-Data-Scientist-IAB1120175634-2025-04-15-1744724022.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="cert-view-btn"
+                  >
+                    <i class="fas fa-external-link-alt me-1"></i>View
+                    Certificate
+                  </a>
+                </div>
+                <div class="cert-card">
+                  <div class="cert-title">
+                    Certified Data Scientist (Gold Level)
+                  </div>
+                  <div class="cert-org">
+                    NASSCOM (National Association of Software and Service
+                    Companies)
+                  </div>
+                  <div class="cert-date">April 2025</div>
+                  <div class="cert-credential">
+                    <span class="credential-label">Credential ID:</span>
+                    <span class="credential-id">FSP/2025/4/10200847</span>
+                  </div>
+                  <a
+                    href="https://i.ibb.co/ksjj7HDs/nasscom-Certified-Data-Scientist-page-001.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="cert-view-btn"
+                  >
+                    <i class="fas fa-external-link-alt me-1"></i>View
+                    Certificate
+                  </a>
+                </div>
+                <div class="cert-card">
+                  <div class="cert-title">
+                    Certified Data Scientist Certification Training
+                  </div>
+                  <div class="cert-org">
+                    Datamites (Authorized Training Partner)
+                  </div>
+                  <div class="cert-date">June 2024</div>
+                  <div class="cert-credential">
+                    <span class="credential-label">Credential ID:</span>
+                    <span class="credential-id">20250308691108</span>
+                  </div>
+                  <div class="cert-url">
+                    <span class="url-label">Verification URL:</span>
+                    <a
+                      href="https://datamites.com/verify-certificate/"
+                      target="_blank"
+                      rel="noopener"
+                      class="cert-url-link"
+                      >datamites.com/certificate</a
+                    >
+                  </div>
+                  <a
+                    href="https://i.ibb.co/VcHDmyj5/from-datamites.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="cert-view-btn"
+                  >
+                    <i class="fas fa-external-link-alt me-1"></i>View
+                    Certificate
+                  </a>
+                </div>
+                <div class="cert-card">
+                  <div class="cert-title">The Complete Data Science Course</div>
+                  <div class="cert-org">
+                    365 Careers (Online Learning Platform)
+                  </div>
+                  <div class="cert-date">April 2025</div>
+                  <div class="cert-credential">
+                    <span class="credential-label">Credential ID:</span>
+                    <span class="credential-id"
+                      >UC‑71c44f53‑517f‑47c8‑8686‑e5e037cd185f</span
+                    >
+                  </div>
+                  <div class="cert-url">
+                    <span class="url-label">Verification URL:</span>
+                    <a
+                      href="https://www.udemy.com/certificate/UC-71c44f53-517f-47c8-8686-e5e037cd185f/"
+                      target="_blank"
+                      rel="noopener"
+                      class="cert-url-link"
+                      >365datascience.com/certificates</a
+                    >
+                  </div>
+                  <a
+                    href="https://www.udemy.com/certificate/UC-71c44f53-517f-47c8-8686-e5e037cd185f/"
+                    target="_blank"
+                    rel="noopener"
+                    class="cert-view-btn"
+                  >
+                    <i class="fas fa-external-link-alt me-1"></i>View
+                    Certificate
+                  </a>
+                </div>
+                <div class="cert-card">
+                  <div class="cert-title">Data Science Foundation</div>
+                  <div class="cert-org">
+                    IABAC® (International Association of Business Analytics
+                    Certifications)
+                  </div>
+                  <div class="cert-date">March 2025</div>
+                  <div class="cert-credential">
+                    <span class="credential-label">Credential ID:</span>
+                    <span class="credential-id">IAB1120175399 </span>
+                  </div>
+                  <div class="cert-url">
+                    <span class="url-label">Verification URL:</span>
+                    <a
+                      href="https://iabac.org/certifications/verify-certificate?certNum=IAB1120175399"
+                      target="_blank"
+                      rel="noopener"
+                      class="cert-url-link"
+                      >iabac.org/verify</a
+                    >
+                  </div>
+                  <a
+                    href="https://i.ibb.co/fYkzC1vL/iabac-Data-Science-Foundation-IAB1120175399-2025-03-20-1742470923.jpg"
+                    target="_blank"
+                    rel="noopener"
+                    class="cert-view-btn"
+                  >
+                    <i class="fas fa-external-link-alt me-1"></i>View
+                    Certificate
+                  </a>
+                </div>
+                <div class="cert-card">
+                  <div class="cert-title">Kaggle Learn Certifications</div>
+                  <div class="cert-org">
+                    Kaggle (Google's Machine Learning Platform)
+                  </div>
+                  <div class="cert-date">17 Micro-Certificates</div>
+                  <div class="cert-credential">
+                    <span class="credential-label">Profile:</span>
+                    <span class="credential-id">@dhaneshbb</span>
+                  </div>
+                  <div class="kaggle-certs-list">
+                    <span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/bMB5XxFz/Advanced-SQL.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Advanced SQL</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/5XsBbVDV/Computer-Vision.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Computer Vision</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/0NxzT1B/Data-Cleaning.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Data Cleaning</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/1tYy90sm/Data-Visualization.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Data Visualization</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/ZRLK7mQ2/Feature-Engineering.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Feature Engineering</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/bM7xZ64V/Geospatial-Analysis.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Geospatial Analysis</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/T6FtJzC/Intermediate-Machine-Learning.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Intermediate Machine Learning</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/WvTGNf18/Intro-to-Al-Ethics.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Intro to AI Ethics</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/zhSBF46p/Intro-to-Deep-Learning.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Intro to Deep Learning</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/Ztsf9zs/Intro-to-Game-Al-and-Reinforcement-Learning.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Intro to Game AI and Reinforcement Learning</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/TBD6R1n5/Intro-to-Machine-Learning.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Intro to Machine Learning</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/JR9759mk/Intro-to-Programming.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Intro to Programming</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/0jLBk0nw/Intro-to-SQL.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Intro to SQL</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/6RQ0fwdK/Machine-Learning-Explainability.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Machine Learning Explainability</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href=""
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Pandas</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/qLHJq6pv/Pandas.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Python</a
+                      ></span
+                    ><span class="kaggle-cert-item"
+                      ><a
+                        href="https://i.ibb.co/Cp3RNghT/Time-Series.jpg"
+                        target="_blank"
+                        rel="noopener"
+                        class="kaggle-cert-link"
+                        >Time Series</a
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
-        <footer class="footer-section">
-            <div class="container">
-                <div class="row g-4">
-                    <!-- About Section -->
-                    <div class="col-lg-4">
-                        <div class="footer-brand">
-                            <h3>Dhanesh B.B.</h3>
-                            <p class="footer-description">
-                                Data Science Consultant specializing in machine learning models and business intelligence solutions. Transforming complex data into actionable insights that drive business growth.
-                            </p>
-                            <div class="footer-social">
-                                <a href="https://linkedin.com/in/dhaneshbb/" target="_blank" rel="noopener" class="social-icon">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://github.com/dhaneshbb" target="_blank" rel="noopener" class="social-icon">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://www.kaggle.com/dhaneshbb" target="_blank" rel="noopener" class="social-icon">
-                                    <i class="fab fa-kaggle"></i>
-                                </a>
-                                <a href="mailto:dhaneshbb5@gmail.com" class="social-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Quick Links -->
-                    <div class="col-lg-2 col-md-6">
-                        <div class="footer-links">
-                            <h5>Quick Links</h5>
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="projects.html">Projects</a></li>
-                                <li><a href="experience.html">Experience</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Services -->
-                    <div class="col-lg-3 col-md-6">
-                        <div class="footer-links">
-                            <h5>Services</h5>
-                            <ul>
-                                <li><a href="#predictive-analytics">Predictive Analytics</a></li>
-                                <li><a href="#machine-learning">Machine Learning</a></li>
-                                <li><a href="#data-visualization">Data Visualization</a></li>
-                                <li><a href="#business-intelligence">Business Intelligence</a></li>
-                                <li><a href="#automation">Process Automation</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Info -->
-                    <div class="col-lg-3">
-                        <div class="footer-contact">
-                            <h5>Contact</h5>
-                            <div class="contact-info">
-                                <div class="contact-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Bengaluru, Karnataka, India</span>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="fas fa-phone"></i>
-                                    <a href="tel:+918050835879">+91 80508 35879</a>
-                                </div>
-                                <div class="contact-item">
-                                    <i class="fas fa-envelope"></i>
-                                    <a href="mailto:dhaneshbb5@gmail.com">dhaneshbb5@gmail.com</a>
-                                </div>
-                            </div>
-                            <div class="availability-status">
-                                <span class="status-indicator"></span>
-                                <span>Available for new projects</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Footer Bottom -->
-                <div class="footer-bottom">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <p class="copyright">
-                                © 2025 Dhanesh B.B. All rights reserved.
-                            </p>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="footer-badges">
-                                <span class="badge-item">
-                                    <i class="fas fa-certificate"></i>
-                                    <span>Certified Data Scientist</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <footer class="footer-section">
+      <div class="container">
+        <div class="row g-4">
+          <!-- About Section -->
+          <div class="col-lg-4">
+            <div class="footer-brand">
+              <h3>Dhanesh B.B.</h3>
+              <p class="footer-description">
+                Data Science Consultant specializing in machine learning models
+                and business intelligence solutions. Transforming complex data
+                into actionable insights that drive business growth.
+              </p>
+              <div class="footer-social">
+                <a
+                  href="https://linkedin.com/in/dhaneshbb/"
+                  target="_blank"
+                  rel="noopener"
+                  class="social-icon"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="https://github.com/dhaneshbb"
+                  target="_blank"
+                  rel="noopener"
+                  class="social-icon"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+                <a
+                  href="https://www.kaggle.com/dhaneshbb"
+                  target="_blank"
+                  rel="noopener"
+                  class="social-icon"
+                >
+                  <i class="fab fa-kaggle"></i>
+                </a>
+                <a href="mailto:dhaneshbb5@gmail.com" class="social-icon">
+                  <i class="fas fa-envelope"></i>
+                </a>
+              </div>
             </div>
-        </footer>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-6">
+            <div class="footer-links">
+              <h5>Quick Links</h5>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Services -->
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-links">
+              <h5>Services</h5>
+              <ul>
+                <li>
+                  <a href="#predictive-analytics">Predictive Analytics</a>
+                </li>
+                <li><a href="#machine-learning">Machine Learning</a></li>
+                <li><a href="#data-visualization">Data Visualization</a></li>
+                <li>
+                  <a href="#business-intelligence">Business Intelligence</a>
+                </li>
+                <li><a href="#automation">Process Automation</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-lg-3">
+            <div class="footer-contact">
+              <h5>Contact</h5>
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Bengaluru, Karnataka, India</span>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <a href="tel:+918050835879">+91 80508 35879</a>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <a href="mailto:dhaneshbb5@gmail.com">dhaneshbb5@gmail.com</a>
+                </div>
+              </div>
+              <div class="availability-status">
+                <span class="status-indicator"></span>
+                <span>Available for new projects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <p class="copyright">© 2025 Dhanesh B.B. All rights reserved.</p>
+            </div>
+            <div class="col-md-6">
+              <div class="footer-badges">
+                <span class="badge-item">
+                  <i class="fas fa-certificate"></i>
+                  <span>Certified Data Scientist</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Custom JavaScript -->
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Counter animation for stats
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number[data-count]');
-            
-            counters.forEach(counter => {
-                const target = parseFloat(counter.getAttribute('data-count'));
-                const increment = target / 100;
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        counter.textContent = Math.ceil(current);
-                        setTimeout(updateCounter, 20);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                
-                updateCounter();
-            });
+      // Navbar scroll effect
+      window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
         }
+      });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+      // Counter animation for stats
+      function animateCounters() {
+        const counters = document.querySelectorAll('.stat-number[data-count]');
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Trigger counter animation for stats
-                    if (entry.target.querySelector('.stat-number[data-count]') && !entry.target.classList.contains('animated')) {
-                        entry.target.classList.add('animated');
-                        setTimeout(animateCounters, 200);
-                    }
-                }
-            });
-        }, observerOptions);
+        counters.forEach((counter) => {
+          const target = parseFloat(counter.getAttribute('data-count'));
+          const increment = target / 100;
+          let current = 0;
 
-        // Initialize animations
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
+          const updateCounter = () => {
+            if (current < target) {
+              current += increment;
+              counter.textContent = Math.ceil(current);
+              setTimeout(updateCounter, 20);
+            } else {
+              counter.textContent = target;
+            }
+          };
+
+          updateCounter();
         });
+      }
 
-        // Smooth reveal on load
-        window.addEventListener('load', function() {
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+
+            // Trigger counter animation for stats
+            if (
+              entry.target.querySelector('.stat-number[data-count]') &&
+              !entry.target.classList.contains('animated')
+            ) {
+              entry.target.classList.add('animated');
+              setTimeout(animateCounters, 200);
+            }
+          }
+        });
+      }, observerOptions);
+
+      // Initialize animations
+      document.querySelectorAll('.fade-in').forEach((element) => {
+        observer.observe(element);
+      });
+
+      // Smooth reveal on load
+      window.addEventListener('load', function () {
+        setTimeout(() => {
+          document.querySelectorAll('.fade-in').forEach((element, index) => {
             setTimeout(() => {
-                document.querySelectorAll('.fade-in').forEach((element, index) => {
-                    setTimeout(() => {
-                        element.classList.add('visible');
-                    }, index * 100);
-                });
-            }, 300);
+              element.classList.add('visible');
+            }, index * 100);
+          });
+        }, 300);
+      });
+
+      // Enhanced hover effects for cards
+      document
+        .querySelectorAll('.achievement-item, .cert-card, .sidebar-card')
+        .forEach((card) => {
+          card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-10px)';
+          });
+
+          card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+          });
         });
 
-        // Enhanced hover effects for cards
-        document.querySelectorAll('.achievement-item, .cert-card, .sidebar-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
+      // Performance optimization
+      let ticking = false;
 
-        // Performance optimization
-        let ticking = false;
-
-        function updateOnScroll() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            ticking = false;
+      function updateOnScroll() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
         }
+        ticking = false;
+      }
 
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                requestAnimationFrame(updateOnScroll);
-                ticking = true;
-            }
-        });
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(updateOnScroll);
+          ticking = true;
+        }
+      });
 
-        // Accessibility improvements
-        document.querySelectorAll('a[target="_blank"]').forEach(link => {
-            link.setAttribute('rel', 'noopener noreferrer');
-        });
+      // Accessibility improvements
+      document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+        link.setAttribute('rel', 'noopener noreferrer');
+      });
 
-        // Add focus indicators for keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                document.body.classList.add('keyboard-nav');
-            }
-        });
+      // Add focus indicators for keyboard navigation
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Tab') {
+          document.body.classList.add('keyboard-nav');
+        }
+      });
 
-        document.addEventListener('click', function() {
-            document.body.classList.remove('keyboard-nav');
-        });
+      document.addEventListener('click', function () {
+        document.body.classList.remove('keyboard-nav');
+      });
     </script>
-</body>
+  </body>
 </html>

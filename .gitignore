@@ -1,0 +1,334 @@
+# ===== NODE.JS =====
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage
+.grunt
+
+# Bower dependency directory
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# ===== ENVIRONMENT & CONFIG =====
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Configuration files
+config.local.js
+config.local.json
+
+# ===== BUILD & DISTRIBUTION =====
+# Build directories
+dist/
+build/
+public/build/
+
+# Generated files
+*.min.css
+*.min.js
+*.map
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
+
+# ===== LOGS =====
+# Log files
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ===== CACHE =====
+# Cache directories
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist
+
+# Temporary folders
+tmp/
+temp/
+
+# ===== IDE & EDITORS =====
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Atom
+.atom/
+
+# WebStorm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.project
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ===== OPERATING SYSTEMS =====
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===== DEVELOPMENT TOOLS =====
+# ESLint
+.eslintcache
+
+# Prettier
+.prettierignore
+
+# StyleLint
+.stylelintcache
+
+# Jest
+coverage/
+.nyc_output
+
+# ===== DEPLOYMENT =====
+# Netlify
+.netlify/
+
+# Vercel
+.vercel/
+
+# Surge
+.surge/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# AWS
+.aws/
+
+# ===== TESTING =====
+# Test results
+test-results/
+reports/
+screenshots/
+
+# Lighthouse reports
+lighthouse-report.html
+
+# ===== PERSONAL & SENSITIVE =====
+# Personal files
+personal/
+private/
+secrets/
+
+# Backup files
+*.backup
+*.old
+*.orig
+
+# Archive files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ===== PROJECT SPECIFIC =====
+# Generated assets
+assets/generated/
+
+# Temporary uploads
+uploads/temp/
+
+# Local configuration
+.env.local
+config.local.*
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Certificate files
+*.pem
+*.key
+*.crt
+*.cert
+
+# ===== DOCUMENTATION =====
+# Auto-generated documentation
+docs/generated/
+
+# ===== MISC =====
+# Ignore files
+.ignore
+.gitignore.local
+
+# Lock files for specific tools
+Pipfile.lock
+poetry.lock
+
+# JetBrains IDEs
+.idea/
+*.iml
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===== OPTIONAL IGNORES =====
+# Uncomment these if needed for your specific setup
+
+# Runtime configuration
+# runtime.json
+
+# User-specific files
+# user-settings.json
+
+# Local environment overrides
+# .env.override
+
+# Custom build scripts
+# build.local.js
+
+# ===== WHITELIST EXCEPTIONS =====
+# Force include certain files (use ! prefix)
+# !important-file.js
+# !.gitkeep
+
+# Keep empty directories
+!.gitkeep
+
+# Essential config files
+!.github/
+!.vscode/settings.json
+!.editorconfig

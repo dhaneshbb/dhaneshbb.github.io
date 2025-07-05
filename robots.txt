@@ -1,0 +1,81 @@
+# robots.txt for Dhanesh B.B. Portfolio Website
+# Professional Data Science Portfolio
+
+# Global directives
+User-agent: *
+Allow: /
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Disallow specific directories
+Disallow: /assets/data/
+Disallow: /js/
+Disallow: /css/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /docs/
+Disallow: /.github/
+Disallow: /temp/
+Disallow: /cache/
+
+# Allow specific important files
+Allow: /assets/files/Dhanesh_BB_Resume.pdf
+Allow: /assets/images/
+Allow: /sitemap.xml
+
+# Block specific file types
+Disallow: /*.json$
+Disallow: /*.log$
+Disallow: /*.tmp$
+Disallow: /*.backup$
+
+# Block development files
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.gitignore
+Disallow: /README.md
+Disallow: /CHANGELOG.md
+
+# Block admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /secure/
+Disallow: /test/
+Disallow: /tests/
+
+# Crawl delay (be respectful)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Alternative sitemap locations
+Sitemap: https://dhaneshbb.github.io/sitemap.xml
+Sitemap: https://dhanesh-portfolio.netlify.app/sitemap.xml
