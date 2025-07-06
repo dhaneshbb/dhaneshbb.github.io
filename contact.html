@@ -136,6 +136,29 @@
         background: var(--bg-secondary);
       }
 
+      /* Current Badge Styling */
+      .current-badge {
+        background: var(--success-color);
+        color: white !important;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-left: 1rem;
+        text-decoration: none;
+        animation: pulse 2s infinite;
+      }
+
+      /* Pulse Animation */
+      @keyframes pulse {
+        0%, 100% { 
+          opacity: 1; 
+        }
+        50% { 
+          opacity: 0.5; 
+        }
+      }
+
       /* Page Header Enhanced */
       .page-header {
         padding: 120px 0 80px;
@@ -210,7 +233,7 @@
       /* Main Content Enhanced */
       .contact-section {
         padding: 5rem 0;
-        background: var(--bg-secondary);
+        background:var(--bg-light);
       }
 
       .contact-card {
@@ -389,7 +412,7 @@
       /* Social Links Enhanced */
       .social-section {
         padding: 5rem 0;
-        background: var(--bg-primary);
+        background:vvar(--bg-light);
         text-align: center;
       }
 
@@ -484,7 +507,7 @@
       /* Specializations Enhanced */
       .specializations-section {
         padding: 5rem 0;
-        background: var(--bg-secondary);
+        background: var(--bg-light);
       }
 
       .specializations-title {
@@ -522,7 +545,11 @@
       }
 
       .specialization-card {
-        background: var(--bg-primary);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 97, 242, 0.05),
+          rgba(105, 0, 199, 0.05)
+        );
         padding: 2.5rem;
         border-radius: var(--border-radius-2xl);
         text-align: center;
@@ -589,7 +616,11 @@
 
       /* Location Info Enhanced */
       .location-info {
-        background: var(--bg-primary);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 97, 242, 0.05),
+          rgba(105, 0, 199, 0.05)
+        );
         padding: 3rem;
         border-radius: var(--border-radius-2xl);
         margin-top: 3rem;
@@ -1123,6 +1154,9 @@
               <a class="nav-link active" href="contact.html">Contact</a>
             </li>
           </ul>
+          <a href="contact.html" class="current-badge">
+            <i class="fas fa-circle me-2"></i>Available for New Opportunities
+          </a>
         </div>
       </div>
     </nav>
@@ -1142,9 +1176,6 @@
       <div class="container">
         <div class="contact-card fade-in fade-in-delay-2">
           <div class="contact-intro">
-            <div class="availability-badge">
-              <i class="fas fa-circle me-2"></i>Available for Projects
-            </div>
             <h2>Get In Touch</h2>
             <p>
               I'm always excited to discuss new opportunities, collaborate on
@@ -1499,7 +1530,7 @@
               </div>
               <div class="availability-status">
                 <span class="status-indicator"></span>
-                <span>Available for new projects</span>
+                <span>Available for New Opportunities</span>
               </div>
             </div>
           </div>

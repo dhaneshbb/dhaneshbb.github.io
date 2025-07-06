@@ -136,6 +136,30 @@
         background: var(--bg-secondary);
       }
 
+
+      /* Current Badge Styling */
+      .current-badge {
+        background: var(--success-color);
+        color: white !important;
+        padding: 0.5rem 1rem;
+        border-radius: 25px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-left: 1rem;
+        text-decoration: none;
+        animation: pulse 2s infinite;
+      }
+
+      /* Pulse Animation */
+      @keyframes pulse {
+        0%, 100% { 
+          opacity: 1; 
+        }
+        50% { 
+          opacity: 0.5; 
+        }
+      }
+
       /* Page Header Enhanced */
       .page-header {
         padding: 120px 0 80px;
@@ -332,7 +356,11 @@
       }
 
       .timeline-content {
-        background: var(--bg-primary);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 97, 242, 0.05),
+          rgba(105, 0, 199, 0.05)
+        );
         padding: 2.5rem;
         border-radius: var(--border-radius-2xl);
         box-shadow: var(--shadow);
@@ -350,9 +378,9 @@
         width: 100%;
         height: 3px;
         background: linear-gradient(
-          90deg,
-          var(--primary-color),
-          var(--secondary-color)
+          135deg,
+          rgba(0, 97, 242, 0.05),
+          rgba(105, 0, 199, 0.05)
         );
         transform: scaleX(0);
         transition: transform 0.3s ease;
@@ -568,7 +596,11 @@
 
       /* Updated Certificate Card for Flexbox Layout */
       .cert-card {
-        background: var(--bg-primary);
+        background:linear-gradient(
+          135deg,
+          rgba(0, 97, 242, 0.05),
+          rgba(105, 0, 199, 0.05)
+        );
         padding: 2rem;
         border-radius: var(--border-radius-2xl);
         box-shadow: var(--shadow);
@@ -679,7 +711,11 @@
 
       /* Sidebar Enhanced */
       .sidebar-card {
-        background: var(--bg-primary);
+        background: linear-gradient(
+          135deg,
+          rgba(0, 97, 242, 0.05),
+          rgba(105, 0, 199, 0.05)
+        );
         padding: 2.5rem;
         border-radius: var(--border-radius-2xl);
         box-shadow: var(--shadow);
@@ -1221,6 +1257,9 @@
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
+          <a href="contact.html" class="current-badge">
+            <i class="fas fa-circle me-2"></i>Available for New Opportunities
+          </a>
         </div>
       </div>
     </nav>
@@ -1230,7 +1269,7 @@
       <div class="container">
         <h1 class="page-title fade-in">About Me</h1>
         <p class="page-subtitle fade-in fade-in-delay-1">
-          Data Science Professional | ML Engineer | Analytics Expert
+          Certified Data Scientist | Data Science Consultant | Coordinator
         </p>
       </div>
     </section>
@@ -1247,30 +1286,25 @@
                 Transforming complex data challenges into innovative business
                 solutions
               </p>
-              <div class="highlight-box">
-                <p class="lead">
-                  I am a passionate Data Science professional with a unique
-                  blend of economic theory and advanced analytics expertise.
-                  With a Master's degree in Economics and comprehensive hands-on
-                  experience in machine learning, I specialize in transforming
-                  complex datasets into actionable business insights.
-                </p>
-                <p>
-                  My journey in data science has been marked by significant
-                  achievements including the development of
-                  <strong>InsightfulPy</strong>, a Python library with 25+
-                  automated EDA functions published on PyPI, and successful
-                  deployment of ML models that have
-                  <strong>reduced manual effort by 40%</strong> and
-                  <strong>accelerated reporting speed by 25%</strong>.
-                </p>
-                <p>
-                  I excel in designing end-to-end data workflows, from data
-                  collection and preprocessing to model deployment and
-                  monitoring. My expertise spans across various domains
-                  including financial modeling, customer analytics, employee
-                  performance analysis, and predictive maintenance.
-                </p>
+                <div class="highlight-box">
+                  <p class="lead">
+                    I am a passionate Data Science professional with a unique blend of economic theory and advanced analytics expertise. With a Master of Arts in Economics from Bangalore University and certifications from DataMites™, IABAC, and nasscom FutureSkills, I specialize in transforming complex datasets into actionable business insights that drive measurable business growth.
+                  </p>
+                  <p>
+                    Previously, as a <strong>Data Science Consultant at Rubixe</strong>, I leverage machine learning and data science to deliver tailored, client-focused solutions. I have executed successful proof‑of‑concepts, collaborated with cross‑functional teams, and improved client satisfaction by deploying scalable ML solutions. 
+                  </p>
+                  <p>
+                    My journey in data science includes the development of <strong>InsightfulPy</strong>, a Python library with 25+ automated EDA functions published on PyPI. My work has <strong>reduced manual effort by 40%</strong> and <strong>accelerated reporting speed by 25%</strong> through intelligent automation and robust model design.
+                  </p>
+                  <p>
+                    I excel in building end-to-end data pipelines—from data collection and preprocessing to model deployment and performance monitoring. My domain expertise spans financial modeling, customer analytics, employee performance analysis, and predictive maintenance.
+                  </p>
+                  <p>
+                    I worked as a Coordinator at <strong>Aditya Birla Fashion and Retail Ltd.</strong>, where I was responsible for accurate financial transaction processing and resolving discrepancies in sales reports, strengthening my attention to detail and business acumen.
+                  </p>
+                  <p>
+                    I am driven by a strong passion for applying data science to solve real‑world problems and deliver insights that enable strategic decision-making.
+                  </p>
               </div>
             </div>
 
@@ -1297,7 +1331,7 @@
                   <div class="achievement-icon">
                     <i class="fas fa-database"></i>
                   </div>
-                  <h5>Big Data Processing</h5>
+                  <h5>Data Processing</h5>
                   <p>
                     Successfully processed <strong>50M+ records</strong> for
                     home loan default prediction, optimizing memory usage by
@@ -1321,9 +1355,9 @@
                   </div>
                   <h5>Automation Impact</h5>
                   <p>
-                    Eliminated <strong>1,200+ hours</strong> of manual review
-                    through automated ML solutions, improving operational
-                    efficiency by 30% across multiple projects.
+                    Eliminated <strong>1,200+ minutes</strong> of manual review
+                    through automated Data solutions, improving more operational
+                    efficiency by 30% across multiple projects for ML solutions.
                   </p>
                 </div>
               </div>
@@ -1341,14 +1375,15 @@
                     <div class="timeline-date">November 2023</div>
                     <h4 class="timeline-title">Master of Arts in Economics</h4>
                     <p class="timeline-subtitle">
-                      Bangalore University • Graduate Degree
+                      Bangalore University • Post Graduate Degree
                     </p>
                     <p>
                       Specialized in Econometrics, Financial Modeling, and
-                      Research Methodology. Conducted extensive research on "Job
+                      Research Methodology that form the backbone of my data
+                      science approach. Conducted Project on "Job
                       Satisfaction & Work-Life Balance in Bangalore's IT Sector"
                       analyzing survey data from 205 professionals using
-                      advanced statistical techniques.
+                      statistical techniques.
                     </p>
                     <p>
                       <strong>Relevant Coursework:</strong> Econometrics,
@@ -1369,8 +1404,7 @@
                     <p>
                       Strong foundation in economic principles, policy analysis,
                       and quantitative methods. Developed analytical thinking
-                      and research skills that form the backbone of my data
-                      science approach. Gained comprehensive understanding of
+                      and research skills. Gained comprehensive understanding of
                       economic systems and decision-making processes.
                     </p>
                     <p>
@@ -1480,7 +1514,7 @@
               <h4>Career Statistics</h4>
               <div class="stats-grid">
                 <div class="stat-item">
-                  <div class="stat-number" data-count="3">0</div>
+                  <div class="stat-number" data-count="2">0</div>
                   <div class="stat-label">Years Experience</div>
                 </div>
                 <div class="stat-item">
@@ -1503,11 +1537,11 @@
               <h5>Languages</h5>
               <div class="contact-item">
                 <i class="fas fa-globe"></i>
-                <span>English (Professional Working Proficiency)</span>
+                <span>English (Professional Proficiency)</span>
               </div>
               <div class="contact-item">
                 <i class="fas fa-globe"></i>
-                <span>Hindi (Full Professional Proficiency)</span>
+                <span>Hindi (Professional Proficiency)</span>
               </div>
               <div class="contact-item">
                 <i class="fas fa-globe"></i>
@@ -1934,7 +1968,7 @@
               </div>
               <div class="availability-status">
                 <span class="status-indicator"></span>
-                <span>Available for new projects</span>
+                <span>Available for New Opportunities</span>
               </div>
             </div>
           </div>

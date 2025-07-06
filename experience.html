@@ -159,12 +159,12 @@
 
       /* Career Summary */
       .career-summary {
-        background: white;
+        background: var(--bg-light);
         padding: 5rem 0;
       }
 
       .summary-card {
-        background: var(--bg-light);
+        background:  linear-gradient(135deg, #f0f8ff 0%, #e8f4fd 100%);
         padding: 3rem;
         border-radius: 1.25rem;
         box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
@@ -498,25 +498,38 @@
         }
       }
 
+      /* Current Badge Styling */
       .current-badge {
         background: var(--success-color);
-        color: white;
+        color: white !important;
         padding: 0.5rem 1rem;
-        border-radius: 1.25rem;
-        font-size: 0.8125rem;
-        font-weight: 600;
-        display: inline-block;
-        margin-bottom: 1rem;
+        border-radius: 25px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-left: 1rem;
+        text-decoration: none;
+        animation: pulse 2s infinite;
       }
+
+      /* Pulse Animation */
+      @keyframes pulse {
+        0%, 100% { 
+          opacity: 1; 
+        }
+        50% { 
+          opacity: 0.5; 
+        }
+      }
+
 
       /* Skills Development Section */
       .skills-development {
-        background: white;
+        background: var(--bg-light);
         padding: 5rem 0;
       }
 
       .skill-category {
-        background: var(--bg-light);
+        background:  linear-gradient(135deg, #f0f8ff 0%, #e8f4fd 100%);
         padding: 2.5rem;
         border-radius: 1.25rem;
         margin-bottom: 2rem;
@@ -554,49 +567,116 @@
 
       /* Career Journey */
       .career-journey {
-        background: var(--bg-light);
         padding: 5rem 0;
+        background: var(--bg-light);
       }
 
-      .journey-card {
-        background: white;
-        padding: 2.5rem;
-        border-radius: 1.25rem;
-        box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.1);
-        text-align: center;
-        margin-bottom: 2rem;
+      .career-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
       }
 
-      .journey-icon {
-        width: 5rem;
-        height: 5rem;
+      .career-card {
         background: linear-gradient(
           135deg,
+          rgba(0, 97, 242, 0.05),
+          rgba(105, 0, 199, 0.05)
+        );
+        padding: 2.5rem;
+        border-radius: var(--border-radius-2xl);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e5e7eb;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .career-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
           var(--primary-color),
           var(--secondary-color)
         );
-        border-radius: 50%;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .career-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary-color);
+      }
+
+      .career-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .career-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        background: var(--primary-color);
+        border-radius: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 1.5rem;
         color: white;
-        font-size: 2rem;
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
       }
 
-      .journey-title {
-        font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+      .career-card:hover .career-icon {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        transform: scale(1.1);
+      }
+
+      .career-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+
+      .career-description {
+        color: #6b7280;
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      .highlight-text {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
         font-weight: 700;
         color: var(--text-dark);
+        text-align: center;
         margin-bottom: 1rem;
       }
 
-      .journey-description {
+      .section-subtitle {
+        text-align: center;
         color: var(--text-light);
-        line-height: 1.6;
-        font-size: 0.9375rem;
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
+      /* Animation Classes */
       .fade-in {
         opacity: 0;
         transform: translateY(50px);
@@ -610,6 +690,10 @@
 
       .fade-in-delay-1 {
         transition-delay: 0.1s;
+      }
+
+      .fade-in-delay-2 {
+        transition-delay: 0.2s;
       }
 
       /* Footer Enhanced */
@@ -975,6 +1059,9 @@
               <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
+          <a href="contact.html" class="current-badge">
+            <i class="fas fa-circle me-2"></i>Available for New Opportunities
+          </a>
         </div>
       </div>
     </nav>
@@ -995,7 +1082,7 @@
         <div class="summary-card">
           <h2 class="summary-title">Career Overview</h2>
           <p class="summary-text">
-            Results-driven Data Science professional with 3+ years of
+            Results-driven Data Science professional with 2+ years of
             progressive experience in analytics, machine learning, and business
             intelligence. Proven track record of delivering measurable business
             impact through data-driven solutions, with expertise spanning from
@@ -1017,12 +1104,6 @@
           <div class="experience-item">
             <div class="experience-marker"></div>
             <div class="experience-content current-role">
-              <div class="current-badge">
-                <i class="fas fa-circle me-2"></i>Current Position
-              </div>
-              <div class="company-logo">
-                <i class="fas fa-lightbulb"></i>
-              </div>
               <h3 class="job-title">Data Science Consultant Intern</h3>
               <div class="company-name">Rubixe™ - AI Solutions Company</div>
               <div class="job-duration">
@@ -1031,13 +1112,7 @@
               <div class="job-location">Bangalore, India</div>
 
               <div class="job-description">
-                Leading data science initiatives at a premier AI solutions
-                company, focusing on executing proof-of-concept projects and
-                translating complex data science theories into actionable
-                business solutions. Collaborating with cross-functional teams to
-                optimize operational workflows and enhance client satisfaction
-                through tailored machine learning solutions and advanced
-                analytics.
+                Assisted in leading data science initiatives at a leading AI solutions company by supporting proof-of-concept projects and helping translate complex data science concepts into practical business insights. Collaborated with cross-functional teams to improve workflows and contribute to client-focused machine learning solutions and analytics.
               </div>
 
               <div class="key-results">
@@ -1051,46 +1126,18 @@
                     <div class="result-number">30%</div>
                     <div class="result-label">Efficiency Gains</div>
                   </div>
-                  <div class="result-item">
-                    <div class="result-number">$200K+</div>
-                    <div class="result-label">Revenue Impact</div>
-                  </div>
-                  <div class="result-item">
-                    <div class="result-number">5+</div>
-                    <div class="result-label">POC Projects</div>
-                  </div>
                 </div>
               </div>
 
               <ul class="achievements">
                 <li>
-                  <strong>ML Model Development:</strong> Built XGBoost
-                  classifier for FicZon Inc project, achieving 30% reduction in
-                  manual review time and 6.89% improvement in model performance
-                  through advanced hyperparameter tuning
+                  <strong>ML Model Development:</strong> Executed proof‑of‑concept (POC) projects using ML models, translating data science theory into actionable solutions such as lead prioritization.
                 </li>
                 <li>
-                  <strong>Strategic Business Intelligence:</strong> Identified
-                  critical conversion patterns including 20.4% lead inflow on
-                  Mondays and 46% peak conversions in November, enabling
-                  data-driven campaign scheduling and resource optimization
+                  <strong>Client Consulting Excellence:</strong> Enhanced client satisfaction by 85 % through tailored machine learning solutions.
                 </li>
                 <li>
-                  <strong>Cross-functional Leadership:</strong> Collaborated
-                  with product, engineering, and business teams to resolve
-                  operational bottlenecks, earning recognition for delivering
-                  measurable efficiency improvements
-                </li>
-                <li>
-                  <strong>Client Consulting Excellence:</strong> Enhanced client
-                  satisfaction by 85% through deployment of tailored machine
-                  learning solutions, including automated lead scoring and
-                  predictive analytics systems
-                </li>
-                <li>
-                  <strong>Technical Innovation:</strong> Developed end-to-end ML
-                  pipelines from data ingestion to model deployment,
-                  demonstrating full-stack data science capabilities
+                  <strong>Cross-functional Collaboration:</strong> Collaborated with cross‑functional teams to resolve operational bottlenecks, resulting in 30 % efficiency gains in client workflows.
                 </li>
               </ul>
 
@@ -1116,9 +1163,6 @@
           <div class="experience-item">
             <div class="experience-marker"></div>
             <div class="experience-content">
-              <div class="company-logo">
-                <i class="fas fa-shopping-bag"></i>
-              </div>
               <h3 class="job-title">Coordinator - Operations & Analytics</h3>
               <div class="company-name">Aditya Birla Fashion & Retail Ltd.</div>
               <div class="job-duration">April 2022 - March 2023 (1 year)</div>
@@ -1214,52 +1258,44 @@
       </div>
     </section>
 
-    <!-- Career Journey -->
+    <!-- Career Journey Section -->
     <section class="career-journey">
       <div class="container">
         <h2 class="section-title">Career Evolution & Growth</h2>
-        <div class="row g-4">
-          <div class="col-lg-4">
-            <div class="journey-card">
-              <div class="journey-icon">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <h4 class="journey-title">Academic Foundation</h4>
-              <p class="journey-description">
-                Built strong analytical foundation through Master's in Economics
-                from Bangalore University, developing expertise in econometrics,
-                statistical analysis, and research methodology that forms the
-                core of my data science approach.
-              </p>
+        <p class="section-subtitle">
+          A progressive journey from academic foundation to data science expertise, building comprehensive skills across multiple domains
+        </p>
+        
+        <div class="career-grid">
+          <!-- Academic Foundation Card -->
+          <div class="career-card fade-in">
+            <div class="career-icon">
+              <i class="fas fa-graduation-cap"></i>
             </div>
+            <h3 class="career-title">Academic Foundation</h3>
+            <p class="career-description">
+              Built strong analytical foundation through <span class="highlight-text">Master's in Economics</span> from Bangalore University, developing expertise in <span class="highlight-text">econometrics, statistical analysis</span>, and research methodology that forms the core of my data science approach.
+            </p>
           </div>
-          <div class="col-lg-4">
-            <div class="journey-card">
-              <div class="journey-icon">
-                <i class="fas fa-briefcase"></i>
-              </div>
-              <h4 class="journey-title">Business Operations</h4>
-              <p class="journey-description">
-                Gained practical business experience at Aditya Birla Fashion &
-                Retail, mastering operational excellence, data accuracy, and
-                cross-functional collaboration while processing high-volume
-                financial transactions.
-              </p>
+          <!-- Business Operations Card -->
+          <div class="career-card fade-in fade-in-delay-1">
+            <div class="career-icon">
+              <i class="fas fa-briefcase"></i>
             </div>
+            <h3 class="career-title">Business Operations</h3>
+            <p class="career-description">
+              Gained practical business experience at <span class="highlight-text">Aditya Birla Fashion & Retail</span>, mastering operational excellence, data accuracy, and <span class="highlight-text">cross-functional collaboration</span> while processing high-volume financial transactions.
+            </p>
           </div>
-          <div class="col-lg-4">
-            <div class="journey-card">
-              <div class="journey-icon">
-                <i class="fas fa-rocket"></i>
-              </div>
-              <h4 class="journey-title">Data Science Leadership</h4>
-              <p class="journey-description">
-                Transitioned to AI consulting at Rubixe™, leading data science
-                initiatives, developing ML solutions, and delivering measurable
-                business impact through advanced analytics and strategic
-                consulting.
-              </p>
+          <!-- Data Science Transition Card -->
+          <div class="career-card fade-in fade-in-delay-2">
+            <div class="career-icon">
+              <i class="fas fa-rocket"></i>
             </div>
+            <h3 class="career-title">Data Science Transition</h3>
+            <p class="career-description">
+              Transitioned to AI consulting at <span class="highlight-text">Rubixe™</span>, assisted in leading data science initiatives, developing <span class="highlight-text">ML solutions</span>, and delivering measurable business impact through advanced analytics and strategic consulting.
+            </p>
           </div>
         </div>
       </div>
@@ -1269,6 +1305,8 @@
     <section class="skills-development">
       <div class="container">
         <h2 class="section-title">Professional Skills Development</h2>
+        <p class="section-subtitle">
+        </p>
         <div class="row g-4">
           <div class="col-lg-6">
             <div class="skill-category">
@@ -1445,7 +1483,7 @@
               </div>
               <div class="availability-status">
                 <span class="status-indicator"></span>
-                <span>Available for new projects</span>
+                <span>Available for New Opportunities</span>
               </div>
             </div>
           </div>
