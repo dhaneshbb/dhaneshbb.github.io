@@ -307,7 +307,7 @@ Found a bug? Please open an issue with:
 - **Expected** behavior
 - **Screenshots** if applicable
 
-[Report Issue](https://github.com/dhaneshbb/dhanesh-portfolio/issues/new)
+[Report Issue](https://github.com/dhaneshbb/dhaneshbb.github.io/issues)
 
 ---
 
