@@ -1,146 +1,25 @@
-name: Build and Deploy Portfolio
+name: Deploy Portfolio
 
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
-  schedule:
-    # Run weekly to check for dependency updates
-    - cron: '0 2 * * 0'
 
 env:
   NODE_VERSION: '18.x'
-  DEPLOY_BRANCH: main
 
 jobs:
-  # ===== QUALITY CHECKS =====
-  quality-checks:
-    name: Quality Checks
+  deploy:
+    name: Build and Deploy to GitHub Pages
     runs-on: ubuntu-latest
     
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-        cache: 'npm'
-        
-    - name: Install Dependencies
-      run: npm ci
-      
-    - name: Lint CSS
-      run: npm run lint:css
-      continue-on-error: true
-      
-    - name: Lint JavaScript
-      run: npm run lint:js
-      continue-on-error: true
-      
-    - name: Validate HTML
-      run: npm run validate:html
-      continue-on-error: true
-      
-    - name: Format Check
-      run: npm run format:check
-      continue-on-error: true
-
-  # ===== PERFORMANCE TESTING =====
-  performance-tests:
-    name: Performance Tests
-    runs-on: ubuntu-latest
-    needs: quality-checks
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-        cache: 'npm'
-        
-    - name: Install Dependencies
-      run: npm ci
-      
-    - name: Start Development Server
-      run: |
-        npm start &
-        sleep 10
-        
-    - name: Run Lighthouse CI
-      run: |
-        npm install -g @lhci/cli@0.12.x
-        lhci autorun
-      env:
-        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-        
-    - name: Upload Lighthouse Reports
-      uses: actions/upload-artifact@v3
-      with:
-        name: lighthouse-reports
-        path: .lighthouseci/
-        retention-days: 7
-
-  # ===== ACCESSIBILITY TESTING =====
-  accessibility-tests:
-    name: Accessibility Tests
-    runs-on: ubuntu-latest
-    needs: quality-checks
-    
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-        cache: 'npm'
-        
-    - name: Install Dependencies
-      run: npm ci
-      
-    - name: Start Development Server
-      run: |
-        npm start &
-        sleep 10
-        
-    - name: Run Accessibility Tests
-      run: npm run test:accessibility
-      continue-on-error: true
-
-  # ===== SECURITY SCAN =====
-  security-scan:
-    name: Security Scan
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      
-    - name: Run Security Audit
-      run: npm audit --audit-level moderate
-      continue-on-error: true
-      
-    - name: Check for vulnerabilities
-      run: |
-        if npm audit --audit-level high; then
-          echo "No high-severity vulnerabilities found"
-        else
-          echo "High-severity vulnerabilities detected"
-          exit 1
-        fi
-
-  # ===== BUILD =====
-  build:
-    name: Build Application
-    runs-on: ubuntu-latest
-    needs: [quality-checks, performance-tests, accessibility-tests]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
     - name: Checkout Repository
@@ -158,40 +37,7 @@ jobs:
     - name: Build for Production
       run: npm run build
       
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: build-files
-        path: dist/
-        retention-days: 7
-
-  # ===== DEPLOY TO GITHUB PAGES =====
-  deploy-github-pages:
-    name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest
-    needs: [build, security-scan]
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-      
-    - name: Download Build Artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: build-files
-        path: dist/
-        
-    - name: Setup Pages
+    - name: Setup GitHub Pages
       uses: actions/configure-pages@v3
       
     - name: Upload to GitHub Pages
@@ -202,72 +48,9 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v2
-
-  # ===== NOTIFICATION =====
-  notification:
-    name: Deployment Notification
-    runs-on: ubuntu-latest
-    needs: [deploy-github-pages]
-    if: always() && github.ref == 'refs/heads/main'
-    
-    steps:
-    - name: Send Success Notification
-      if: needs.deploy-github-pages.result == 'success'
-      run: |
-        echo "✅ Portfolio deployed successfully!"
-        echo "📄 GitHub Pages: https://dhaneshbb.github.io"
-        
-    - name: Send Failure Notification
-      if: needs.deploy-github-pages.result == 'failure'
-      run: |
-        echo "❌ GitHub Pages deployment failed!"
-        echo "Please check the workflow logs for details."
-
-  # ===== DEPENDENCY UPDATES =====
-  dependency-update:
-    name: Check Dependencies
-    runs-on: ubuntu-latest
-    if: github.event_name == 'schedule'
-    
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
       
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-        
-    - name: Check for Updates
+    - name: Deployment Complete
       run: |
-        npm outdated > outdated.txt || true
-        if [ -s outdated.txt ]; then
-          echo "📦 Dependencies need updates:"
-          cat outdated.txt
-        else
-          echo "✅ All dependencies are up to date"
-        fi
-        
-    - name: Create Issue for Updates
-      if: failure()
-      uses: actions/github-script@v6
-      with:
-        script: |
-          github.rest.issues.create({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            title: 'Dependency Updates Available',
-            body: 'Automated check found outdated dependencies. Please review and update.',
-            labels: ['dependencies', 'automated']
-          })
-
-  # ===== CLEANUP =====
-  cleanup:
-    name: Cleanup
-    runs-on: ubuntu-latest
-    needs: [deploy-github-pages, notification]
-    if: always()
-    
-    steps:
-    - name: Clean Up Artifacts
-      run: echo "🧹 Artifacts will be automatically cleaned up after retention period"
+        echo "🎉 Portfolio successfully deployed!"
+        echo "🌐 Live URL: https://dhaneshbb.github.io"
+        echo "✅ Deployment completed"

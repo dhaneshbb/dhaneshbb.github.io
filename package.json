@@ -79,11 +79,11 @@
     "prettier": "^3.0.3",
     "serve": "^14.2.1",
     "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^38.0.0",
     "surge": "^0.23.1",
     "terser": "^5.19.4",
     "vercel": "^32.0.0"
   },
-  "dependencies": {},
   "config": {
     "port": 3000,
     "host": "localhost"
