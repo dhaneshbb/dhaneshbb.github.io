@@ -24,6 +24,7 @@ jobs:
             https://dhaneshbb.github.io/experience.html
             https://dhaneshbb.github.io/contact.html
           uploadArtifacts: true
+          artifactName: lighthouse-mobile-results
           temporaryPublicStorage: true
           runs: 3
           
@@ -72,6 +73,7 @@ jobs:
             https://dhaneshbb.github.io/experience.html
             https://dhaneshbb.github.io/contact.html
           uploadArtifacts: true
+          artifactName: lighthouse-desktop-results
           temporaryPublicStorage: true
           runs: 3
           configPath: './lighthouserc.json'
@@ -109,10 +111,11 @@ jobs:
           echo "5. Expand 'Run Lighthouse CI - Desktop' step"  
           echo "6. Look for 'View report at: https://...' links"
           echo ""
-          echo "⬇️ DOWNLOAD ALL REPORTS:"
+          echo "⬇️ DOWNLOAD REPORTS:"
           echo "- Scroll up to 'Artifacts' section"
-          echo "- Download 'lighthouse-results' zip file"
-          echo "- Contains all HTML reports for offline viewing"
+          echo "- Download 'lighthouse-mobile-results' for mobile reports"
+          echo "- Download 'lighthouse-desktop-results' for desktop reports"
+          echo "- Both contain HTML reports for offline viewing"
           echo ""
           echo "🔄 COMPARISON:"
           echo "- Compare mobile vs desktop scores"
