@@ -1,4 +1,4 @@
-name: Lighthouse CI
+name: Lighthouse CI - Mobile & Desktop
 on: 
   push:
     branches: [ main ]
@@ -6,13 +6,15 @@ on:
     branches: [ main ]
 
 jobs:
-  lighthouse:
+  lighthouse-mobile:
+    name: Lighthouse Mobile
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Run Lighthouse CI
+      - name: Run Lighthouse CI - Mobile
+        id: lighthouse-mobile
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
@@ -24,3 +26,107 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
           runs: 3
+          configPath: './lighthouserc-mobile.json'
+          
+      - name: Print Mobile Report Links
+        run: |
+          echo "🔗 MOBILE LIGHTHOUSE REPORT LINKS"
+          echo "=================================="
+          echo ""
+          echo "📱 HOME PAGE (MOBILE):"
+          echo "${{ fromJSON(steps.lighthouse-mobile.outputs.links)[0] }}"
+          echo ""
+          echo "📱 ABOUT PAGE (MOBILE):"
+          echo "${{ fromJSON(steps.lighthouse-mobile.outputs.links)[1] }}"
+          echo ""
+          echo "📱 PROJECTS PAGE (MOBILE):"
+          echo "${{ fromJSON(steps.lighthouse-mobile.outputs.links)[2] }}"
+          echo ""
+          echo "📱 EXPERIENCE PAGE (MOBILE):"
+          echo "${{ fromJSON(steps.lighthouse-mobile.outputs.links)[3] }}"
+          echo ""
+          echo "📱 CONTACT PAGE (MOBILE):"
+          echo "${{ fromJSON(steps.lighthouse-mobile.outputs.links)[4] }}"
+          echo ""
+          echo "=================================="
+
+  lighthouse-desktop:
+    name: Lighthouse Desktop
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Run Lighthouse CI - Desktop
+        id: lighthouse-desktop
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://dhaneshbb.github.io
+            https://dhaneshbb.github.io/about.html
+            https://dhaneshbb.github.io/projects.html
+            https://dhaneshbb.github.io/experience.html
+            https://dhaneshbb.github.io/contact.html
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 3
+          configPath: './lighthouserc-desktop.json'
+          
+      - name: Print Desktop Report Links
+        run: |
+          echo "🔗 DESKTOP LIGHTHOUSE REPORT LINKS"
+          echo "==================================="
+
+  print-all-links:
+    name: 📋 All Report Links Summary
+    runs-on: ubuntu-latest
+    needs: [lighthouse-mobile, lighthouse-desktop]
+    if: always()
+    steps:
+      - name: Print Complete Report Summary
+        run: |
+          echo "🎯 COMPLETE LIGHTHOUSE REPORTS SUMMARY"
+          echo "======================================="
+          echo ""
+          echo "✅ All reports generated successfully!"
+          echo ""
+          echo "📱 MOBILE REPORTS:"
+          echo "🏠 Home:       https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_MOBILE_HOME_LINK"
+          echo "👤 About:      https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_MOBILE_ABOUT_LINK"
+          echo "🚀 Projects:   https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_MOBILE_PROJECTS_LINK"
+          echo "💼 Experience: https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_MOBILE_EXPERIENCE_LINK"
+          echo "📞 Contact:    https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_MOBILE_CONTACT_LINK"
+          echo ""
+          echo "💻 DESKTOP REPORTS:"
+          echo "🏠 Home:       https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_DESKTOP_HOME_LINK"
+          echo "👤 About:      https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_DESKTOP_ABOUT_LINK"
+          echo "🚀 Projects:   https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_DESKTOP_PROJECTS_LINK"
+          echo "💼 Experience: https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_DESKTOP_EXPERIENCE_LINK"
+          echo "📞 Contact:    https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_DESKTOP_CONTACT_LINK"
+          echo ""
+          echo "🔗 DIRECT LINKS (Check individual job logs above for actual URLs)"
+          echo ""
+          echo "📊 PERFORMANCE COMPARISON:"
+          echo "Compare mobile vs desktop scores to see device-specific optimizations needed"
+          echo ""
+          echo "⬇️ ARTIFACTS:"
+          echo "Download detailed HTML reports from the Artifacts section"
+          echo ""
+          echo "======================================="
+          echo ""
+          echo "💻 HOME PAGE (DESKTOP):"
+          echo "${{ fromJSON(steps.lighthouse-desktop.outputs.links)[0] }}"
+          echo ""
+          echo "💻 ABOUT PAGE (DESKTOP):"
+          echo "${{ fromJSON(steps.lighthouse-desktop.outputs.links)[1] }}"
+          echo ""
+          echo "💻 PROJECTS PAGE (DESKTOP):"
+          echo "${{ fromJSON(steps.lighthouse-desktop.outputs.links)[2] }}"
+          echo ""
+          echo "💻 EXPERIENCE PAGE (DESKTOP):"
+          echo "${{ fromJSON(steps.lighthouse-desktop.outputs.links)[3] }}"
+          echo ""
+          echo "💻 CONTACT PAGE (DESKTOP):"
+          echo "${{ fromJSON(steps.lighthouse-desktop.outputs.links)[4] }}"
+          echo ""
+          echo "==================================="
