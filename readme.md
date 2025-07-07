@@ -1,6 +1,6 @@
 # Data Science Portfolio
 
-[![License](LICENSE)
+[[License](LICENSE)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fyourdomain.com)](https://dhaneshbb.github.io)
 
 > **Professional Data Science Portfolio showcasing machine learning expertise, analytics projects, and business intelligence solutions.**
