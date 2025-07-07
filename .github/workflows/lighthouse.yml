@@ -7,7 +7,7 @@ on:
 
 jobs:
   lighthouse-mobile:
-    name: Lighthouse Mobile
+    name: 📱 Lighthouse Mobile
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,32 +26,19 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
           runs: 3
-          configPath: './lighthouserc-mobile.json'
           
       - name: Print Mobile Report Links
         run: |
           echo "🔗 MOBILE LIGHTHOUSE REPORT LINKS"
           echo "=================================="
           echo ""
-          echo "📱 HOME PAGE (MOBILE):"
-          echo "${{ fromJSON(steps.lighthouse-mobile.outputs.links)[0] }}"
-          echo ""
-          echo "📱 ABOUT PAGE (MOBILE):"
-          echo "${{ fromJSON(steps.lighthouse-mobile.outputs.links)[1] }}"
-          echo ""
-          echo "📱 PROJECTS PAGE (MOBILE):"
-          echo "${{ fromJSON(steps.lighthouse-mobile.outputs.links)[2] }}"
-          echo ""
-          echo "📱 EXPERIENCE PAGE (MOBILE):"
-          echo "${{ fromJSON(steps.lighthouse-mobile.outputs.links)[3] }}"
-          echo ""
-          echo "📱 CONTACT PAGE (MOBILE):"
-          echo "${{ fromJSON(steps.lighthouse-mobile.outputs.links)[4] }}"
+          echo "📱 All mobile reports are available in the action output above"
+          echo "📱 Check the 'Run Lighthouse CI - Mobile' step for individual page links"
           echo ""
           echo "=================================="
 
   lighthouse-desktop:
-    name: Lighthouse Desktop
+    name: 💻 Lighthouse Desktop  
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -72,61 +59,69 @@ jobs:
           runs: 3
           configPath: './lighthouserc-desktop.json'
           
+      - name: Create Desktop Config
+        run: |
+          cat > lighthouserc-desktop.json << 'EOF'
+          {
+            "ci": {
+              "collect": {
+                "settings": {
+                  "preset": "desktop"
+                }
+              },
+              "upload": {
+                "target": "temporary-public-storage"
+              }
+            }
+          }
+          EOF
+          
+      - name: Run Lighthouse CI - Desktop (with config)
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://dhaneshbb.github.io
+            https://dhaneshbb.github.io/about.html
+            https://dhaneshbb.github.io/projects.html
+            https://dhaneshbb.github.io/experience.html
+            https://dhaneshbb.github.io/contact.html
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 3
+          configPath: './lighthouserc-desktop.json'
+          
       - name: Print Desktop Report Links
         run: |
           echo "🔗 DESKTOP LIGHTHOUSE REPORT LINKS"
           echo "==================================="
+          echo ""
+          echo "💻 All desktop reports are available in the action output above"
+          echo "💻 Check the 'Run Lighthouse CI - Desktop' steps for individual page links"
+          echo ""
+          echo "==================================="
 
-  print-all-links:
-    name: 📋 All Report Links Summary
+  print-summary:
+    name: 📋 Report Summary
     runs-on: ubuntu-latest
     needs: [lighthouse-mobile, lighthouse-desktop]
     if: always()
     steps:
-      - name: Print Complete Report Summary
+      - name: Print Complete Summary
         run: |
-          echo "🎯 COMPLETE LIGHTHOUSE REPORTS SUMMARY"
-          echo "======================================="
+          echo "🎯 LIGHTHOUSE REPORTS COMPLETE"
+          echo "=============================="
           echo ""
-          echo "✅ All reports generated successfully!"
+          echo "✅ Mobile testing: Check 📱 Lighthouse Mobile job"
+          echo "✅ Desktop testing: Check 💻 Lighthouse Desktop job"
           echo ""
-          echo "📱 MOBILE REPORTS:"
-          echo "🏠 Home:       https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_MOBILE_HOME_LINK"
-          echo "👤 About:      https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_MOBILE_ABOUT_LINK"
-          echo "🚀 Projects:   https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_MOBILE_PROJECTS_LINK"
-          echo "💼 Experience: https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_MOBILE_EXPERIENCE_LINK"
-          echo "📞 Contact:    https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_MOBILE_CONTACT_LINK"
+          echo "📊 TO VIEW REPORTS:"
+          echo "1. Click on each job above"
+          echo "2. Expand the Lighthouse CI steps"
+          echo "3. Look for 'View report at:' links"
+          echo "4. Click links to view detailed reports"
           echo ""
-          echo "💻 DESKTOP REPORTS:"
-          echo "🏠 Home:       https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_DESKTOP_HOME_LINK"
-          echo "👤 About:      https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_DESKTOP_ABOUT_LINK"
-          echo "🚀 Projects:   https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_DESKTOP_PROJECTS_LINK"
-          echo "💼 Experience: https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_DESKTOP_EXPERIENCE_LINK"
-          echo "📞 Contact:    https://googlechrome.github.io/lighthouse/viewer/?psi=YOUR_DESKTOP_CONTACT_LINK"
+          echo "⬇️ DOWNLOAD ARTIFACTS:"
+          echo "- Scroll up to see 'Artifacts' section"
+          echo "- Download lighthouse reports zip files"
           echo ""
-          echo "🔗 DIRECT LINKS (Check individual job logs above for actual URLs)"
-          echo ""
-          echo "📊 PERFORMANCE COMPARISON:"
-          echo "Compare mobile vs desktop scores to see device-specific optimizations needed"
-          echo ""
-          echo "⬇️ ARTIFACTS:"
-          echo "Download detailed HTML reports from the Artifacts section"
-          echo ""
-          echo "======================================="
-          echo ""
-          echo "💻 HOME PAGE (DESKTOP):"
-          echo "${{ fromJSON(steps.lighthouse-desktop.outputs.links)[0] }}"
-          echo ""
-          echo "💻 ABOUT PAGE (DESKTOP):"
-          echo "${{ fromJSON(steps.lighthouse-desktop.outputs.links)[1] }}"
-          echo ""
-          echo "💻 PROJECTS PAGE (DESKTOP):"
-          echo "${{ fromJSON(steps.lighthouse-desktop.outputs.links)[2] }}"
-          echo ""
-          echo "💻 EXPERIENCE PAGE (DESKTOP):"
-          echo "${{ fromJSON(steps.lighthouse-desktop.outputs.links)[3] }}"
-          echo ""
-          echo "💻 CONTACT PAGE (DESKTOP):"
-          echo "${{ fromJSON(steps.lighthouse-desktop.outputs.links)[4] }}"
-          echo ""
-          echo "==================================="
+          echo "=============================="
