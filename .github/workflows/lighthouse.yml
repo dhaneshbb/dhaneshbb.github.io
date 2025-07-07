@@ -32,8 +32,8 @@ jobs:
           echo "🔗 MOBILE LIGHTHOUSE REPORT LINKS"
           echo "=================================="
           echo ""
-          echo "📱 All mobile reports are available in the action output above"
-          echo "📱 Check the 'Run Lighthouse CI - Mobile' step for individual page links"
+          echo "📱 Mobile reports completed successfully!"
+          echo "📱 Check the 'Run Lighthouse CI - Mobile' step above for report links"
           echo ""
           echo "=================================="
 
@@ -44,24 +44,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Run Lighthouse CI - Desktop
-        id: lighthouse-desktop
-        uses: treosh/lighthouse-ci-action@v12
-        with:
-          urls: |
-            https://dhaneshbb.github.io
-            https://dhaneshbb.github.io/about.html
-            https://dhaneshbb.github.io/projects.html
-            https://dhaneshbb.github.io/experience.html
-            https://dhaneshbb.github.io/contact.html
-          uploadArtifacts: true
-          temporaryPublicStorage: true
-          runs: 3
-          configPath: './lighthouserc-desktop.json'
-          
       - name: Create Desktop Config
         run: |
-          cat > lighthouserc-desktop.json << 'EOF'
+          cat > lighthouserc.json << 'EOF'
           {
             "ci": {
               "collect": {
@@ -76,7 +61,8 @@ jobs:
           }
           EOF
           
-      - name: Run Lighthouse CI - Desktop (with config)
+      - name: Run Lighthouse CI - Desktop
+        id: lighthouse-desktop
         uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
@@ -88,15 +74,15 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
           runs: 3
-          configPath: './lighthouserc-desktop.json'
+          configPath: './lighthouserc.json'
           
       - name: Print Desktop Report Links
         run: |
           echo "🔗 DESKTOP LIGHTHOUSE REPORT LINKS"
           echo "==================================="
           echo ""
-          echo "💻 All desktop reports are available in the action output above"
-          echo "💻 Check the 'Run Lighthouse CI - Desktop' steps for individual page links"
+          echo "💻 Desktop reports completed successfully!"
+          echo "💻 Check the 'Run Lighthouse CI - Desktop' step above for report links"
           echo ""
           echo "==================================="
 
@@ -114,14 +100,23 @@ jobs:
           echo "✅ Mobile testing: Check 📱 Lighthouse Mobile job"
           echo "✅ Desktop testing: Check 💻 Lighthouse Desktop job"
           echo ""
-          echo "📊 TO VIEW REPORTS:"
-          echo "1. Click on each job above"
-          echo "2. Expand the Lighthouse CI steps"
-          echo "3. Look for 'View report at:' links"
-          echo "4. Click links to view detailed reports"
+          echo "📊 TO VIEW INDIVIDUAL REPORT LINKS:"
+          echo "1. Click on '📱 Lighthouse Mobile' job above"
+          echo "2. Expand 'Run Lighthouse CI - Mobile' step"
+          echo "3. Look for 'View report at: https://...' links"
           echo ""
-          echo "⬇️ DOWNLOAD ARTIFACTS:"
-          echo "- Scroll up to see 'Artifacts' section"
-          echo "- Download lighthouse reports zip files"
+          echo "4. Click on '💻 Lighthouse Desktop' job above"
+          echo "5. Expand 'Run Lighthouse CI - Desktop' step"  
+          echo "6. Look for 'View report at: https://...' links"
+          echo ""
+          echo "⬇️ DOWNLOAD ALL REPORTS:"
+          echo "- Scroll up to 'Artifacts' section"
+          echo "- Download 'lighthouse-results' zip file"
+          echo "- Contains all HTML reports for offline viewing"
+          echo ""
+          echo "🔄 COMPARISON:"
+          echo "- Compare mobile vs desktop scores"
+          echo "- Identify device-specific issues"
+          echo "- Focus on mobile performance improvements"
           echo ""
           echo "=============================="
