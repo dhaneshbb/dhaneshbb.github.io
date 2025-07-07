@@ -1,148 +1,164 @@
 # Deployment Guide
 
-Complete deployment guide for the Dhanesh B.B. Portfolio website across multiple platforms.
+This document outlines the deployment process for the personal portfolio website hosted on GitHub Pages.
 
-## Pre-Deployment Checklist
+## Deployment Method
 
-### ✅ Essential Checks
+The website uses **manual deployment** through GitHub Pages with static HTML/CSS/JavaScript files. No build process or external dependencies are required.
 
-- [ ] **Code Quality**
-  - [ ] All tests passing (`npm test`)
-  - [ ] No linting errors (`npm run lint`)
-  - [ ] Code formatted (`npm run format`)
-  - [ ] HTML validated (`npm run validate:html`)
+## Prerequisites
 
-- [ ] **Performance**
-  - [ ] Lighthouse score > 90 (`npm run test:lighthouse`)
-  - [ ] Images optimized (WebP format)
-  - [ ] CSS/JS minified (`npm run build`)
-  - [ ] Unused code removed
+- Git installed locally
+- GitHub account with repository access
+- Text editor for file modifications
 
-- [ ] **SEO & Accessibility**
-  - [ ] Meta tags updated
-  - [ ] Alt text for images
-  - [ ] Sitemap generated
-  - [ ] Robots.txt configured
-  - [ ] Accessibility tested (`npm run test:accessibility`)
+## GitHub Pages Setup
 
-- [ ] **Content**
-  - [ ] Personal information updated
-  - [ ] Resume/CV current
-  - [ ] Project links working
-  - [ ] Contact information correct
-  - [ ] Social media links updated
+### Initial Setup
 
-- [ ] **Security**
-  - [ ] No secrets in code
-  - [ ] Dependencies updated (`npm audit`)
-  - [ ] HTTPS configured
-  - [ ] Security headers set
+1. Navigate to repository Settings
+2. Scroll to "Pages" section
+3. Set Source to "Deploy from a branch"
+4. Select "main" branch and "/ (root)" folder
+5. Click Save
 
-## Platform-Specific Deployment
-based on requirment
+### Configuration
 
-##  Advanced Deployment
+The website is automatically deployed from the main branch root directory. GitHub Pages serves the following pages:
 
-### Environment-Specific Configurations
+- `index.html` - Homepage
+- `about.html` - About page  
+- `projects.html` - Projects showcase
+- `experience.html` - Experience page
+- `contact.html` - Contact page
 
-#### Production Environment
+## Deployment Process
 
-**File**: `.env.production`
+### Making Changes
 
-```env
-NODE_ENV=production
-SITE_URL=https://yourdomain.com
-ANALYTICS_ID=your-analytics-id
-SENTRY_DSN=your-sentry-dsn
+1. Clone the repository locally:
+```bash
+git clone https://github.com/dhaneshbb/dhaneshbb.github.io.git
+cd dhaneshbb.github.io
 ```
 
-#### Staging Environment
+2. Edit files directly using any text editor:
+   - HTML files for content changes
+   - CSS files for styling updates
+   - JavaScript files for functionality modifications
 
-**File**: `.env.staging`
+3. Test changes locally by opening HTML files in a browser
 
-```env
-NODE_ENV=staging
-SITE_URL=https://staging.yourdomain.com
-ANALYTICS_ID=staging-analytics-id
+### Publishing Changes
+
+1. Stage changes:
+```bash
+git add .
 ```
 
+2. Commit changes:
+```bash
+git commit -m "Update website content"
+```
 
-## Deployment Metrics
+3. Push to GitHub:
+```bash
+git push origin main
+```
 
-### Success Criteria
+4. Changes will be live within 2-3 minutes at: https://dhaneshbb.github.io
 
-- ✅ **Performance**: Lighthouse score > 90
-- ✅ **Accessibility**: No accessibility violations
-- ✅ **SEO**: Meta tags and structured data
-- ✅ **Security**: HTTPS and security headers
-- ✅ **Uptime**: 99.9% availability
-- ✅ **Load Time**: < 3 seconds
+## Automated Testing
 
-### Monitoring Dashboard
+### Lighthouse CI
 
-Create monitoring dashboard with:
+The repository includes automated performance testing via GitHub Actions:
 
-- Site uptime status
-- Performance metrics
-- Error rates
-- User analytics
-- Security alerts
+- Tests run automatically on every push to main branch
+- Tests both mobile and desktop performance
+- Generates detailed reports for all pages
+- Reports available in Actions tab under "Lighthouse CI"
+
+### Accessing Test Results
+
+1. Go to repository Actions tab
+2. Click on latest "Lighthouse CI" workflow run
+3. View results in job logs:
+   - Mobile reports in "Lighthouse Mobile" job
+   - Desktop reports in "Lighthouse Desktop" job
+4. Download detailed reports from Artifacts section
+
+## File Structure
+
+### Static Assets
+
+All assets are served directly without processing:
+- Images in `/assets/images/`
+- Downloadable files in `/assets/files/`
+- Stylesheets in `/css/`
+- JavaScript files in `/js/`
+
+### Configuration Files
+
+- `.github/workflows/lighthouse.yml` - Automated testing configuration
+- `LICENSE` - MIT License file
+- `README.md` - Project documentation
+- `robots.txt` - Search engine instructions
+- `sitemap.xml` - Site structure for SEO
+
+## Domain Configuration
+
+### Custom Domain (Optional)
+
+To use a custom domain:
+
+1. Add CNAME file to repository root with domain name
+2. Configure DNS settings with domain provider
+3. Update GitHub Pages settings to use custom domain
+
+### Default Domain
+
+Current deployment URL: https://dhaneshbb.github.io
 
 ## Troubleshooting
 
-### Common Deployment Issues
+### Common Issues
 
-#### 1. Build Failures
+**Changes not appearing:**
+- Wait 2-3 minutes for GitHub Pages to update
+- Check GitHub Actions for build status
+- Verify files are committed to main branch
 
-**Error**: Build process fails
-**Solutions**:
+**Performance issues:**
+- Review Lighthouse CI reports in Actions tab
+- Optimize images and reduce file sizes
+- Minimize CSS and JavaScript files
 
-```bash
-# Check Node.js version
-node --version
+**Page not loading:**
+- Check file paths are correct and case-sensitive
+- Ensure all referenced assets exist
+- Validate HTML syntax
 
-# Clear cache
-npm cache clean --force
+### Support
 
-# Reinstall dependencies
-rm -rf node_modules package-lock.json
-npm install
+For deployment issues:
+- Check GitHub Pages documentation
+- Review repository Actions tab for errors
+- Create issue in repository for specific problems
 
-# Check for syntax errors
-npm run lint
-```
+## Security
 
-#### 2. Broken Links
+### Best Practices
 
-**Error**: 404 errors for assets
-**Solutions**:
+- Keep repository public for GitHub Pages free tier
+- Review all changes before committing
+- Use descriptive commit messages
+- Test changes locally before deployment
 
-- Check file paths in HTML
-- Verify case sensitivity
-- Update base URL configuration
-- Check .htaccess rules
+### Automated Monitoring
 
-#### 3. HTTPS Issues
-
-**Error**: Mixed content warnings
-**Solutions**:
-
-- Update all HTTP links to HTTPS
-- Use protocol-relative URLs
-- Enable HTTPS redirect
-- Update CSP headers
-
-#### 4. Performance Issues
-
-**Error**: Slow loading times
-**Solutions**:
-
-- Optimize images
-- Minify CSS/JS
-- Enable compression
-- Use CDN
-- Implement caching
-
----
-
-**Happy Deploying! 🚀**
+Lighthouse CI provides ongoing monitoring:
+- Performance regression detection
+- Accessibility compliance checking
+- SEO optimization validation
+- Best practices enforcement
