@@ -2,8 +2,6 @@
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fyourdomain.com)](https://dhaneshbb.github.io)
 
-see this [License](LICENSE)
-
 > **Professional Data Science Portfolio showcasing machine learning expertise, analytics projects, and business intelligence solutions.**
 
 
@@ -254,7 +252,7 @@ npm run test:lighthouse
 
 ## License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+see this [License](LICENSE)
 
 ## Author
 
