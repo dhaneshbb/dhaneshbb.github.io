@@ -1,26 +1,27 @@
 <!doctype html>
+<!--
+  Copyright (c) 2025 Dhanesh B.B. All Rights Reserved.
+  Portfolio Website - Projects Page
+  Unauthorized copying or distribution is prohibited.
+  https://dhaneshbb.github.io
+-->
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZYLYR0091"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5ZYLYR0091');
-    </script>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="media/favicon.svg" />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=1024">
+    <meta name="viewport" content="width=1024" />
     <title>Projects - Dhanesh B.B. | Data Science Portfolio</title>
     <meta
       name="description"
       content="Explore innovative data science projects by Dhanesh B.B. including machine learning models, Python libraries, and analytics solutions."
     />
+    <meta name="author" content="Dhanesh B.B." />
+    <meta name="copyright" content="Copyright 2025 Dhanesh B.B. All rights reserved." />
+    <meta name="robots" content="index, follow" />
 
     <!-- Bootstrap CSS -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <!-- Font Awesome -->
@@ -34,1392 +35,14 @@
       rel="stylesheet"
     />
 
-    <style>
-      :root {
-        --primary-color: #0061f2;
-        --primary-dark: #0056d3;
-        --secondary-color: #6900c7;
-        --accent-color: #fd7e14;
-        --success-color: #00ac69;
-        --info-color: #0dcaf0;
-        --warning-color: #ffc107;
-        --danger-color: #dc3545;
-        --light-color: #f8f9fa;
-        --dark-color: #212529;
-        --text-dark: #2d3748;
-        --text-light: #718096;
-        --text-muted: #a0aec0;
-        --bg-primary: #ffffff;
-        --bg-secondary: #f8fafc;
-        --bg-tertiary: #edf2f7;
-        --border-color: #e2e8f0;
-        --card-bg: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
-        --card-hover: linear-gradient(135deg, #d1e9fc 0%, #e8f4fd 100%);
-        --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-        --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-        --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
-        --shadow-xl: 0 2rem 4rem rgba(0, 123, 255, 0.2);
-        --border-radius: 0.375rem;
-        --border-radius-lg: 0.5rem;
-        --border-radius-xl: 0.75rem;
-        --border-radius-2xl: 1rem;
-        --border-radius-3xl: 1.5rem;
-        --font-family-sans-serif:
-          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          sans-serif;
-        --font-family-monospace:
-          'JetBrains Mono', 'SF Mono', Monaco, Inconsolata, monospace;
-      }
+    <link rel="stylesheet" href="styles/main.css" />
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        font-family: var(--font-family-sans-serif);
-        line-height: 1.6;
-        color: var(--text-dark);
-        background: var(--bg-primary);
-        overflow-x: hidden;
-      }
-
-        /* Navigation Styling */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(0.625rem);
-            box-shadow: 0 0.125rem 1.25rem rgba(0, 0, 0, 0.1);
-            padding: 1rem 0;
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary-color) !important;
-        }
-
-        .navbar-nav .nav-link {
-            font-weight: 500;
-            color: var(--text-dark) !important;
-            margin: 0 0.625rem;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: var(--primary-color) !important;
-        }
-
-      /* Current Badge Styling */
-      .current-badge {
-        background: var(--success-color);
-        color: white !important;
-        padding: 0.5rem 1rem;
-        border-radius: 25px;
-        font-size: 0.875rem;
-        font-weight: 500;
-        margin-left: 1rem;
-        text-decoration: none;
-        animation: pulse 2s infinite;
-      }
-
-      /* Pulse Animation */
-      @keyframes pulse {
-        0%, 100% { 
-          opacity: 1; 
-        }
-        50% { 
-          opacity: 0.5; 
-        }
-      }
-
-      /* Page Header Enhanced */
-      .page-header {
-        padding: 120px 0 80px;
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        color: white;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .page-header::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background:
-          radial-gradient(
-            circle at 20% 50%,
-            rgba(255, 255, 255, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(255, 255, 255, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 40% 80%,
-            rgba(255, 255, 255, 0.1) 0%,
-            transparent 50%
-          );
-        animation: headerFloat 20s ease-in-out infinite;
-      }
-
-      @keyframes headerFloat {
-        0%,
-        100% {
-          transform: translateX(0) translateY(0);
-        }
-        25% {
-          transform: translateX(-10px) translateY(-5px);
-        }
-        50% {
-          transform: translateX(10px) translateY(5px);
-        }
-        75% {
-          transform: translateX(-5px) translateY(10px);
-        }
-      }
-
-      .page-title {
-        font-size: 3.5rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        position: relative;
-        z-index: 2;
-      }
-
-      .page-subtitle {
-        font-size: 1.25rem;
-        opacity: 0.9;
-        font-weight: 400;
-        position: relative;
-        z-index: 2;
-      }
-      /* Explore My Work Section - Contact Style */
-      .explore-section {
-        padding: 5rem 0;
-        background:var(--bg-light);
-        position: relative;
-      }
-
-      .explore-container {
-        max-width: 900px;
-        margin: 0 auto;
-        background: var(--bg-primary);
-        border-radius: var(--border-radius-3xl);
-        padding: 4rem;
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow-lg);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .availability-badge {
-        background: var(--primary-color);
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border-radius: 2rem;
-        font-size: 0.875rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        display: inline-block;
-        margin-bottom: 2rem;
-        animation: pulse 2s infinite;
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          box-shadow: 0 0 0 0 rgba(0, 97, 242, 0.4);
-        }
-        50% {
-          box-shadow: 0 0 0 10px rgba(0, 97, 242, 0);
-        }
-      }
-
-      .explore-title {
-        font-size: 3rem;
-        font-weight: 700;
-        color: var(--text-dark);
-        margin-bottom: 2rem;
-        position: relative;
-      }
-
-      .explore-description {
-        font-size: 1.125rem;
-        color: var(--text-light);
-        line-height: 1.7;
-        margin-bottom: 3rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .contact-methods {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        margin-bottom: 3rem;
-      }
-
-      .contact-method {
-        background: linear-gradient(
-          135deg,
-          rgba(0, 97, 242, 0.05),
-          rgba(105, 0, 199, 0.05)
-        );
-        padding: 2rem;
-        border-radius: var(--border-radius-2xl);
-        text-align: center;
-        border: 1px solid var(--border-color);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .contact-method::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(
-          90deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
-      }
-
-      .contact-method:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-lg);
-        background: var(--bg-primary);
-      }
-
-      .contact-method:hover::before {
-        transform: scaleX(1);
-      }
-
-      .contact-icon {
-        width: 4rem;
-        height: 4rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 1.5rem;
-        color: white;
-        font-size: 1.5rem;
-        transition: all 0.3s ease;
-      }
-
-      .contact-icon.email {
-        background: linear-gradient(135deg, #333, #24292e);
-      }
-
-      .contact-icon.phone {
-        background: linear-gradient(135deg, #20beff, #1da1f2);
-      }
-
-      .contact-icon.linkedin {
-        background: linear-gradient(135deg, #ff6b35, #f39c12);
-      }
-
-      .contact-method:hover .contact-icon {
-        transform: scale(1.1) rotate(5deg);
-      }
-
-      .contact-method h4 {
-        color: var(--text-dark);
-        margin-bottom: 1rem;
-        font-weight: 700;
-        font-size: 1.25rem;
-      }
-
-      .contact-method p {
-        color: var(--text-light);
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-        font-size: 0.9rem;
-      }
-
-      .contact-link {
-        color: var(--primary-color);
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        position: relative;
-      }
-
-      .contact-link::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--primary-color);
-        transition: width 0.3s ease;
-      }
-
-      .contact-link:hover {
-        color: var(--secondary-color);
-        transform: translateY(-1px);
-      }
-
-      .contact-link:hover::after {
-        width: 100%;
-      }
-
-      .location-info {
-        background: var(--bg-secondary);
-        padding: 2rem;
-        border-radius: var(--border-radius-2xl);
-        border: 1px solid var(--border-color);
-        text-align: center;
-      }
-
-      .location-title {
-        color: var(--text-dark);
-        margin-bottom: 1rem;
-        font-weight: 700;
-        font-size: 1.25rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-      }
-
-      .location-details {
-        color: var(--text-light);
-        line-height: 1.6;
-        font-size: 0.9rem;
-      }
-
-      .location-details strong {
-        color: var(--text-dark);
-      }
-
-      /* Projects Grid Enhanced */
-      .projects-section {
-        padding: 5rem 0;
-        background:var(--bg-light);
-        position: relative;
-      }
-
-      .projects-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background:var(--bg-light);
-        pointer-events: none;
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        margin-top: 3rem;
-        position: relative;
-        z-index: 2;
-      }
-
-      .project-card {
-        background: var(--card-bg);
-        border-radius: var(--border-radius-3xl);
-        padding: 2rem;
-        border: 1px solid rgba(0, 123, 255, 0.15);
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        position: relative;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-      }
-
-      .project-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.8),
-          rgba(240, 248, 255, 0.6)
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-      }
-
-      .project-card::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(
-          90deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        transform: scaleX(0);
-        transition: transform 0.4s ease;
-      }
-
-      .project-card:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow:
-          0 20px 40px rgba(0, 123, 255, 0.15),
-          0 0 0 1px rgba(0, 123, 255, 0.1);
-        background: var(--card-hover);
-        border-color: rgba(0, 123, 255, 0.25);
-      }
-
-      .project-card:hover::before {
-        opacity: 1;
-      }
-
-      .project-card:hover::after {
-        transform: scaleX(1);
-      }
-
-      .project-header {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 1.5rem;
-        position: relative;
-        z-index: 3;
-      }
-
-      .project-icon {
-        width: 24px;
-        height: 24px;
-        margin-right: 1rem;
-        margin-top: 0.25rem;
-        color: var(--primary-color);
-        transition: all 0.3s ease;
-      }
-
-      .project-card:hover .project-icon {
-        color: var(--secondary-color);
-        transform: rotate(10deg) scale(1.1);
-      }
-
-      .project-title {
-        font-size: 1.375rem;
-        font-weight: 700;
-        color: var(--text-dark);
-        margin: 0;
-        line-height: 1.3;
-        font-family: var(--font-family-monospace);
-        position: relative;
-        z-index: 3;
-        transition: color 0.3s ease;
-      }
-
-      .project-card:hover .project-title {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .project-description {
-        color: var(--text-light);
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        flex-grow: 1;
-        position: relative;
-        z-index: 3;
-        font-size: 0.9rem;
-      }
-
-      .project-meta {
-        margin-top: auto;
-        position: relative;
-        z-index: 3;
-      }
-
-      .project-date {
-        color: var(--text-muted);
-        font-size: 0.875rem;
-        margin-bottom: 1.5rem;
-        font-family: var(--font-family-monospace);
-        padding: 0.5rem 1rem;
-        background: rgba(0, 123, 255, 0.05);
-        border-radius: var(--border-radius-lg);
-        border-left: 3px solid var(--primary-color);
-        transition: all 0.3s ease;
-      }
-
-      .project-card:hover .project-date {
-        background: rgba(0, 123, 255, 0.1);
-        border-left-color: var(--secondary-color);
-      }
-
-      .tech-icons {
-        display: flex;
-        gap: 1rem;
-        justify-content: flex-end;
-        align-items: center;
-      }
-
-      .tech-icon {
-        width: 32px;
-        height: 32px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: var(--border-radius);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .tech-icon::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .tech-icon:hover {
-        transform: translateY(-3px) scale(1.1);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      }
-
-      .tech-icon:hover::before {
-        opacity: 1;
-      }
-
-      /* Additional Visual Enhancements */
-      .icon-database {
-        background: linear-gradient(135deg, #336791, #5dade2);
-        color: white;
-      }
-      .icon-chart {
-        background: linear-gradient(135deg, #ff6384, #ff9f40);
-        color: white;
-      }
-
-      /* Keyboard navigation styles */
-      .keyboard-nav .project-card:focus,
-      .keyboard-nav .platform-badge:focus,
-      .keyboard-nav .explore-link:focus {
-        outline: 3px solid var(--primary-color);
-        outline-offset: 2px;
-      }
-
-      /* Enhanced responsive design */
-      @media (max-width: 1200px) {
-        .projects-grid {
-          grid-template-columns: repeat(3, 1fr);
-          gap: 1.5rem;
-        }
-
-        .project-card {
-          padding: 1.75rem;
-        }
-
-        .explore-title {
-          font-size: 2rem;
-        }
-
-        .explore-container {
-          padding: 2.5rem;
-        }
-      }
-
-      @media (max-width: 992px) {
-        .projects-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 2rem;
-        }
-
-        .project-card {
-          padding: 2rem;
-        }
-
-        .explore-container {
-          padding: 2.5rem;
-        }
-
-        .contact-methods {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .page-title {
-          font-size: 2.75rem;
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-
-        .project-card {
-          padding: 2rem;
-        }
-
-        .explore-title {
-          font-size: 2.25rem;
-        }
-
-        .jupyter-logo {
-          width: 100px;
-          height: 100px;
-        }
-
-        .jupyter-circle {
-          width: 100px;
-          height: 100px;
-        }
-
-        .platform-badges {
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-        }
-
-        .platform-badge {
-          min-width: 200px;
-          text-align: center;
-        }
-
-        .explore-container {
-          padding: 2rem;
-          margin: 0 1rem;
-        }
-
-        .explore-title {
-          font-size: 2rem;
-        }
-
-        .jupyter-logo {
-          width: 100px;
-          height: 100px;
-        }
-
-        .jupyter-circle {
-          width: 100px;
-          height: 100px;
-        }
-
-        /* Disable complex animations on mobile for better performance */
-        .project-card:hover {
-          transform: translateY(-4px) scale(1.01);
-        }
-      }
-
-      @media (max-width: 480px) {
-        .page-title {
-          font-size: 2.25rem;
-        }
-
-        .project-card {
-          padding: 1.75rem;
-        }
-
-        .explore-section {
-          padding: 3rem 0;
-        }
-
-        .projects-section {
-          padding: 3rem 0;
-        }
-
-        .project-title {
-          font-size: 1.25rem;
-        }
-
-        .project-description {
-          font-size: 0.875rem;
-        }
-
-        .explore-container {
-          padding: 1.5rem;
-          margin: 0 1rem;
-        }
-
-        .explore-title {
-          font-size: 2rem;
-        }
-
-        .contact-methods {
-          gap: 1rem;
-        }
-
-        .contact-method {
-          padding: 1.5rem;
-        }
-
-        .contact-icon {
-          width: 3rem;
-          height: 3rem;
-          font-size: 1.25rem;
-        }
-
-        .tech-icons {
-          gap: 0.75rem;
-        }
-
-        .tech-icon {
-          width: 28px;
-          height: 28px;
-        }
-      }
-
-      /* High contrast mode support */
-      @media (prefers-contrast: high) {
-        :root {
-          --border-color: #000000;
-          --text-light: #000000;
-          --card-bg: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-        }
-
-        .project-card {
-          border: 2px solid #000000;
-        }
-      }
-
-      /* Reduced motion support */
-      @media (prefers-reduced-motion: reduce) {
-        * {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-        }
-
-        .project-card:hover {
-          transform: none !important;
-        }
-
-        .floating {
-          animation: none !important;
-        }
-      }
-
-      /* Print styles */
-      @media print {
-        .navbar,
-        .platform-badges {
-          display: none;
-        }
-
-        .project-card {
-          break-inside: avoid;
-          box-shadow: none;
-          border: 1px solid #000;
-        }
-
-        .page-header {
-          background: none;
-          color: #000;
-        }
-      }
-
-      /* Dark mode preparation (future enhancement) */
-      @media (prefers-color-scheme: dark) {
-        /* This section can be expanded for dark mode support */
-      }
-
-      .tech-icon i {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        position: relative;
-        z-index: 2;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 1200px) {
-        .projects-grid {
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        }
-      }
-
-      @media (max-width: 768px) {
-        .page-title {
-          font-size: 2.5rem;
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-
-        .project-card {
-          padding: 1.5rem;
-        }
-
-        .explore-title {
-          font-size: 2rem;
-        }
-
-        .jupyter-logo {
-          width: 100px;
-          height: 100px;
-        }
-
-        .jupyter-circle {
-          width: 100px;
-          height: 100px;
-        }
-
-        .platform-badges {
-          flex-direction: column;
-          align-items: center;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .page-title {
-          font-size: 2rem;
-        }
-
-        .project-card {
-          padding: 1.25rem;
-        }
-      }
-
-      /* Footer Enhanced */
-      .footer-section {
-        background: linear-gradient(135deg, var(--text-dark), #1a202c);
-        color: white;
-        padding: 4rem 0 2rem;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .footer-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background:
-          radial-gradient(
-            circle at 20% 50%,
-            rgba(0, 97, 242, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(105, 0, 199, 0.1) 0%,
-            transparent 50%
-          );
-        pointer-events: none;
-      }
-
-      .footer-brand h3 {
-        color: var(--primary-color);
-        font-size: 2rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-      }
-
-      .footer-description {
-        color: #cbd5e0;
-        line-height: 1.6;
-        margin-bottom: 2rem;
-        font-size: 0.95rem;
-      }
-
-      .footer-social {
-        display: flex;
-        gap: 1rem;
-      }
-
-      .social-icon {
-        width: 2.5rem;
-        height: 2.5rem;
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-
-      .social-icon:hover {
-        background: var(--primary-color);
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 5px 15px rgba(0, 97, 242, 0.4);
-      }
-
-      .footer-links h5 {
-        color: white;
-        font-size: 1.125rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        position: relative;
-      }
-
-      .footer-links h5::after {
-        content: '';
-        position: absolute;
-        bottom: -0.5rem;
-        left: 0;
-        width: 2rem;
-        height: 2px;
-        background: var(--primary-color);
-      }
-
-      .footer-links ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .footer-links ul li {
-        margin-bottom: 0.75rem;
-      }
-
-      .footer-links ul li a {
-        color: #cbd5e0;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        position: relative;
-        padding-left: 1rem;
-      }
-
-      .footer-links ul li a::before {
-        content: '▶';
-        position: absolute;
-        left: 0;
-        color: var(--primary-color);
-        font-size: 0.7rem;
-        transition: all 0.3s ease;
-      }
-
-      .footer-links ul li a:hover {
-        color: var(--primary-color);
-        padding-left: 1.5rem;
-      }
-
-      .footer-contact h5 {
-        color: white;
-        font-size: 1.125rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        position: relative;
-      }
-
-      .footer-contact h5::after {
-        content: '';
-        position: absolute;
-        bottom: -0.5rem;
-        left: 0;
-        width: 2rem;
-        height: 2px;
-        background: var(--primary-color);
-      }
-
-      .contact-info .contact-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-        color: #cbd5e0;
-        font-size: 0.9rem;
-      }
-
-      .contact-info .contact-item i {
-        color: var(--primary-color);
-        margin-right: 0.75rem;
-        width: 1rem;
-        text-align: center;
-      }
-
-      .contact-info .contact-item a {
-        color: #cbd5e0;
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .contact-info .contact-item a:hover {
-        color: var(--primary-color);
-      }
-
-      .availability-status {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 1.5rem;
-        padding: 0.75rem;
-        background: rgba(0, 172, 105, 0.1);
-        border-radius: var(--border-radius);
-        border-left: 3px solid var(--success-color);
-      }
-
-      .status-indicator {
-        width: 0.5rem;
-        height: 0.5rem;
-        background: var(--success-color);
-        border-radius: 50%;
-        animation: pulse 2s infinite;
-      }
-
-      .availability-status span:last-child {
-        color: #cbd5e0;
-        font-size: 0.85rem;
-        font-weight: 500;
-      }
-
-      .footer-bottom {
-        margin-top: 3rem;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .copyright {
-        color: #a0aec0;
-        margin: 0;
-        font-size: 0.85rem;
-      }
-
-      .footer-badges {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
-      }
-
-      .badge-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 0.5rem 1rem;
-        border-radius: 1.5rem;
-        font-size: 0.8rem;
-        color: #cbd5e0;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-
-      .badge-item i {
-        color: var(--primary-color);
-      }
-
-      /* Responsive Footer */
-      @media (max-width: 768px) {
-        .footer-section {
-          padding: 3rem 0 1.5rem;
-        }
-
-        .footer-badges {
-          justify-content: flex-start;
-          margin-top: 1rem;
-        }
-
-        .footer-badges .badge-item {
-          font-size: 0.75rem;
-          padding: 0.375rem 0.75rem;
-        }
-
-        .footer-bottom {
-          text-align: center;
-        }
-
-        .footer-bottom .row > div {
-          text-align: center !important;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .footer-badges {
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-
-        .badge-item {
-          justify-content: center;
-        }
-      }
-
-      /* Animations */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(60px);
-        transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-      }
-
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .fade-in-delay-1 {
-        transition-delay: 0.15s;
-      }
-      .fade-in-delay-2 {
-        transition-delay: 0.3s;
-      }
-      .fade-in-delay-3 {
-        transition-delay: 0.45s;
-      }
-      .fade-in-delay-4 {
-        transition-delay: 0.6s;
-      }
-
-      /* Staggered animations for project cards */
-      .project-card:nth-child(1) {
-        animation-delay: 0.1s;
-      }
-      .project-card:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      .project-card:nth-child(3) {
-        animation-delay: 0.3s;
-      }
-      .project-card:nth-child(4) {
-        animation-delay: 0.4s;
-      }
-      .project-card:nth-child(5) {
-        animation-delay: 0.5s;
-      }
-      .project-card:nth-child(6) {
-        animation-delay: 0.6s;
-      }
-      .project-card:nth-child(7) {
-        animation-delay: 0.7s;
-      }
-      .project-card:nth-child(8) {
-        animation-delay: 0.8s;
-      }
-      .project-card:nth-child(9) {
-        animation-delay: 0.9s;
-      }
-
-      /* Enhanced scroll animations */
-      @keyframes slideInUp {
-        from {
-          opacity: 0;
-          transform: translateY(80px) scale(0.95);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      .slide-in-up {
-        animation: slideInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-      }
-
-      /* Floating elements */
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-10px) rotate(2deg);
-        }
-      }
-
-      .floating {
-        animation: float 6s ease-in-out infinite;
-      }
-
-      /* Glow effect for interactive elements */
-      .glow-on-hover {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .glow-on-hover::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          45deg,
-          transparent,
-          rgba(0, 97, 242, 0.1),
-          transparent
-        );
-        transform: translateX(-100%);
-        transition: transform 0.6s ease;
-      }
-
-      .glow-on-hover:hover::before {
-        transform: translateX(100%);
-      }
-
-      /* Parallax effect for background elements */
-      .parallax-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 120%;
-        opacity: 0.1;
-        z-index: 1;
-        pointer-events: none;
-      }
-
-      /* Smooth scrolling improvements */
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Loading state improvements */
-      .project-card.loading {
-        background: linear-gradient(
-          90deg,
-          #f0f0f0 25%,
-          #e0e0e0 50%,
-          #f0f0f0 75%
-        );
-        background-size: 200% 100%;
-        animation: shimmer 2s infinite;
-      }
-
-      @keyframes shimmer {
-        0% {
-          background-position: -200% 0;
-        }
-        100% {
-          background-position: 200% 0;
-        }
-      }
-
-      /* Simple More Projects Button */
-      .simple-more-btn {
-        display: inline-block;
-        padding: 12px 24px;
-        background-color: #1e40af;
-        color: white;
-        text-decoration: none;
-        border-radius: 6px;
-        font-size: 14px;
-        font-weight: 600;
-        transition: all 0.2s ease;
-        border: none;
-        cursor: pointer;
-      }
-
-      .simple-more-btn:hover {
-        background-color: #1d4ed8;
-        color: white;
-        text-decoration: none;
-        transform: translateY(-1px);
-      }
-
-      .simple-more-btn:focus {
-        outline: 2px solid #93c5fd;
-        outline-offset: 2px;
-      }
-
-      /* Mobile Responsive */
-      @media (max-width: 480px) {
-        .simple-more-btn {
-          padding: 10px 20px;
-          font-size: 13px;
-        }
-
-        .more-projects-section {
-          padding: 3rem 0;
-        }
-      }
-      body, html {
-        min-width: 1024px !important;
-        overflow-x: auto !important;
-      }
-    </style>
+    <!-- Theme initialization - must run before page render to prevent flash -->
+    <script src="scripts/core/theme-init.js"></script>
   </head>
   <body>
-
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg "navbar-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Dhanesh B.B.</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="projects.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="experience.html">Experience</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-          <a href="contact.html" class="current-badge">
-            <i class="fas fa-circle me-2"></i>Available for New Opportunities
-          </a>
-        </div>
-      </div>
-    </nav>
+    <div id="nav-placeholder"></div>
 
     <!-- Page Header -->
     <section class="page-header">
@@ -1431,450 +54,1245 @@
       </div>
     </section>
 
-    <!-- Additional Content Section -->
-    <section
-      class="additional-content-section"
-      style="padding: 4rem 0; background: var(--bg-light)"
-    >
+    <!-- Filter Section -->
+    <section class="stats-badge-section">
       <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2
-              style="
-                font-size: 2.5rem;
-                font-weight: 700;
-                color: var(--text-dark);
-                margin-bottom: 1.5rem;
-              "
-            >
-              Passionate About Data-Driven Innovation
-            </h2>
-            
-            <div
-              class="philosophy-quote fade-in fade-in-delay-2"
-              style="
-                background: linear-gradient(135deg, #f0f8ff 0%, #e8f4fd 100%);
-                border-left: 5px solid var(--primary-color);
-                padding: 3rem 3rem 3rem 4rem;
-                border-radius: var(--border-radius-2xl);
-                box-shadow: var(--shadow);
-                position: relative;
-                overflow: hidden;
-                margin-bottom: 3rem;
-              "
-            >
-              <div
-                style="
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  width: 100%;
-                  height: 100%;
-                  background: radial-gradient(
-                    circle at 80% 20%,
-                    rgba(0, 97, 242, 0.05) 0%,
-                    transparent 50%
-                  );
-                  pointer-events: none;
-                "
-              ></div>
-              <blockquote
-                style="
-                  font-size: 1.25rem;
-                  line-height: 1.7;
-                  color: var(--text-dark);
-                  font-style: italic;
-                  margin: 0;
-                  position: relative;
-                  z-index: 2;
-                  font-weight: 500;
-                "
-              >
-                Each project represents a journey of discovery, problem-solving, and innovation. From processing 50+ million records to creating automated solutions that save thousands of hours, I'm committed to transforming complex data challenges into meaningful business outcomes.
-              </blockquote>
-              <div
-                style="
-                  position: absolute;
-                  top: 1.5rem;
-                  left: 3rem;
-                  font-size: 4rem;
-                  color: var(--primary-color);
-                  opacity: 0.1;
-                  font-family: Georgia, serif;
-                  z-index: 1;
-                "
-              >
-                "
-              </div>
-            </div>
+        <div class="stats-badge-container fade-in fade-in-delay-2">
+          <!-- Filter Tabs -->
+          <div class="filter-tabs-wrapper">
+            <button class="filter-tab active" data-filter="all">
+              <i class="fas fa-grid-2"></i>
+              <span class="tab-text">All Projects</span>
+              <span class="tab-count">13</span>
+            </button>
 
-            <!-- Statistics Section -->
-            <div
-              style="
-                display: flex;
-                justify-content: center;
-                gap: 2rem;
-                flex-wrap: wrap;
-              "
-            >
-              <div style="text-align: center">
-                <div
-                  style="
-                    font-size: 2rem;
-                    font-weight: 800;
-                    color: var(--primary-color);
-                    margin-bottom: 0.5rem;
-                  "
-                >
-                  10+
-                </div>
-                <div style="color: var(--text-light); font-size: 0.875rem">
-                  Major Projects
-                </div>
-              </div>
-              
-              <div style="text-align: center">
-                <div
-                  style="
-                    font-size: 2rem;
-                    font-weight: 800;
-                    color: var(--primary-color);
-                    margin-bottom: 0.5rem;
-                  "
-                >
-                  92.5%
-                </div>
-                <div style="color: var(--text-light); font-size: 0.875rem">
-                  Best Accuracy
-                </div>
-              </div>
-              
-              <div style="text-align: center">
-                <div
-                  style="
-                    font-size: 2rem;
-                    font-weight: 800;
-                    color: var(--primary-color);
-                    margin-bottom: 0.5rem;
-                  "
-                >
-                  40%
-                </div>
-                <div style="color: var(--text-light); font-size: 0.875rem">
-                  Efficiency Improvement
-                </div>
-              </div>
-              
-              <div style="text-align: center">
-                <div
-                  style="
-                    font-size: 2rem;
-                    font-weight: 800;
-                    color: var(--primary-color);
-                    margin-bottom: 0.5rem;
-                  "
-                >
-                  1200+
-                </div>
-                <div style="color: var(--text-light); font-size: 0.875rem">
-                  Minutes Saved
-                </div>
-              </div>
-            </div>
+            <button class="filter-tab" data-filter="ml">
+              <i class="fas fa-brain"></i>
+              <span class="tab-text">Machine Learning</span>
+              <span class="tab-count">6</span>
+            </button>
+
+            <button class="filter-tab" data-filter="tools">
+              <i class="fas fa-tools"></i>
+              <span class="tab-text">Dev Tools</span>
+              <span class="tab-count">5</span>
+            </button>
+
+            <button class="filter-tab" data-filter="packages">
+              <i class="fab fa-python"></i>
+              <span class="tab-text">PyPI Packages</span>
+              <span class="tab-count">2</span>
+            </button>
+
+            <button class="filter-tab" data-filter="web">
+              <i class="fas fa-globe"></i>
+              <span class="tab-text">Web Apps</span>
+              <span class="tab-count">2</span>
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects-section">
+    <!-- Projects Grid (New Design) -->
+    <section class="projects-showcase">
       <div class="container">
-        <div class="projects-grid">
-          <!-- InsightfulPy Project -->
-          <div class="project-card fade-in glow-on-hover">
-            <div class="project-header">
-              <i class="fas fa-folder-open project-icon floating"></i>
-              <h3 class="project-title">insightfulpy</h3>
+        <!-- Featured Projects (Large Cards) -->
+        <div class="section-header">
+          <h2 class="section-title fade-in">Featured Projects</h2>
+          <p class="section-subtitle fade-in fade-in-delay-1">
+            Showcasing innovative solutions that demonstrate expertise in machine learning and data
+            analytics
+          </p>
+        </div>
+
+        <div class="featured-grid">
+          <!-- 1. InsightfulPy - PyPI Package -->
+          <div
+            class="project-card-new featured"
+            data-category="packages tools"
+            data-topics="data-analysis, exploratory-data-analysis, statistics, visualization, pandas, data-science, eda, statistical-analysis, data-visualization, outlier-detection"
+          >
+            <div class="card-ribbon"><i class="fab fa-python"></i> PyPI Package</div>
+            <div class="card-header-new">
+              <div class="project-icon-new">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="project-meta-header">
+                <h3 class="project-title-new">InsightfulPy</h3>
+                <div class="project-subtitle">
+                  Python Toolkit for Exploratory Data Analysis
+                  <a
+                    href="https://pepy.tech/projects/insightfulpy"
+                    target="_blank"
+                    rel="noopener"
+                    class="downloads-inline-badge"
+                  >
+                    <img
+                      src="https://static.pepy.tech/personalized-badge/insightfulpy?period=total&units=NONE&left_color=blue&right_color=brightgreen&left_text=downloads"
+                      alt="InsightfulPy Downloads"
+                      loading="lazy"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="project-status">
+                <span class="status-badge published">v0.2.0</span>
+              </div>
             </div>
-            <p class="project-description">
-              📊 Comprehensive Python library for automated exploratory data
-              analysis with 25+ functions for EDA, outlier detection, and
-              statistical summaries. Published on PyPI for global data science
-              community with advanced statistical capabilities.
-            </p>
-            <div class="project-meta">
-              <div class="project-date">📅 Published on Jan 2025</div>
-              <div class="project-actions">
+
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Python toolkit for exploratory data analysis with visualization and statistical
+                functions. Simplifies EDA through statistical summaries, data quality checks, and
+                visualizations. Built with <strong>modular architecture</strong> and
+                constants-driven design, works seamlessly in Jupyter notebooks, IPython, and
+                terminal environments. Published on PyPI with <strong>10 releases</strong> and
+                extensive documentation.
+              </p>
+
+              <div class="project-highlights">
+                <div class="highlight-item">
+                  <i class="fas fa-download"></i>
+                  <span>10 Releases</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-code"></i>
+                  <span>Beta Status</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-users"></i>
+                  <span>Open Source</span>
+                </div>
+              </div>
+
+              <div class="tech-stack-new">
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python 3.8+
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/pandas/pandas-original.svg"
+                    alt="Pandas"
+                    class="tech-logo"
+                  />
+                  Pandas
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/numpy/numpy-original.svg"
+                    alt="NumPy"
+                    class="tech-logo"
+                  />
+                  NumPy
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/matplotlib/matplotlib-original.svg"
+                    alt="Matplotlib"
+                    class="tech-logo"
+                  />
+                  Matplotlib
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/01/Created_with_Matplotlib-logo.svg"
+                    alt="Seaborn"
+                    class="tech-logo"
+                  />
+                  Seaborn
+                </span>
+                <span class="tech-badge">
+                  <img src="https://scipy.org/images/logo.svg" alt="SciPy" class="tech-logo" />
+                  SciPy
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-chart-bar"></i>
+                  Missingno
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-chart-line"></i>
+                  EDA
+                </span>
+              </div>
+            </div>
+
+            <div class="card-footer-new">
+              <div class="repo-card-container">
+                <a href="https://github.com/dhaneshbb/insightfulpy" target="_blank" rel="noopener">
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/insightfulpy"
+                    alt="InsightfulPy Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <div class="project-links-new">
                 <a
                   href="https://github.com/dhaneshbb/insightfulpy"
                   target="_blank"
                   rel="noopener"
-                  class="github-btn"
+                  class="btn-link github"
+                  title="View source code on GitHub"
                 >
-                  <i class="fab fa-github"></i> View Code
+                  <i class="fab fa-github"></i> GitHub
                 </a>
                 <a
                   href="https://pypi.org/project/insightfulpy/"
                   target="_blank"
                   rel="noopener"
-                  class="pypi-btn"
+                  class="btn-link pypi"
+                  title="Install from PyPI"
                 >
                   <i class="fab fa-python"></i> PyPI
                 </a>
               </div>
-              <div class="tech-icons">
-                <span class="tech-icon icon-python"
-                  ><i class="fab fa-python"></i
-                ></span>
-                <span class="tech-icon icon-chart"
-                  ><i class="fas fa-chart-bar"></i
-                ></span>
-                <span class="tech-icon icon-jupyter"
-                  ><i class="fas fa-laptop-code"></i
-                ></span>
-              </div>
+              <div class="project-date">01-10-2024</div>
             </div>
           </div>
 
-          <!-- Home Loan Default Prediction -->
-          <div class="project-card fade-in fade-in-delay-1 glow-on-hover">
-            <div class="project-header">
-              <i class="fas fa-folder-open project-icon floating"></i>
-              <h3 class="project-title">home-loan-default-prediction</h3>
+          <!-- 2. AutoCSV Profiler Suite - DevOps Tool -->
+          <div
+            class="project-card-new featured"
+            data-category="tools devops"
+            data-topics="python, data-science, automation, statistics, eda, pandas, data-visualization, statistical-analysis, multi-environment, data-analysis, profiling, dataprep, conda-environment, cli-tool, dependency-management, sweetviz, csv-analysis, ydata-profiling, subprocess-isolation"
+          >
+            <div class="card-ribbon"><i class="fas fa-layer-group"></i> Automation</div>
+            <div class="card-header-new">
+              <div class="project-icon-new">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <div class="project-meta-header">
+                <h3 class="project-title-new">AutoCSV Profiler Suite</h3>
+                <div class="project-subtitle">Multi-Environment CSV Analysis Orchestrator</div>
+              </div>
+              <div class="project-status">
+                <span class="status-badge success">5+ Tools</span>
+              </div>
             </div>
-            <p class="project-description">
-              🏠 XGBoost model achieving 83% accuracy on 50M+ records for home
-              loan default prediction. Advanced feature engineering and memory
-              optimization reduced false positives by 22% and eliminated 1,200+
-              hours of manual review.
-            </p>
-            <div class="project-meta">
-              <div class="project-date">📅 Completed on Feb 2025</div>
-              <div class="project-actions">
+
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Multi-environment CSV data analysis orchestrator that resolves
+                <strong>dependency conflicts</strong> between profiling engines through
+                <strong>isolated conda environments</strong> while providing a unified interface.
+                Enables <strong>parallel execution</strong> across pandas-profiling,
+                ydata-profiling, sweetviz, autoviz, and D-Tale with automated workflow management,
+                YAML configuration, and comprehensive error handling for seamless multi-tool EDA
+                operations.
+              </p>
+
+              <div class="project-highlights">
+                <div class="highlight-item">
+                  <i class="fas fa-layer-group"></i>
+                  <span>5+ Tools</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-cogs"></i>
+                  <span>Isolated Envs</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-rocket"></i>
+                  <span>Parallel Exec</span>
+                </div>
+              </div>
+
+              <div class="tech-stack-new">
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/anaconda/anaconda-original.svg"
+                    alt="Conda"
+                    class="tech-logo"
+                  />
+                  Conda
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/yaml/yaml-original.svg"
+                    alt="YAML"
+                    class="tech-logo"
+                  />
+                  YAML
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-tools"></i>
+                  EDA Tools
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-cogs"></i>
+                  Automation
+                </span>
+              </div>
+            </div>
+
+            <div class="card-footer-new">
+              <div class="repo-card-container">
                 <a
-                  href="https://github.com/dhaneshbb/HomeLoanDef"
+                  href="https://github.com/dhaneshbb/autocsv-profiler-suite"
                   target="_blank"
                   rel="noopener"
-                  class="github-btn"
                 >
-                  <i class="fab fa-github"></i> View Code
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/autocsv-profiler-suite"
+                    alt="AutoCSV Profiler Suite Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
                 </a>
               </div>
-              <div class="tech-icons">
-                <span class="tech-icon icon-python"
-                  ><i class="fab fa-python"></i
-                ></span>
-                <span class="tech-icon icon-database"
-                  ><i class="fas fa-database"></i
-                ></span>
-                <span class="tech-icon icon-chart"
-                  ><i class="fas fa-brain"></i
-                ></span>
+              <div class="project-links-new">
+                <a
+                  href="https://github.com/dhaneshbb/autocsv-profiler-suite"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn-link github"
+                >
+                  <i class="fab fa-github"></i> View Project
+                </a>
               </div>
+              <div class="project-date">01-02-2024</div>
             </div>
           </div>
 
-          <!-- Employee Performance Analysis -->
-          <div class="project-card fade-in fade-in-delay-2 glow-on-hover">
-            <div class="project-header">
-              <i class="fas fa-folder-open project-icon floating"></i>
-              <h3 class="project-title">employee-performance-analysis</h3>
+          <!-- 3. Multi-AI Chat Manager - Desktop Application -->
+          <div
+            class="project-card-new featured"
+            data-category="tools desktop"
+            data-topics="electron, desktop-app, python, windows, productivity, window-management, ai-tools, chat-automation, multi-ai"
+          >
+            <div class="card-ribbon"><i class="fas fa-robot"></i> AI Tools</div>
+            <div class="card-header-new">
+              <div class="project-icon-new">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="project-meta-header">
+                <h3 class="project-title-new">Multi-AI Chat Manager</h3>
+                <div class="project-subtitle">AI Services Orchestration Platform</div>
+              </div>
+              <div class="project-status">
+                <span class="status-badge success">Demo</span>
+              </div>
             </div>
-            <p class="project-description">
-              👥 Analyzed 1,200+ employee records using XGBoost achieving 92.5%
-              accuracy with SHAP analysis. Deployed predictive hiring model for
-              INX Future Inc boosting accuracy by 20% with comprehensive
-              performance insights.
-            </p>
-            <div class="project-meta">
-              <div class="project-date">📅 Completed on Apr 2025</div>
-              <div class="project-actions">
+
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Desktop application for managing
+                <strong>multiple AI chat services simultaneously</strong> with automated window
+                control and synchronized prompt distribution. Features
+                <strong>unified AI window management</strong>, grid layouts, and YAML configuration.
+                Documentation-only demo with Electron frontend and Python backend concepts for
+                Windows 10/11, providing intelligent workspace management and seamless multi-service
+                coordination for enhanced AI workflows.
+              </p>
+
+              <div class="project-highlights">
+                <div class="highlight-item">
+                  <i class="fas fa-robot"></i>
+                  <span>Multi-AI</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-window-restore"></i>
+                  <span>Auto Control</span>
+                </div>
+                <div class="highlight-item">
+                  <i class="fas fa-desktop"></i>
+                  <span>Desktop App</span>
+                </div>
+              </div>
+
+              <div class="tech-stack-new">
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/electron/electron-original.svg"
+                    alt="Electron"
+                    class="tech-logo"
+                  />
+                  Electron
+                </span>
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/windows8/windows8-original.svg"
+                    alt="Windows"
+                    class="tech-logo"
+                  />
+                  Windows
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-rocket"></i>
+                  Productivity
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-cogs"></i>
+                  Automation
+                </span>
+              </div>
+            </div>
+
+            <div class="card-footer-new">
+              <div class="repo-card-container">
+                <a
+                  href="https://github.com/dhaneshbb/Multi-AI-Chat-Manager-demo"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/Multi-AI-Chat-Manager-demo"
+                    alt="Multi-AI Chat Manager Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <div class="project-links-new">
+                <a
+                  href="https://github.com/dhaneshbb/Multi-AI-Chat-Manager-demo"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn-link github"
+                >
+                  <i class="fab fa-github"></i> View Demo
+                </a>
+              </div>
+              <div class="project-date">01-01-2024</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regular Projects Grid -->
+        <div class="section-header mt-5">
+          <h2 class="section-title">Machine Learning Projects</h2>
+          <p class="section-subtitle">Classification, regression, and predictive analytics</p>
+        </div>
+
+        <div class="projects-grid-new">
+          <!-- 4. Home Loan Default Prediction -->
+          <div
+            class="project-card-new compact"
+            data-category="ml"
+            data-topics="python, machine-learning, scikit-learn, sklearn, jupyter-notebook, pandas, statistical-analysis, xgboost, lightgbm, data-analysis, feature-engineering, predictive-modeling, risk-assessment, hyperparameter-tuning, binary-classification, imbalanced-data, catboost, credit-risk, financial-modeling, loan-prediction"
+          >
+            <div class="card-header-new">
+              <div class="project-icon-new ml">
+                <i class="fas fa-home"></i>
+              </div>
+              <h3 class="project-title-new">Home Loan Default Predictor</h3>
+            </div>
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Home loan default prediction analyzing <strong>58.44M records</strong> across 7
+                datasets. XGBoost classifier with 143 engineered features achieves
+                <strong>83% accuracy</strong>, <strong>52.8% recall</strong>, and
+                <strong>0.785 ROC AUC</strong> at threshold 0.60. Addresses class imbalance (8%
+                default rate), memory optimization (<strong>68.5% reduction</strong>),
+                multicollinearity, and saves <strong>1200+ hours</strong> of manual review through
+                intelligent risk assessment.
+              </p>
+              <div class="tech-stack-new">
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png"
+                    alt="XGBoost"
+                    class="tech-logo"
+                  />
+                  XGBoost
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                    alt="Scikit-learn"
+                    class="tech-logo"
+                  />
+                  Scikit-learn
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jupyter/jupyter-original.svg"
+                    alt="Jupyter"
+                    class="tech-logo"
+                  />
+                  Jupyter
+                </span>
+              </div>
+            </div>
+            <div class="card-footer-new">
+              <div class="repo-card-container">
+                <a href="https://github.com/dhaneshbb/HomeLoanDef" target="_blank" rel="noopener">
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/HomeLoanDef"
+                    alt="Home Loan Default Predictor Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <a
+                href="https://github.com/dhaneshbb/HomeLoanDef"
+                target="_blank"
+                rel="noopener"
+                class="btn-link github"
+              >
+                <i class="fab fa-github"></i> Code
+              </a>
+              <a
+                href="https://www.kaggle.com/code/dhaneshbb/prcp-1006-homeloandef"
+                target="_blank"
+                rel="noopener"
+                class="btn-link kaggle"
+              >
+                <i class="fab fa-kaggle"></i> Kaggle
+              </a>
+              <div class="project-date">01-01-2024</div>
+            </div>
+          </div>
+
+          <!-- 5. Employee Performance AI -->
+          <div
+            class="project-card-new compact"
+            data-category="ml"
+            data-topics="python, data-science, machine-learning, scikit-learn, jupyter-notebook, pandas, xgboost, classification, lightgbm, data-analysis, feature-engineering, predictive-analytics, performance-prediction, multiclass-classification, catboost, shap, model-interpretability, hr-analytics, employee-performance, workforce-analytics"
+          >
+            <div class="card-header-new">
+              <div class="project-icon-new ml">
+                <i class="fas fa-users-cog"></i>
+              </div>
+              <h3 class="project-title-new">INX Employee Performance Analysis</h3>
+            </div>
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Employee performance prediction using XGBoost multiclass classification (<strong
+                  >92.5% accuracy</strong
+                >, <strong>93.3% CV F1-score</strong>) with <strong>SHAP interpretability</strong>.
+                Analyzes 1,200 employee records across 28 features, identifies top 3 performance
+                drivers, and provides HR recommendations. Full pipeline includes EDA, feature
+                engineering, model comparison, and deployment-ready inference.
+              </p>
+              <div class="tech-stack-new">
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png"
+                    alt="XGBoost"
+                    class="tech-logo"
+                  />
+                  XGBoost
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://raw.githubusercontent.com/shap/shap/master/docs/artwork/shap_header.svg"
+                    alt="SHAP"
+                    class="tech-logo"
+                  />
+                  SHAP
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                    alt="Scikit-learn"
+                    class="tech-logo"
+                  />
+                  Scikit-learn
+                </span>
+              </div>
+            </div>
+            <div class="card-footer-new">
+              <div class="repo-card-container">
                 <a
                   href="https://github.com/dhaneshbb/INX-Employee-Performance-Analysis"
                   target="_blank"
                   rel="noopener"
-                  class="github-btn"
                 >
-                  <i class="fab fa-github"></i> View Code
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/INX-Employee-Performance-Analysis"
+                    alt="INX Employee Performance Analysis Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
                 </a>
               </div>
-              <div class="tech-icons">
-                <span class="tech-icon icon-python"
-                  ><i class="fab fa-python"></i
-                ></span>
-                <span class="tech-icon icon-chart"
-                  ><i class="fas fa-users"></i
-                ></span>
-                <span class="tech-icon icon-jupyter"
-                  ><i class="fas fa-chart-line"></i
-                ></span>
-              </div>
+              <a
+                href="https://github.com/dhaneshbb/INX-Employee-Performance-Analysis"
+                target="_blank"
+                rel="noopener"
+                class="btn-link github"
+              >
+                <i class="fab fa-github"></i> Code
+              </a>
+              <div class="project-date">01-04-2024</div>
             </div>
           </div>
 
-          <!-- AutoCSV Profiler Suite -->
-          <div class="project-card fade-in glow-on-hover">
-            <div class="project-header">
-              <i class="fas fa-folder-open project-icon floating"></i>
-              <h3 class="project-title">autocsv-profiler-suite</h3>
+          <!-- 6. Sales Effectiveness Analysis -->
+          <div
+            class="project-card-new compact"
+            data-category="ml"
+            data-topics="python, machine-learning, scikit-learn, jupyter-notebook, cross-validation, pandas, statistical-analysis, xgboost, classification, data-analysis, feature-engineering, hyperparameter-tuning, imbalanced-data, model-evaluation, gradient-boosting, lead-scoring, sales-analytics, frequency-encoding, b2b-sales, threshold-optimization"
+          >
+            <div class="card-header-new">
+              <div class="project-icon-new">
+                <i class="fas fa-chart-pie"></i>
+              </div>
+              <h3 class="project-title-new">FicZon Sales Effectiveness</h3>
             </div>
-            <p class="project-description">
-              🔧 Dependency-isolated CSV analysis toolkit using Python to
-              resolve library conflicts, enabling parallel execution of 5+ EDA
-              tools via virtual environments. Advanced automation for seamless
-              data profiling workflows.
-            </p>
-            <div class="project-meta">
-              <div class="project-date">📅 Completed on Feb 2025</div>
-              <div class="project-actions">
+            <div class="card-body-new">
+              <p class="project-description-new">
+                B2B sales lead quality prediction using XGBoost classifier. Achieves
+                <strong>81.06% ROC AUC</strong> and <strong>84.74% recall</strong> on 7,420 IT sales
+                leads. Handles class imbalance, high-cardinality categoricals, and missing data
+                through <strong>frequency encoding</strong> and threshold optimization. Includes
+                statistical analysis, cross-validation, feature importance, and actionable business
+                insights.
+              </p>
+              <div class="tech-stack-new">
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/69/XGBoost_logo.png"
+                    alt="XGBoost"
+                    class="tech-logo"
+                  />
+                  XGBoost
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                    alt="Scikit-learn"
+                    class="tech-logo"
+                  />
+                  Scikit-learn
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jupyter/jupyter-original.svg"
+                    alt="Jupyter"
+                    class="tech-logo"
+                  />
+                  Jupyter
+                </span>
+              </div>
+            </div>
+            <div class="card-footer-new">
+              <div class="repo-card-container">
                 <a
-                  href="https://github.com/dhaneshbb/AutoCSV-Profiler-Suite"
+                  href="https://github.com/dhaneshbb/FicZon-Sales-Effectiveness"
                   target="_blank"
                   rel="noopener"
-                  class="github-btn"
                 >
-                  <i class="fab fa-github"></i> View Code
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/FicZon-Sales-Effectiveness"
+                    alt="FicZon Sales Effectiveness Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
                 </a>
               </div>
-              <div class="tech-icons">
-                <span class="tech-icon icon-python"
-                  ><i class="fab fa-python"></i
-                ></span>
-                <span class="tech-icon icon-shell"
-                  ><i class="fas fa-terminal"></i
-                ></span>
-                <span class="tech-icon icon-chart"
-                  ><i class="fas fa-cogs"></i
-                ></span>
-              </div>
+              <a
+                href="https://github.com/dhaneshbb/FicZon-Sales-Effectiveness"
+                target="_blank"
+                rel="noopener"
+                class="btn-link github"
+              >
+                <i class="fab fa-github"></i> View Code
+              </a>
+              <div class="project-date">01-03-2024</div>
             </div>
           </div>
 
-          <!-- Sales Effectiveness Analysis -->
-          <div class="project-card fade-in fade-in-delay-1 glow-on-hover">
-            <div class="project-header">
-              <i class="fas fa-folder-open project-icon floating"></i>
-              <h3 class="project-title">sales-effectiveness-analysis</h3>
+          <!-- 7. Portuguese Bank Term Deposit -->
+          <div
+            class="project-card-new compact"
+            data-category="ml"
+            data-topics="python, data-science, machine-learning, scikit-learn, jupyter-notebook, cross-validation, pandas, banking, classification, lightgbm, data-analysis, feature-engineering, predictive-modeling, binary-classification, multicollinearity, imbalanced-data, model-evaluation, gradient-boosting, marketing-analytics, uci-dataset"
+          >
+            <div class="card-header-new">
+              <div class="project-icon-new">
+                <i class="fas fa-university"></i>
+              </div>
+              <h3 class="project-title-new">Portuguese Bank Campaign Predictor</h3>
             </div>
-            <p class="project-description">
-              📈 XGBoost classifier for automated lead qualification reducing
-              manual review time by 30%. Identified critical business trends
-              including 20.4% lead inflow on Mondays and 46% peak conversions in
-              November.
-            </p>
-            <div class="project-meta">
-              <div class="project-date">📅 Completed on Mar 2025</div>
-              <div class="project-actions">
-                <a
-                  href="https://github.com/dhaneshbb/FicZon-Inc-Sales-Effectiveness"
-                  target="_blank"
-                  rel="noopener"
-                  class="github-btn"
-                >
-                  <i class="fab fa-github"></i> View Code
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Binary classification model for Portuguese bank term deposit prediction using
+                LightGBM. UCI ML dataset (<strong>41,188 records</strong>). Handles class imbalance
+                (7.87:1), multicollinearity (VIF>26k), and data leakage. Test:
+                <strong>87.8% accuracy</strong>, <strong>57.3% recall</strong>,
+                <strong>81.1% ROC AUC</strong> with comprehensive cross-validation optimization for
+                banking campaign targeting.
+              </p>
+              <div class="tech-stack-new">
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="media/logos/libraries/lightgbm-logo.svg"
+                    alt="LightGBM"
+                    class="tech-logo"
+                  />
+                  LightGBM
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                    alt="Scikit-learn"
+                    class="tech-logo"
+                  />
+                  Scikit-learn
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jupyter/jupyter-original.svg"
+                    alt="Jupyter"
+                    class="tech-logo"
+                  />
+                  Jupyter
+                </span>
+              </div>
+            </div>
+            <div class="card-footer-new">
+              <div class="repo-card-container">
+                <a href="https://github.com/dhaneshbb/ProtugeseBank" target="_blank" rel="noopener">
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/ProtugeseBank"
+                    alt="Portuguese Bank Campaign Predictor Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
                 </a>
               </div>
-              <div class="tech-icons">
-                <span class="tech-icon icon-python"
-                  ><i class="fab fa-python"></i
-                ></span>
-                <span class="tech-icon icon-chart"
-                  ><i class="fas fa-chart-line"></i
-                ></span>
-                <span class="tech-icon icon-database"
-                  ><i class="fas fa-bullseye"></i
-                ></span>
-              </div>
+              <a
+                href="https://github.com/dhaneshbb/ProtugeseBank"
+                target="_blank"
+                rel="noopener"
+                class="btn-link github"
+              >
+                <i class="fab fa-github"></i> View Code
+              </a>
+              <a
+                href="https://www.kaggle.com/code/dhaneshbb/prcp-1000-portugesebank"
+                target="_blank"
+                rel="noopener"
+                class="btn-link kaggle"
+              >
+                <i class="fab fa-kaggle"></i> Kaggle
+              </a>
+              <div class="project-date">01-01-2024</div>
             </div>
           </div>
 
-          <!-- Auto Price Prediction -->
-          <div class="project-card fade-in fade-in-delay-2 glow-on-hover">
-            <div class="project-header">
-              <i class="fas fa-folder-open project-icon floating"></i>
-              <h3 class="project-title">auto-price-prediction</h3>
+          <!-- 8. Bike Rental Demand -->
+          <div
+            class="project-card-new compact"
+            data-category="ml"
+            data-topics="python, data-science, machine-learning, scikit-learn, jupyter-notebook, cross-validation, regression, statistical-analysis, xgboost, data-analysis, feature-engineering, ridge-regression, bike-sharing, hyperparameter-tuning, multicollinearity, capital-bikeshare, demand-forecasting, gradient-boosting, model-comparison, uci-dataset"
+          >
+            <div class="card-header-new">
+              <div class="project-icon-new">
+                <i class="fas fa-bicycle"></i>
+              </div>
+              <h3 class="project-title-new">Capital Bikeshare Demand Forecaster</h3>
             </div>
-            <p class="project-description">
-              🚗 Vehicle pricing strategy model using Lasso Regression achieving
-              R²=0.917 and RMSE=1.987. Leveraged PCA for 95% variance retention
-              in automotive pricing with luxury premium analysis of $6-7.3K.
-            </p>
-            <div class="project-meta">
-              <div class="project-date">📅 Completed on Feb 2025</div>
-              <div class="project-actions">
-                <a
-                  href="https://github.com/dhaneshbb/Auto-Price-Prediction"
-                  target="_blank"
-                  rel="noopener"
-                  class="github-btn"
-                >
-                  <i class="fab fa-github"></i> View Code
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Daily bike rental demand prediction using Ridge Regression on Capital Bikeshare data
+                (2011-2012). Addresses multicollinearity, zero-inflated features, and non-normal
+                distributions. Test <strong>R²=0.832</strong>, CV <strong>R²=0.815±0.032</strong>.
+                Includes statistical analysis, VIF removal, and comparison of
+                <strong>10 regression algorithms</strong> for accurate demand forecasting.
+              </p>
+              <div class="tech-stack-new">
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-chart-line"></i>
+                  Ridge Regression
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                    alt="Scikit-learn"
+                    class="tech-logo"
+                  />
+                  Scikit-learn
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jupyter/jupyter-original.svg"
+                    alt="Jupyter"
+                    class="tech-logo"
+                  />
+                  Jupyter
+                </span>
+              </div>
+            </div>
+            <div class="card-footer-new">
+              <div class="repo-card-container">
+                <a href="https://github.com/dhaneshbb/BikeRental" target="_blank" rel="noopener">
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/BikeRental"
+                    alt="Capital Bikeshare Demand Forecaster Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
                 </a>
               </div>
-              <div class="tech-icons">
-                <span class="tech-icon icon-python"
-                  ><i class="fab fa-python"></i
-                ></span>
-                <span class="tech-icon icon-chart"
-                  ><i class="fas fa-car"></i
-                ></span>
-                <span class="tech-icon icon-jupyter"
-                  ><i class="fas fa-dollar-sign"></i
-                ></span>
+              <a
+                href="https://github.com/dhaneshbb/BikeRental"
+                target="_blank"
+                rel="noopener"
+                class="btn-link github"
+              >
+                <i class="fab fa-github"></i> View Code
+              </a>
+              <a
+                href="https://www.kaggle.com/code/dhaneshbb/prcp-1018-bikerental"
+                target="_blank"
+                rel="noopener"
+                class="btn-link kaggle"
+              >
+                <i class="fab fa-kaggle"></i> Kaggle
+              </a>
+              <div class="project-date">01-01-2024</div>
+            </div>
+          </div>
+
+          <!-- 9. Auto Price Prediction -->
+          <div
+            class="project-card-new compact"
+            data-category="ml"
+            data-topics="python, data-science, machine-learning, scikit-learn, jupyter-notebook, cross-validation, regression, pandas, statistical-analysis, xgboost, pca, data-analysis, feature-engineering, hyperparameter-tuning, multicollinearity, lasso-regression, model-comparison, model-interpretability, uci-dataset, automobile-pricing-algorithm"
+          >
+            <div class="card-header-new">
+              <div class="project-icon-new">
+                <i class="fas fa-car"></i>
               </div>
+              <h3 class="project-title-new">Automobile Price Predictor</h3>
+            </div>
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Machine learning regression model predicting 1985 automobile prices. Lasso model
+                achieves
+                <strong>91.7% R²</strong> with superior generalization over XGBoost. Handles extreme
+                multicollinearity (<strong>VIF 16,676→8.36</strong>), data leakage detection, and
+                outlier treatment through <strong>PCA</strong> and domain-driven feature engineering
+                with comparison of <strong>10 regression algorithms</strong>.
+              </p>
+              <div class="tech-stack-new">
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-project-diagram"></i>
+                  Lasso
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-compress-arrows-alt"></i>
+                  PCA
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg"
+                    alt="Scikit-learn"
+                    class="tech-logo"
+                  />
+                  Scikit-learn
+                </span>
+              </div>
+            </div>
+            <div class="card-footer-new">
+              <div class="repo-card-container">
+                <a href="https://github.com/dhaneshbb/AutoPricePred" target="_blank" rel="noopener">
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/AutoPricePred"
+                    alt="Automobile Price Predictor Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <a
+                href="https://github.com/dhaneshbb/AutoPricePred"
+                target="_blank"
+                rel="noopener"
+                class="btn-link github"
+              >
+                <i class="fab fa-github"></i> View Code
+              </a>
+              <a
+                href="https://www.kaggle.com/code/dhaneshbb/prcp-1017-autopricepred"
+                target="_blank"
+                rel="noopener"
+                class="btn-link kaggle"
+              >
+                <i class="fab fa-kaggle"></i> Kaggle
+              </a>
+              <div class="project-date">01-01-2024</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Development Tools Section -->
+        <div class="section-header mt-5">
+          <h2 class="section-title">Development Tools & Automation</h2>
+          <p class="section-subtitle">CLI tools, desktop apps, and automation frameworks</p>
+        </div>
+
+        <div class="projects-grid-new">
+          <!-- 10. Spectratact -->
+          <div
+            class="project-card-new compact"
+            data-category="tools desktop"
+            data-topics="electron, python, windows, productivity, automation, application-launcher, desktop-application, pywin32, desktop-automation, multi-monitor, task-automation, workspace-manager, window-management, layout-management, window-orchestration"
+          >
+            <div class="card-header-new">
+              <div class="project-icon-new">
+                <i class="fas fa-window-restore"></i>
+              </div>
+              <h3 class="project-title-new">SpectraTact</h3>
+            </div>
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Desktop application management tool with
+                <strong>intelligent window orchestration</strong>. Manage and arrange multiple
+                applications across monitors with <strong>customizable grid</strong> and
+                side-by-side layouts. Windows 10/11. Enhances productivity through smart workspace
+                organization, <strong>automated application control</strong>, and
+                <strong>multi-monitor support</strong>.
+              </p>
+              <div class="tech-stack-new">
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/electron/electron-original.svg"
+                    alt="Electron"
+                    class="tech-logo"
+                  />
+                  Electron
+                </span>
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/windows8/windows8-original.svg"
+                    alt="Windows"
+                    class="tech-logo"
+                  />
+                  Windows
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-cogs"></i>
+                  Automation
+                </span>
+              </div>
+            </div>
+            <div class="card-footer-new">
+              <div class="repo-card-container">
+                <a href="https://github.com/dhaneshbb/spectratact" target="_blank" rel="noopener">
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/spectratact"
+                    alt="SpectraTact Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <a
+                href="https://github.com/dhaneshbb/spectratact"
+                target="_blank"
+                rel="noopener"
+                class="btn-link github"
+              >
+                <i class="fab fa-github"></i> View Code
+              </a>
+              <div class="project-date">01-01-2024</div>
+            </div>
+          </div>
+
+          <!-- 11. AutoCSV Profiler (PyPI) -->
+          <div
+            class="project-card-new compact"
+            data-category="packages tools"
+            data-topics="csv, data-analysis, profiling, statistics, pandas, data-quality, exploratory-analysis, visualization, statistical-analysis, data-profiling, automated-analysis, csv-analysis, data-exploration"
+          >
+            <div class="card-mini-ribbon">PyPI</div>
+            <div class="card-header-new">
+              <div class="project-icon-new">
+                <i class="fas fa-file-csv"></i>
+              </div>
+              <h3 class="project-title-new">
+                AutoCSV Profiler
+                <a
+                  href="https://pepy.tech/projects/autocsv-profiler"
+                  target="_blank"
+                  rel="noopener"
+                  class="downloads-inline-badge"
+                >
+                  <img
+                    src="https://static.pepy.tech/personalized-badge/autocsv-profiler?period=total&units=NONE&left_color=blue&right_color=brightgreen&left_text=downloads"
+                    alt="AutoCSV Profiler Downloads"
+                    loading="lazy"
+                  />
+                </a>
+              </h3>
+            </div>
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Automated CSV data analysis with statistical profiling and visualization. Features
+                <strong>interactive CLI</strong>, <strong>automatic delimiter detection</strong>,
+                <strong>memory-efficient processing</strong>, statistical profiling, and
+                visualization generation. Supports <strong>Python 3.8-3.13</strong>. Published on
+                PyPI <strong>v2.0.0</strong> with comprehensive documentation.
+              </p>
+              <div class="tech-stack-new">
+                <span class="tech-badge python">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg"
+                    alt="Python"
+                    class="tech-logo"
+                  />
+                  Python 3.8+
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-terminal"></i>
+                  CLI
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/pandas/pandas-original.svg"
+                    alt="Pandas"
+                    class="tech-logo"
+                  />
+                  Pandas
+                </span>
+                <span class="tech-badge">
+                  <i class="fas fa-palette"></i>
+                  Rich
+                </span>
+              </div>
+            </div>
+            <div class="card-footer-new">
+              <div class="repo-card-container">
+                <a
+                  href="https://github.com/dhaneshbb/autocsv-profiler"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/autocsv-profiler"
+                    alt="AutoCSV Profiler Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <a
+                href="https://pypi.org/project/autocsv-profiler/"
+                target="_blank"
+                rel="noopener"
+                class="btn-link pypi"
+              >
+                <i class="fab fa-python"></i> PyPI
+              </a>
+              <a
+                href="https://github.com/dhaneshbb/autocsv-profiler"
+                target="_blank"
+                rel="noopener"
+                class="btn-link github"
+              >
+                <i class="fab fa-github"></i> Code
+              </a>
+              <div class="project-date">01-01-2024</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web Projects Section -->
+        <div class="section-header mt-5">
+          <h2 class="section-title">Web Development</h2>
+          <p class="section-subtitle">Portfolio sites and web applications</p>
+        </div>
+
+        <div class="projects-grid-new">
+          <!-- 13. Portfolio Website -->
+          <div
+            class="project-card-new compact"
+            data-category="web"
+            data-topics="stylelint, github-pages, web-development, eslint, google-analytics, seo, portfolio-website, vanilla-javascript, prettier, static-site, font-awesome, es6-modules, responsive-layout, modular-css, html-css-javascript, component-based, intersection-observer, bootstrap5, lighthouse-ci"
+          >
+            <div class="card-header-new">
+              <div class="project-icon-new">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h3 class="project-title-new">Portfolio Website (dhaneshbb.github.io)</h3>
+            </div>
+            <div class="card-body-new">
+              <p class="project-description-new">
+                Static portfolio website using <strong>vanilla JavaScript ES6 modules</strong> and
+                Bootstrap 5. <strong>Component-based architecture</strong> with dynamic nav/footer
+                loading, <strong>modular CSS organization</strong>, Intersection Observer for
+                animations, ESLint, Stylelint, Prettier for code quality,
+                <strong>Lighthouse CI</strong> for performance monitoring, and optimized
+                <strong>GitHub Pages deployment</strong>.
+              </p>
+              <div class="tech-stack-new">
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg"
+                    alt="JavaScript"
+                    class="tech-logo"
+                  />
+                  JavaScript
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/bootstrap/bootstrap-original.svg"
+                    alt="Bootstrap"
+                    class="tech-logo"
+                  />
+                  Bootstrap 5
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original.svg"
+                    alt="GitHub Pages"
+                    class="tech-logo"
+                  />
+                  GitHub Pages
+                </span>
+                <span class="tech-badge">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/eslint/eslint-original.svg"
+                    alt="ESLint"
+                    class="tech-logo"
+                  />
+                  ESLint
+                </span>
+              </div>
+            </div>
+            <div class="card-footer-new">
+              <div class="repo-card-container">
+                <a
+                  href="https://github.com/dhaneshbb/dhaneshbb.github.io"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <img
+                    src="https://opengraph.githubassets.com/1/dhaneshbb/dhaneshbb.github.io"
+                    alt="Portfolio Website Repository"
+                    class="repo-card"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+              <a
+                href="https://dhaneshbb.github.io"
+                target="_blank"
+                rel="noopener"
+                class="btn-link live"
+              >
+                <i class="fas fa-external-link-alt"></i> Live Site
+              </a>
+              <a
+                href="https://github.com/dhaneshbb/dhaneshbb.github.io"
+                target="_blank"
+                rel="noopener"
+                class="btn-link github"
+              >
+                <i class="fab fa-github"></i> Code
+              </a>
+              <div class="project-date">01-01-2024</div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- More Projects Button Section -->
-    <section
-      class="more-projects-section"
-      style="padding: 4rem 0; background: var(--bg-light)"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <a
-              href="https://github.com/dhaneshbb?tab=repositories"
-              target="_blank"
-              rel="noopener"
-              class="simple-more-btn"
-            >
-              More Projects
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
 
     <!-- Explore My Work Section -->
     <section class="explore-section">
       <div class="container">
         <div class="explore-container fade-in fade-in-delay-2">
-          <div class="availability-badge">
-            <i class="fas fa-code me-2"></i>View My Code
-          </div>
-          <h2 class="explore-title">Explore My Work</h2>
+          <div class="availability-badge"><i class="fas fa-code me-2"></i>View My Code</div>
+          <h2 class="explore-title">Explore More Work</h2>
           <p class="explore-description">
-            Dive deeper into my data science journey by exploring my Jupyter
-            notebooks, Kaggle competitions, and open-source contributions. Each
-            repository tells a story of problem-solving, innovation, and
-            continuous learning in the field of data science and machine
-            learning.
+            Dive deeper into my data science journey by exploring my Jupyter notebooks, Kaggle
+            competitions, and open-source contributions. Each repository tells a story of
+            problem-solving, innovation, and continuous learning in the field of data science and
+            machine learning.
           </p>
 
           <div class="contact-methods">
-            <div class="contact-method">
+            <div class="contact-method contact-method-1" data-animation="left">
               <div class="contact-icon email">
                 <i class="fab fa-github"></i>
               </div>
               <h4>GitHub Repositories</h4>
               <p>
-                Complete source code, detailed documentation, and comprehensive
-                project implementations with step-by-step analysis
+                Complete source code, detailed documentation, and comprehensive project
+                implementations with step-by-step analysis
               </p>
               <a
                 href="https://github.com/dhaneshbb"
@@ -1885,14 +1303,15 @@
               >
             </div>
 
-            <div class="contact-method">
+            <div class="contact-method contact-method-2" data-animation="top">
               <div class="contact-icon phone">
                 <i class="fab fa-kaggle"></i>
               </div>
-              <h4>Kaggle Competitions</h4>
+              <h4>Kaggle Notebooks</h4>
               <p>
-                Data science competitions, datasets analysis, and machine
-                learning challenges with innovative solutions
+                51+ data science notebooks covering machine learning, deep learning, geospatial
+                analysis, time series, and AI fairness with comprehensive exercises and
+                implementations
               </p>
               <a
                 href="https://www.kaggle.com/dhaneshbb"
@@ -1903,14 +1322,14 @@
               >
             </div>
 
-            <div class="contact-method">
+            <div class="contact-method contact-method-3" data-animation="right">
               <div class="contact-icon linkedin">
                 <i class="fas fa-laptop-code"></i>
               </div>
               <h4>Jupyter Notebooks</h4>
               <p>
-                Interactive data analysis notebooks with visualizations,
-                insights, and detailed methodology explanations
+                Interactive data analysis notebooks with visualizations, insights, and detailed
+                methodology explanations
               </p>
               <a
                 href="https://nbviewer.org/github/dhaneshbb"
@@ -1921,387 +1340,20 @@
               >
             </div>
           </div>
-
-          <div class="location-info">
-            <h5 class="location-title">
-              <i class="fab fa-python me-2"></i>Published Python Package
-            </h5>
-            <div class="location-details">
-              <strong>InsightfulPy:</strong> Professional-grade Python library
-              available on PyPI<br />
-              <strong>Features:</strong> 25+ automated EDA functions for
-              comprehensive data analysis<br />
-              <strong>Usage:</strong> pip install insightfulpy<br />
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer-section">
-      <div class="container">
-        <div class="row g-4">
-          <!-- About Section -->
-          <div class="col-lg-4">
-            <div class="footer-brand">
-              <h3>Dhanesh B.B.</h3>
-              <p class="footer-description">
-                Data Science Consultant specializing in machine learning models
-                and business intelligence solutions. Transforming complex data
-                into actionable insights that drive business growth.
-              </p>
-              <div class="footer-social">
-                <a
-                  href="https://linkedin.com/in/dhaneshbb/"
-                  target="_blank"
-                  rel="noopener"
-                  class="social-icon"
-                >
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a
-                  href="https://github.com/dhaneshbb"
-                  target="_blank"
-                  rel="noopener"
-                  class="social-icon"
-                >
-                  <i class="fab fa-github"></i>
-                </a>
-                <a
-                  href="https://www.kaggle.com/dhaneshbb"
-                  target="_blank"
-                  rel="noopener"
-                  class="social-icon"
-                >
-                  <i class="fab fa-kaggle"></i>
-                </a>
-                <a href="mailto:dhaneshbb5@gmail.com" class="social-icon">
-                  <i class="fas fa-envelope"></i>
-                </a>
-              </div>
-            </div>
-          </div>
+    <div id="footer-placeholder"></div>
 
-          <!-- Quick Links -->
-          <div class="col-lg-2 col-md-6">
-            <div class="footer-links">
-              <h5>Quick Links</h5>
-              <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="experience.html">Experience</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Services -->
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-links">
-              <h5>Services</h5>
-              <ul>
-                <li>
-                  <a href="#predictive-analytics">Predictive Analytics</a>
-                </li>
-                <li><a href="#machine-learning">Machine Learning</a></li>
-                <li><a href="#data-visualization">Data Visualization</a></li>
-                <li>
-                  <a href="#business-intelligence">Business Intelligence</a>
-                </li>
-                <li><a href="#automation">Process Automation</a></li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Contact Info -->
-          <div class="col-lg-3">
-            <div class="footer-contact">
-              <h5>Contact</h5>
-              <div class="contact-info">
-                <div class="contact-item">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <span>Bengaluru, Karnataka, India</span>
-                </div>
-                <div class="contact-item">
-                  <i class="fas fa-phone"></i>
-                  <a href="tel:+918050835879">+91 80508 35879</a>
-                </div>
-                <div class="contact-item">
-                  <i class="fas fa-envelope"></i>
-                  <a href="mailto:dhaneshbb5@gmail.com">dhaneshbb5@gmail.com</a>
-                </div>
-              </div>
-              <div class="availability-status">
-                <span class="status-indicator"></span>
-                <span>Available for New Opportunities</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-          <div class="row align-items-center">
-            <div class="col-md-6">
-              <p class="copyright">© 2025 Dhanesh B.B. All rights reserved.</p>
-            </div>
-            <div class="col-md-6">
-              <div class="footer-badges">
-                <span class="badge-item">
-                  <i class="fas fa-certificate"></i>
-                  <span>Certified Data Scientist</span>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZYLYR0091"></script>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom JavaScript -->
-    <script>
-      // Enhanced navbar scroll effect with smooth transitions
-      let lastScrollTop = 0;
-      window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.navbar');
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > 100) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-
-        // Add subtle navbar hide/show on scroll
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
-          navbar.style.transform = 'translateY(-100%)';
-        } else {
-          navbar.style.transform = 'translateY(0)';
-        }
-        lastScrollTop = scrollTop;
-      });
-
-      // Enhanced intersection observer with staggered animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('visible');
-
-              // Add slide-in-up class for enhanced animation
-              if (entry.target.classList.contains('project-card')) {
-                entry.target.classList.add('slide-in-up');
-              }
-            }, index * 100); // Staggered animation
-          }
-        });
-      }, observerOptions);
-
-      // Initialize animations for all elements
-      document
-        .querySelectorAll('.fade-in, .project-card')
-        .forEach((element) => {
-          observer.observe(element);
-        });
-
-      // Enhanced smooth reveal on load with performance optimization
-      window.addEventListener('load', function () {
-        // Remove any loading states
-        document.querySelectorAll('.project-card.loading').forEach((card) => {
-          card.classList.remove('loading');
-        });
-
-        setTimeout(() => {
-          document.querySelectorAll('.fade-in').forEach((element, index) => {
-            setTimeout(() => {
-              element.classList.add('visible');
-            }, index * 50); // Faster stagger for better UX
-          });
-        }, 200);
-      });
-
-      // Enhanced hover effects for project cards with 3D transform
-      document.querySelectorAll('.project-card').forEach((card) => {
-        card.addEventListener('mouseenter', function (e) {
-          const rect = this.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-
-          const rotateX = (y - centerY) / 10;
-          const rotateY = (centerX - x) / 10;
-
-          this.style.transform = `translateY(-8px) scale(1.02) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-
-        card.addEventListener('mouseleave', function () {
-          this.style.transform =
-            'translateY(0) scale(1) perspective(1000px) rotateX(0deg) rotateY(0deg)';
-        });
-
-        // Add click ripple effect
-        card.addEventListener('click', function (e) {
-          const ripple = document.createElement('div');
-          const rect = this.getBoundingClientRect();
-          const size = Math.max(rect.width, rect.height);
-          const x = e.clientX - rect.left - size / 2;
-          const y = e.clientY - rect.top - size / 2;
-
-          ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: radial-gradient(circle, rgba(0, 97, 242, 0.3) 0%, transparent 70%);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s ease-out;
-                    pointer-events: none;
-                    z-index: 1000;
-                `;
-
-          this.style.position = 'relative';
-          this.appendChild(ripple);
-
-          setTimeout(() => {
-            ripple.remove();
-          }, 600);
-        });
-      });
-
-      // Enhanced Jupyter logo animation
-      const jupyterLogo = document.querySelector('.jupyter-logo');
-      if (jupyterLogo) {
-        jupyterLogo.addEventListener('mouseenter', function () {
-          this.style.transform = 'scale(1.15) rotate(10deg)';
-
-          // Animate dots
-          const dots = this.querySelectorAll('.dot');
-          dots.forEach((dot, index) => {
-            setTimeout(() => {
-              dot.style.transform = 'scale(1.3) translateY(-5px)';
-            }, index * 100);
-          });
-        });
-
-        jupyterLogo.addEventListener('mouseleave', function () {
-          this.style.transform = 'scale(1) rotate(0deg)';
-
-          const dots = this.querySelectorAll('.dot');
-          dots.forEach((dot) => {
-            dot.style.transform = 'scale(1) translateY(0)';
-          });
-        });
-      }
-
-      // Parallax effect for background elements
-      window.addEventListener('scroll', function () {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.parallax-bg');
-
-        parallaxElements.forEach((element) => {
-          const speed = 0.5;
-          element.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-      });
-
-      // Performance optimization with requestAnimationFrame
-      let ticking = false;
-
-      function updateOnScroll() {
-        const navbar = document.querySelector('.navbar');
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > 100) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-
-        ticking = false;
-      }
-
-      window.addEventListener('scroll', function () {
-        if (!ticking) {
-          requestAnimationFrame(updateOnScroll);
-          ticking = true;
-        }
-      });
-
-      // Add CSS for ripple animation
-      const style = document.createElement('style');
-      style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-        `;
-      document.head.appendChild(style);
-
-      // Enhanced accessibility - keyboard navigation
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Tab') {
-          document.body.classList.add('keyboard-nav');
-        }
-      });
-
-      document.addEventListener('click', function () {
-        document.body.classList.remove('keyboard-nav');
-      });
-
-      // Preload images for better performance
-      window.addEventListener('load', function () {
-        const imageUrls = [
-          // Add any background images or assets here
-        ];
-
-        imageUrls.forEach((url) => {
-          const img = new Image();
-          img.src = url;
-        });
-      });
-
-      // Enhanced tech icon hover effects
-      document.querySelectorAll('.tech-icon').forEach((icon) => {
-        icon.addEventListener('mouseenter', function () {
-          this.style.transform = 'translateY(-5px) scale(1.15) rotate(5deg)';
-        });
-
-        icon.addEventListener('mouseleave', function () {
-          this.style.transform = 'translateY(0) scale(1) rotate(0deg)';
-        });
-      });
-
-      // Smooth scrolling for internal links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-            });
-          }
-        });
-      });
-    </script>
+    <script type="module" src="scripts/main.js"></script>
   </body>
 </html>

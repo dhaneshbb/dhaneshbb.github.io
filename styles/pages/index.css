@@ -1,0 +1,240 @@
+/* HERO SECTION (INDEX PAGE) */
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 50%, rgb(0 97 242 / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgb(105 0 199 / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgb(253 126 20 / 0.1) 0%, transparent 50%);
+  animation: background-shift 20s ease-in-out infinite;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.typing-text {
+  border-right: 3px solid var(--primary-color);
+  animation: blink 1s infinite;
+}
+
+/* -- PROFILE IMAGE (INDEX PAGE) -- */
+
+.profile-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-background {
+  position: absolute;
+  width: 25rem;
+  height: 25rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+.profile-ring {
+  position: absolute;
+  width: 22rem;
+  height: 22rem;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: rotate 20s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile-ring::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile-image {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 3;
+  transition: all 0.4s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2rem 4rem rgb(0 97 242 / 0.3);
+}
+
+/* -- SOCIAL LINKS -- */
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--bg-secondary);
+  color: var(--text-light);
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.social-link:hover::before {
+  opacity: 1;
+}
+
+/* Contact page social links variant */
+
+.social-link.contact-variant {
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  padding: 2rem 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-2xl);
+}
+
+.social-link.contact-variant i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.social-link.contact-variant span {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 2;
+}
+
+/* -- STATS SECTION -- */
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-family-monospace);
+}
+
+/* PROJECTS SECTION (INDEX PAGE) */
+
+.projects-section {
+  padding: 6rem 0;
+  background: var(--bg-light);
+  position: relative;
+}
+
+.projects-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-light);
+  pointer-events: none;
+}
+
+/* PROJECTS GRID (PROJECTS PAGE) */
+
+.project-date {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-family-monospace);
+  transition: all 0.3s ease;
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+  padding: 5rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* Remove fog fade - not needed with adjusted page header fog */
+.main-content::before {
+  display: none;
+}

@@ -1,0 +1,55 @@
+/* MAIN CSS - IMPORTS ALL MODULES */
+
+/* CSS Variables & Design Tokens */
+@import url('base/variables.css');
+
+/* Base Styles - Reset & Typography */
+@import url('base/base.css');
+
+/* Component Modules */
+@import url('components/button.css');
+@import url('components/nav.css');
+@import url('components/hero.css');
+@import url('components/social.css');
+@import url('components/skill.css');
+@import url('components/page-header.css');
+@import url('components/career.css');
+@import url('components/sidebar.css');
+@import url('components/contact.css');
+@import url('components/footer.css');
+
+/* Projects Components */
+@import url('components/projects/showcase.css');
+@import url('components/projects/filter.css');
+@import url('components/projects/card.css');
+@import url('components/projects/contrib.css');
+@import url('components/projects/dark.css');
+
+/* Timeline Components */
+@import url('components/timeline/base.css');
+@import url('components/timeline/exp.css');
+@import url('components/timeline/journey.css');
+@import url('components/timeline/dark.css');
+
+/* Achievements Components */
+@import url('components/achievements/item.css');
+@import url('components/achievements/card.css');
+@import url('components/achievements/showcase.css');
+@import url('components/achievements/dark.css');
+
+/* Page-Specific Styles */
+@import url('pages/about.css');
+@import url('pages/index.css');
+@import url('pages/contact.css');
+@import url('pages/projects.css');
+@import url('pages/shared.css');
+@import url('pages/common.css');
+
+/* Animations & Transitions */
+@import url('utils/animations.css');
+
+/* Performance Optimizations */
+@import url('utils/performance.css');
+
+/* Utilities - Responsive, Accessibility, Print */
+@import url('utils/utilities.css');

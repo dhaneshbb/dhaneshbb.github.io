@@ -1,0 +1,113 @@
+/* CAREER SUMMARY & JOURNEY */
+
+.career-summary {
+  background: var(--bg-light);
+  padding: 5rem 0;
+  position: relative;
+}
+
+/* Fog fade effect at top of career-summary to blend with page-header */
+.career-summary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to top, transparent, var(--bg-light));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.career-journey {
+  padding: 5rem 0;
+  background: var(--bg-light);
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.career-card {
+  background: linear-gradient(135deg, rgb(0 97 242 / 0.05), rgb(105 0 199 / 0.05));
+  padding: 2.5rem;
+  border-radius: var(--border-radius-2xl);
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.05);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.career-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.career-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 40px rgb(0 0 0 / 0.1),
+    0 0 0 2px var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.career-card:hover::before {
+  transform: scaleX(1);
+}
+
+.career-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: var(--primary-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.career-card:hover .career-icon {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  transform: scale(1.1);
+}
+
+.career-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.career-description {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.highlight-text {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* SKILLS DEVELOPMENT CARDS */
+
+.skills-development {
+  padding: 5rem 0;
+  background: var(--bg-primary);
+}

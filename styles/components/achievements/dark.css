@@ -1,0 +1,164 @@
+/* DARK MODE OVERRIDES */
+
+[data-theme='dark'] .certifications-section {
+  background: var(--bg-secondary);
+}
+
+[data-theme='dark'] .certifications-section::before {
+  background: var(--bg-secondary);
+}
+
+[data-theme='dark'] .certifications-scroll-container::before {
+  background: linear-gradient(to right, var(--bg-secondary), transparent);
+}
+
+[data-theme='dark'] .certifications-scroll-container::after {
+  background: linear-gradient(to left, var(--bg-secondary), transparent);
+}
+
+/* Dark mode for new certificate cards - match project cards */
+[data-theme='dark'] .cert-card-new {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+  box-shadow:
+    0 4px 8px rgb(0 0 0 / 0.3),
+    0 0 0 1px rgb(74 85 104 / 0.5),
+    inset 0 1px 0 rgb(255 255 255 / 0.05),
+    inset 0 -1px 0 rgb(255 255 255 / 0.05);
+}
+
+[data-theme='dark'] .cert-card-new:hover {
+  background: var(--bg-secondary);
+  border-color: #6366f1;
+  box-shadow:
+    0 30px 80px rgb(0 0 0 / 0.4),
+    0 15px 40px rgb(99 102 241 / 0.3),
+    0 0 0 1px rgb(99 102 241 / 0.6),
+    inset 0 1px 0 rgb(255 255 255 / 0.1),
+    inset 0 -1px 0 rgb(255 255 255 / 0.1);
+}
+
+[data-theme='dark'] .cert-image-wrapper {
+  background: var(--bg-tertiary);
+}
+
+[data-theme='dark'] .cert-title {
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .cert-org {
+  color: #60a5fa;
+}
+
+[data-theme='dark'] .cert-date {
+  color: #a0aec0;
+}
+
+/* Dark mode scrollbar for new cert cards */
+[data-theme='dark'] .cert-card-new .cert-content {
+  scrollbar-color: rgb(255 255 255 / 0.15) transparent;
+}
+
+[data-theme='dark'] .cert-card-new .cert-content::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.15);
+}
+
+[data-theme='dark'] .cert-card-new .cert-content::-webkit-scrollbar-thumb:hover {
+  background: rgb(255 255 255 / 0.25);
+}
+
+/* Dark mode for existing cert cards */
+[data-theme='dark'] .cert-card {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+  box-shadow:
+    0 4px 16px rgb(0 0 0 / 0.2),
+    0 2px 8px rgb(0 0 0 / 0.15);
+}
+
+[data-theme='dark'] .cert-card:hover {
+  background: var(--bg-secondary);
+  border-color: var(--primary-color);
+  box-shadow:
+    0 20px 40px rgb(0 0 0 / 0.3),
+    0 10px 24px rgb(0 0 0 / 0.2);
+}
+
+[data-theme='dark'] .cert-content {
+  background: inherit;
+  border-top-color: var(--border-color);
+  scrollbar-color: rgb(255 255 255 / 0.15) transparent;
+}
+
+[data-theme='dark'] .cert-content::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 0.15);
+}
+
+[data-theme='dark'] .cert-content::-webkit-scrollbar-thumb:hover {
+  background: rgb(255 255 255 / 0.25);
+}
+
+[data-theme='dark'] .cert-title {
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .cert-image-preview {
+  background: var(--bg-tertiary);
+}
+
+[data-theme='dark'] .achievement-item {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+[data-theme='dark'] .achievement-item h5 {
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .achievement-item p {
+  color: #cbd5e0;
+}
+
+/* View Certificate Button - Outline style for dark mode with better contrast */
+[data-theme='dark'] .cert-view-btn {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 2px 8px rgb(96 165 250 / 0.15);
+}
+
+[data-theme='dark'] .cert-view-btn:hover {
+  background: var(--primary-color);
+  color: var(--bg-primary);
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgb(96 165 250 / 0.3);
+  transform: translateY(-2px);
+}
+
+/* ABOUT PAGE - INLINE STYLES MOVED TO EXTERNAL */
+
+/* Summary text container */
+.summary-text-container {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+/* Animation delays for achievement items */
+.achievement-item[data-animation='left']:nth-child(1),
+.achievement-item[data-animation='left']:nth-child(3) {
+  animation-delay: 0s;
+}
+
+.achievement-item[data-animation='right']:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.achievement-item[data-animation='left']:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.achievement-item[data-animation='right']:nth-child(4) {
+  animation-delay: 0.6s;
+}

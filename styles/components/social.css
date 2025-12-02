@@ -1,0 +1,125 @@
+/* SOCIAL LINKS */
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  background: transparent !important;
+}
+
+.social-link {
+  text-decoration: none;
+  display: inline-block;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  position: relative !important;
+}
+
+.social-link::before,
+.social-link::after {
+  display: none !important;
+  content: none !important;
+}
+
+.social-link .social-icon {
+  font-size: 2.5rem;
+  display: block;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+  transform: translateY(-3px) scale(1.1);
+  color: var(--primary-color);
+}
+
+/* Individual platform colors on hover - Light Mode */
+.social-link:hover .fa-linkedin {
+  color: #0077b5;
+}
+
+.social-link:hover .fa-github {
+  color: #6e5494;
+}
+
+.social-link:hover .fa-python {
+  color: #3776ab;
+}
+
+.social-link:hover .fa-kaggle {
+  color: #20beff;
+}
+
+.social-link:hover .fa-envelope {
+  color: #ea4335;
+}
+
+/* Dark Mode - Adjusted colors for better visibility */
+[data-theme='dark'] .social-link:hover .fa-linkedin {
+  color: #2d9cdb;
+}
+
+[data-theme='dark'] .social-link:hover .fa-github {
+  color: #f0f6fc;
+}
+
+[data-theme='dark'] .social-link:hover .fa-python {
+  color: #4b8bbe;
+}
+
+[data-theme='dark'] .social-link:hover .fa-kaggle {
+  color: #4fcfff;
+}
+
+[data-theme='dark'] .social-link:hover .fa-envelope {
+  color: #ff6b6b;
+}
+
+/* Hero section - larger icons */
+.hero .social-link .social-icon {
+  font-size: 3rem;
+}
+
+/* Contact page social links variant */
+
+.social-link.contact-variant {
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, rgb(0 97 242 / 0.05), rgb(105 0 199 / 0.05));
+  border-radius: var(--border-radius-2xl);
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.social-link.contact-variant i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.social-link.contact-variant span {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 2;
+}
+
+.social-section .social-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}

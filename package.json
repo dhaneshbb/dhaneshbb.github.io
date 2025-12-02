@@ -1,0 +1,57 @@
+{
+  "name": "dhaneshbb-portfolio",
+  "version": "0.1.0",
+  "description": "Static portfolio website for Dhanesh B.B., Data Scientist",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "format": "prettier --write \"**/*.{html,css,js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{html,css,js,json,md}\"",
+    "lint:js": "eslint scripts/**/*.js",
+    "lint:js:fix": "eslint scripts/**/*.js --fix",
+    "lint:css": "stylelint \"styles/**/*.css\"",
+    "lint:css:fix": "stylelint \"styles/**/*.css\" --fix",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run format",
+    "validate": "npm run format:check && npm run lint",
+    "css:check": "echo \"\\nUse Chrome DevTools Coverage Tool:\\n1. Open http://localhost:8000\\n2. Press F12 > Ctrl+Shift+P\\n3. Type 'Coverage' and press Enter\\n4. Click Record and navigate all pages\\n5. Click Stop to see unused CSS\\n\"",
+    "css:analyze": "node .scripts-build/uncss-analyze.js",
+    "css:stats": "node .scripts-build/css-stats.js",
+    "css:size": "du -sh styles/**/*.css 2>/dev/null || dir styles\\*.css | findstr /C:\".css\""
+  },
+  "keywords": [
+    "portfolio",
+    "data-science",
+    "machine-learning",
+    "static-site",
+    "github-pages"
+  ],
+  "author": {
+    "name": "Dhanesh B.B.",
+    "email": "dhaneshbb5@gmail.com",
+    "url": "https://dhaneshbb.github.io"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^36.0.0",
+    "uncss": "^0.17.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhaneshbb/dhaneshbb.github.io.git"
+  },
+  "homepage": "https://dhaneshbb.github.io",
+  "bugs": {
+    "url": "https://github.com/dhaneshbb/dhaneshbb.github.io/issues"
+  }
+}

@@ -1,0 +1,229 @@
+/* CERTIFICATIONS SECTION (INDEX PAGE) */
+
+.certifications-section {
+  padding: 6rem 0 7rem;
+  background: var(--bg-light);
+  position: relative;
+}
+
+.certifications-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-light);
+  pointer-events: none;
+}
+
+.certifications-scroll-container {
+  width: 100%;
+  overflow: hidden;
+  margin: 3rem 0;
+  padding: 2rem 0;
+  position: relative;
+}
+
+/* Fog effect on left and right edges */
+.certifications-scroll-container::before,
+.certifications-scroll-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.certifications-scroll-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-light), transparent);
+}
+
+.certifications-scroll-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-light), transparent);
+}
+
+.certifications-scroll-grid {
+  display: flex;
+  gap: 2rem;
+  animation: scrollCertifications 40s linear infinite;
+  width: max-content;
+  padding: 1rem 0;
+}
+
+.certifications-scroll-grid:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollCertifications {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* New Certificate Cards */
+.cert-card-new {
+  width: 380px;
+  min-width: 380px;
+  height: 420px;
+  max-height: 420px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow:
+    0 8px 32px 0 rgb(31 38 135 / 0.15),
+    0 4px 16px 0 rgb(0 0 0 / 0.1),
+    0 2px 8px 0 rgb(0 0 0 / 0.08),
+    inset 0 1px 0 rgb(255 255 255 / 0.8);
+  border: 1px solid #d0d7de;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.cert-card-new::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  z-index: 10;
+}
+
+.cert-card-new:hover {
+  transform: translateY(-12px) translateZ(20px);
+  box-shadow:
+    0 20px 60px 0 rgb(31 38 135 / 0.2),
+    0 10px 30px 0 rgb(0 0 0 / 0.15),
+    0 0 0 1px rgb(99 102 241 / 0.4),
+    inset 0 1px 0 rgb(255 255 255 / 0.8);
+  border-color: #6366f1;
+  background: #f6f8fa;
+}
+
+.cert-card-new:hover::before {
+  transform: scaleX(1);
+}
+
+.cert-image-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #f0f2f5;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Kaggle card specific styles for index page */
+.cert-card-new.cert-card-kaggle .kaggle-cert-preview {
+  height: 180px;
+  flex-shrink: 0;
+}
+
+.cert-card-new.cert-card-kaggle .cert-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.cert-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: auto;
+  transition: none;
+}
+
+.cert-card-new .cert-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: inherit;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(0 0 0 / 0.2) transparent;
+}
+
+.cert-card-new .cert-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cert-card-new .cert-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cert-card-new .cert-content::-webkit-scrollbar-thumb {
+  background: rgb(0 0 0 / 0.2);
+  border-radius: 3px;
+}
+
+.cert-card-new .cert-content::-webkit-scrollbar-thumb:hover {
+  background: rgb(0 0 0 / 0.3);
+}
+
+.cert-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #24292f;
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cert-org {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.cert-date {
+  font-size: 0.8125rem;
+  color: #57606a;
+  font-weight: 500;
+  font-family: var(--font-family-monospace);
+  letter-spacing: 0.01em;
+}
+
+/* Responsive */
+@media (width <= 768px) {
+  .certifications-scroll-grid {
+    gap: 1.5rem;
+  }
+
+  .cert-card-new {
+    width: 320px;
+    min-width: 320px;
+    height: 400px;
+    max-height: 400px;
+  }
+
+  .cert-image-wrapper,
+  .cert-card-new.cert-card-kaggle .kaggle-cert-preview {
+    height: 160px;
+  }
+}

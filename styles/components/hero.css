@@ -1,0 +1,452 @@
+/* HERO SECTION (INDEX PAGE) */
+
+.hero-section {
+  min-height: 120vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  overflow: hidden;
+}
+
+/* Hero section zoom - responsive to match body zoom */
+
+/* Small laptops (1366x768 and similar) - hero at 65% like body */
+@media (width >= 1024px) and (width <= 1600px), (width >= 1024px) and (height <= 900px) {
+  .hero-section {
+    zoom: 1;
+    transform: scale(1);
+    transform-origin: center top;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 8rem 0 12rem;
+    align-items: center;
+  }
+}
+
+/* Large screens - counter zoom to keep hero at 100% */
+@media (width >= 1601px) and (height >= 901px) {
+  .hero-section {
+    zoom: 1.333333;
+    transform: scale(1.333333);
+    transform-origin: center top;
+  }
+}
+
+/* Fog fade effect at bottom of hero - only for border softening */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgb(248 250 252 / 0.3) 30%,
+    rgb(248 250 252 / 0.6) 60%,
+    var(--bg-light) 100%
+  );
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 50%, rgb(0 97 242 / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgb(105 0 199 / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgb(253 126 20 / 0.1) 0%, transparent 50%);
+  animation: background-shift 20s ease-in-out infinite;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-family: 'JetBrains Mono', 'Courier New', Monaco, Consolas, monospace;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Typing Animation Lines */
+.hero-subtitle-typing {
+  font-family: 'JetBrains Mono', 'Courier New', Monaco, Consolas, monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+  min-height: 2.5rem;
+}
+
+.hero-description-typing {
+  font-family: 'JetBrains Mono', 'Courier New', Monaco, Consolas, monospace;
+  font-size: 1.125rem;
+  color: #2c3e50;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  max-width: 100%;
+}
+
+.typing-text-line {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.typing-cursor {
+  display: inline;
+  margin-left: 2px;
+  animation: blink-cursor 0.8s step-end infinite;
+  color: var(--primary-color);
+  font-weight: 400;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  background: none !important;
+  border: none !important;
+}
+
+.typing-cursor.hide {
+  display: none;
+}
+
+@keyframes blink-cursor {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.typing-text {
+  display: inline;
+  border-right: 2px solid var(--primary-color);
+  padding-right: 3px;
+  margin-left: 5px;
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    border-color: var(--primary-color);
+  }
+
+  51%,
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* -- PROFILE IMAGE (INDEX PAGE) -- */
+
+.profile-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-background {
+  position: absolute;
+  width: 25rem;
+  height: 25rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 6s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+.profile-ring {
+  position: absolute;
+  width: 22rem;
+  height: 22rem;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: rotate 20s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile-ring::before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile-image {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 3;
+  transition: all 0.4s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2rem 4rem rgb(0 97 242 / 0.3);
+}
+
+/* SCROLL INDICATOR */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 100;
+  cursor: pointer;
+  animation: fadeInUp 1s ease-out 1.5s both;
+  transition:
+    opacity 0.3s ease-out,
+    visibility 0.3s ease-out;
+}
+
+/* Desktop with 65% zoom - adjust scroll indicator position */
+@media (width >= 1024px) and (width <= 1600px) and (height >= 700px),
+  (width >= 1024px) and (height <= 900px) and (height >= 700px) {
+  .scroll-indicator {
+    bottom: 2rem;
+  }
+}
+
+/* Ensure scroll indicator stays visible on smaller height screens (non-desktop) */
+@media (width <= 1023px) and (height <= 900px) {
+  .scroll-indicator {
+    bottom: 6rem;
+  }
+}
+
+@media (width <= 1023px) and (height <= 800px) {
+  .scroll-indicator {
+    bottom: 4rem;
+  }
+}
+
+@media (width <= 1023px) and (height <= 700px) {
+  .scroll-indicator {
+    bottom: 2rem;
+  }
+}
+
+@media (height <= 600px) {
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* Mobile phones - match PC styling exactly */
+@media (width <= 1024px) {
+  .scroll-indicator {
+    bottom: 15rem !important;
+    animation-delay: 0s !important;
+  }
+
+  /* Restructure hero layout for mobile */
+  .hero-section .row {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-top: 0 !important;
+    padding-bottom: 8rem !important;
+    min-height: 100vh !important;
+    transform: translateY(-3rem) !important;
+  }
+
+  .hero-section .col-lg-4,
+  .hero-section .col-lg-8 {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+  }
+
+  .hero-section .col-lg-4 {
+    order: 1 !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .hero-section .col-lg-8 {
+    order: 2 !important;
+  }
+
+  .profile-container {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-content {
+    text-align: left !important;
+    padding: 0 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .hero-content .hero-title,
+  .hero-content .hero-subtitle,
+  .hero-content .hero-description,
+  .hero-content .hero-subtitle-typing,
+  .hero-content .hero-description-typing {
+    text-align: left !important;
+  }
+
+  .hero-content .cta-buttons {
+    justify-content: flex-start !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  .hero-content .social-links {
+    justify-content: flex-start !important;
+  }
+
+  .hero-subtitle-typing {
+    font-size: 1.25rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-description-typing {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+    max-width: 90% !important;
+  }
+}
+
+.scroll-text {
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 4px rgb(255 255 255 / 0.8);
+}
+
+.scroll-arrow {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.scroll-indicator:hover .scroll-arrow {
+  color: var(--secondary-color);
+}
+
+/* DARK MODE OVERRIDES */
+
+[data-theme='dark'] .hero-background {
+  background:
+    radial-gradient(circle at 20% 50%, rgb(96 165 250 / 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgb(167 139 250 / 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgb(251 146 60 / 0.08) 0%, transparent 50%);
+}
+
+[data-theme='dark'] .hero-section::after {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgb(45 55 72 / 0.3) 30%,
+    rgb(45 55 72 / 0.6) 60%,
+    var(--bg-secondary) 100%
+  );
+}
+
+/* Make gradient text more visible in dark mode */
+[data-theme='dark'] .hero-title {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .hero-subtitle-typing {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .hero-description-typing {
+  color: var(--text-light);
+}
+
+[data-theme='dark'] .profile-image {
+  border-color: var(--bg-tertiary);
+}
+
+[data-theme='dark'] .scroll-text {
+  text-shadow: 0 2px 4px rgb(0 0 0 / 0.6);
+}

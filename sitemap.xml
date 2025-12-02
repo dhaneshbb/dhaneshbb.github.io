@@ -7,7 +7,7 @@
     <!-- Homepage -->
     <url>
         <loc>https://dhaneshbb.github.io/</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-12-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -15,7 +15,7 @@
     <!-- About Page -->
     <url>
         <loc>https://dhaneshbb.github.io/about.html</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-12-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -23,7 +23,7 @@
     <!-- Projects Page -->
     <url>
         <loc>https://dhaneshbb.github.io/projects.html</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-12-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -31,7 +31,7 @@
     <!-- Experience Page -->
     <url>
         <loc>https://dhaneshbb.github.io/experience.html</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-12-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -39,15 +39,31 @@
     <!-- Contact Page -->
     <url>
         <loc>https://dhaneshbb.github.io/contact.html</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-12-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- Resume PDF -->
+    <!-- Privacy Policy Page -->
     <url>
-        <loc>https://dhaneshbb.github.io/assets/files/Dhanesh_BB_Resume.pdf</loc>
-        <lastmod>2025-01-01</lastmod>
+        <loc>https://dhaneshbb.github.io/privacy.html</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Resume Viewer Page -->
+    <url>
+        <loc>https://dhaneshbb.github.io/resume-viewer.html</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Certificate Viewer Page -->
+    <url>
+        <loc>https://dhaneshbb.github.io/cert-viewer.html</loc>
+        <lastmod>2025-12-02</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
@@ -55,14 +71,28 @@
     <!-- Important Project Links -->
     <url>
         <loc>https://github.com/dhaneshbb/insightfulpy</loc>
-        <lastmod>2024-06-15</lastmod>
+        <lastmod>2025-10-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
     <url>
         <loc>https://pypi.org/project/insightfulpy/</loc>
-        <lastmod>2024-06-15</lastmod>
+        <lastmod>2025-10-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://github.com/dhaneshbb/autocsv-profiler</loc>
+        <lastmod>2025-10-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://pypi.org/project/autocsv-profiler/</loc>
+        <lastmod>2025-10-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
@@ -70,22 +100,36 @@
     <!-- Social Media Profiles -->
     <url>
         <loc>https://linkedin.com/in/dhaneshbb/</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-12-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
 
     <url>
         <loc>https://github.com/dhaneshbb</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://github.com/dhaneshbb?tab=repositories</loc>
+        <lastmod>2025-12-02</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
 
     <url>
         <loc>https://www.kaggle.com/dhaneshbb</loc>
-        <lastmod>2025-01-01</lastmod>
+        <lastmod>2025-12-02</lastmod>
         <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <url>
+        <loc>https://pypi.org/user/dhaneshbb</loc>
+        <lastmod>2025-12-02</lastmod>
+        <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
 

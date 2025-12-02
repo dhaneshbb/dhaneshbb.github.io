@@ -34,48 +34,49 @@ User-agent: LinkedInBot
 Allow: /
 
 # Disallow specific directories
-Disallow: /assets/data/
-Disallow: /js/
-Disallow: /css/
+Disallow: /scripts/
+Disallow: /styles/
+Disallow: /components/
 Disallow: /.git/
 Disallow: /node_modules/
-Disallow: /dist/
-Disallow: /docs/
 Disallow: /.github/
-Disallow: /temp/
-Disallow: /cache/
+Disallow: /.bkup/
+Disallow: /.backup/
+Disallow: /.scripts-build/
 
 # Allow specific important files
-Allow: /assets/files/Dhanesh_BB_Resume.pdf
-Allow: /assets/images/
+Allow: /media/
 Allow: /sitemap.xml
+Allow: /robots.txt
+Allow: /cert-viewer.html
+Allow: /resume-viewer.html
 
 # Block specific file types
 Disallow: /*.json$
 Disallow: /*.log$
 Disallow: /*.tmp$
 Disallow: /*.backup$
+Disallow: /*.md$
 
 # Block development files
 Disallow: /package.json
 Disallow: /package-lock.json
 Disallow: /.gitignore
-Disallow: /README.md
-Disallow: /CHANGELOG.md
+Disallow: /.editorconfig
+Disallow: /.prettierrc
+Disallow: /.eslintrc.json
+Disallow: /.stylelintrc.json
+Disallow: /jsconfig.json
+Disallow: /LICENSE
 
-# Block admin and private areas
-Disallow: /admin/
-Disallow: /private/
-Disallow: /secure/
-Disallow: /test/
-Disallow: /tests/
+# Block backup and documentation
+Disallow: /DESIGN_IMPROVEMENTS.md
+Disallow: /COPYRIGHT_*.md
+Disallow: /DEPENDENCIES.md
+Disallow: /TERMS.md
 
 # Crawl delay (be respectful)
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://yourdomain.com/sitemap.xml
-
-# Alternative sitemap locations
 Sitemap: https://dhaneshbb.github.io/sitemap.xml
-Sitemap: https://dhanesh-portfolio.netlify.app/sitemap.xml

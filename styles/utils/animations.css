@@ -1,0 +1,772 @@
+/* LOADING ANIMATION */
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.loading.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.progress-container {
+  width: 300px;
+  height: 6px;
+  background: rgb(0 97 242 / 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--icon-gradient-primary), var(--icon-gradient-secondary));
+  border-radius: 10px;
+  animation: progress-load 2s ease-in-out infinite;
+  box-shadow: 0 0 20px rgb(0 97 242 / 0.5);
+  position: relative;
+}
+
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.4), transparent);
+  animation: shimmer-progress 1.5s ease-in-out infinite;
+}
+
+.loading-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  letter-spacing: 0.1em;
+  position: relative;
+  z-index: 1;
+  animation: text-fade 1.5s ease-in-out infinite;
+}
+
+.loading-text::after {
+  content: '...';
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+/* FADE IN ANIMATIONS */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(15px);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optimize rendering performance */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.fade-in-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.fade-in-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.fade-in-delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* KEYFRAME ANIMATIONS */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    border-color: var(--primary-color);
+  }
+
+  51%,
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes background-shift {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+
+  25% {
+    transform: translateX(-20px) translateY(-10px);
+  }
+
+  50% {
+    transform: translateX(20px) translateY(10px);
+  }
+
+  75% {
+    transform: translateX(-10px) translateY(20px);
+  }
+}
+
+@keyframes header-float {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+
+  25% {
+    transform: translateX(-10px) translateY(-5px);
+  }
+
+  50% {
+    transform: translateX(10px) translateY(5px);
+  }
+
+  75% {
+    transform: translateX(-5px) translateY(10px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes fade-in-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes progress-load {
+  0% {
+    width: 0%;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes shimmer-progress {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes cube-spin-1 {
+  0% {
+    transform: rotateX(-30deg) rotateY(45deg) rotateZ(0deg);
+  }
+
+  25% {
+    transform: rotateX(-20deg) rotateY(135deg) rotateZ(10deg);
+  }
+
+  50% {
+    transform: rotateX(-40deg) rotateY(225deg) rotateZ(0deg);
+  }
+
+  75% {
+    transform: rotateX(-25deg) rotateY(315deg) rotateZ(-10deg);
+  }
+
+  100% {
+    transform: rotateX(-30deg) rotateY(405deg) rotateZ(0deg);
+  }
+}
+
+@keyframes cube-spin-2 {
+  0% {
+    transform: rotateX(-30deg) rotateY(-45deg) rotateZ(0deg);
+  }
+
+  25% {
+    transform: rotateX(-40deg) rotateY(45deg) rotateZ(-10deg);
+  }
+
+  50% {
+    transform: rotateX(-20deg) rotateY(135deg) rotateZ(0deg);
+  }
+
+  75% {
+    transform: rotateX(-35deg) rotateY(225deg) rotateZ(10deg);
+  }
+
+  100% {
+    transform: rotateX(-30deg) rotateY(315deg) rotateZ(0deg);
+  }
+}
+
+@keyframes cube-spin-3 {
+  0% {
+    transform: translateX(-50%) rotateX(-30deg) rotateY(90deg) rotateZ(0deg);
+  }
+
+  25% {
+    transform: translateX(-50%) rotateX(-35deg) rotateY(180deg) rotateZ(15deg);
+  }
+
+  50% {
+    transform: translateX(-50%) rotateX(-25deg) rotateY(270deg) rotateZ(0deg);
+  }
+
+  75% {
+    transform: translateX(-50%) rotateX(-40deg) rotateY(360deg) rotateZ(-15deg);
+  }
+
+  100% {
+    transform: translateX(-50%) rotateX(-30deg) rotateY(450deg) rotateZ(0deg);
+  }
+}
+
+@keyframes cube-bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-25px) scale(1.1);
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes face-shimmer {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+
+  50% {
+    transform: translateX(100%) translateY(100%);
+  }
+
+  100% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 0.8;
+  }
+}
+
+@keyframes text-fade {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    content: '';
+  }
+
+  40% {
+    content: '.';
+  }
+
+  60% {
+    content: '..';
+  }
+
+  80%,
+  100% {
+    content: '...';
+  }
+}
+
+@keyframes slide-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(80px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* STAGGERED ANIMATIONS */
+
+/* UTILITY ANIMATIONS */
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  opacity: 0.1;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.project-card.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Keyboard navigation styles */
+
+.keyboard-nav .project-card:focus,
+.keyboard-nav .platform-badge:focus,
+.keyboard-nav .explore-link:focus {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* TYPING CURSOR ANIMATION */
+
+.typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--primary-color);
+  font-weight: bold;
+  animation: blink-cursor 0.5s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ACHIEVEMENT CARDS MOVEMENT ANIMATIONS */
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.8) rotate(-5deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px) scale(0.8) rotate(5deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.8) rotate(-3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px) scale(0.8) rotate(3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+.achievement-item.animate-left,
+p[data-animation='left'].animate-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.achievement-item.animate-right,
+p[data-animation='right'].animate-right {
+  animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.achievement-item.animate-top,
+p[data-animation='top'].animate-top {
+  animation: slideInTop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.achievement-item.animate-bottom,
+p[data-animation='bottom'].animate-bottom {
+  animation: slideInBottom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.achievement-item,
+p[data-animation] {
+  opacity: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Education Timeline Movement Animations */
+.experience-item {
+  opacity: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.experience-item.animate-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.experience-item.animate-right {
+  animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.experience-item.animate-top {
+  animation: slideInTop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.experience-item.animate-bottom {
+  animation: slideInBottom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Professional Philosophy Career Cards Movement Animations */
+.career-card {
+  opacity: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.career-card.animate-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.career-card.animate-right {
+  animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.career-card.animate-top {
+  animation: slideInTop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.career-card.animate-bottom {
+  animation: slideInBottom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Certifications Cards Movement Animations */
+.cert-card {
+  opacity: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.cert-card.animate-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.cert-card.animate-right {
+  animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.cert-card.animate-top {
+  animation: slideInTop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.cert-card.animate-bottom {
+  animation: slideInBottom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Specialization Cards Movement Animations */
+.specialization-card {
+  opacity: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.specialization-card.animate-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.specialization-card.animate-right {
+  animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.specialization-card.animate-top {
+  animation: slideInTop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.specialization-card.animate-bottom {
+  animation: slideInBottom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Contact Method Cards Movement Animations */
+.contact-method {
+  opacity: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.contact-method.animate-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.contact-method.animate-right {
+  animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.contact-method.animate-top {
+  animation: slideInTop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.contact-method.animate-bottom {
+  animation: slideInBottom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Reset will-change after animation completes for better performance */
+.achievement-item.animate-left,
+.achievement-item.animate-right,
+.achievement-item.animate-top,
+.achievement-item.animate-bottom,
+.experience-item.animate-left,
+.experience-item.animate-right,
+.experience-item.animate-top,
+.experience-item.animate-bottom,
+.career-card.animate-left,
+.career-card.animate-right,
+.career-card.animate-top,
+.career-card.animate-bottom,
+.cert-card.animate-left,
+.cert-card.animate-right,
+.cert-card.animate-top,
+.cert-card.animate-bottom,
+.specialization-card.animate-left,
+.specialization-card.animate-right,
+.specialization-card.animate-top,
+.specialization-card.animate-bottom,
+.contact-method.animate-left,
+.contact-method.animate-right,
+.contact-method.animate-top,
+.contact-method.animate-bottom {
+  animation-fill-mode: both;
+}
+
+.achievement-item.animate-left:not(:hover),
+.achievement-item.animate-right:not(:hover),
+.achievement-item.animate-top:not(:hover),
+.achievement-item.animate-bottom:not(:hover),
+.experience-item.animate-left:not(:hover),
+.experience-item.animate-right:not(:hover),
+.experience-item.animate-top:not(:hover),
+.experience-item.animate-bottom:not(:hover),
+.career-card.animate-left:not(:hover),
+.career-card.animate-right:not(:hover),
+.career-card.animate-top:not(:hover),
+.career-card.animate-bottom:not(:hover),
+.cert-card.animate-left:not(:hover),
+.cert-card.animate-right:not(:hover),
+.cert-card.animate-top:not(:hover),
+.cert-card.animate-bottom:not(:hover),
+.specialization-card.animate-left:not(:hover),
+.specialization-card.animate-right:not(:hover),
+.specialization-card.animate-top:not(:hover),
+.specialization-card.animate-bottom:not(:hover),
+.contact-method.animate-left:not(:hover),
+.contact-method.animate-right:not(:hover),
+.contact-method.animate-top:not(:hover),
+.contact-method.animate-bottom:not(:hover) {
+  animation-play-state: running;
+}
+
+/* Technical Skillset & Professional Skills Development Categories Movement Animations */
+#skillset .skill-category,
+.skills-development .skill-category {
+  opacity: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.skill-category.animate-left {
+  animation: slideInLeft 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.skill-category.animate-right {
+  animation: slideInRight 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.skill-category.animate-top {
+  animation: slideInTop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.skill-category.animate-bottom {
+  animation: slideInBottom 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Reset will-change after animation for skill categories */
+.skill-category.animate-left:not(:hover),
+.skill-category.animate-right:not(:hover),
+.skill-category.animate-top:not(:hover),
+.skill-category.animate-bottom:not(:hover) {
+  animation-play-state: running;
+}
+
+/* TYPING EFFECT - PROFESSIONAL SUMMARY */
+
+/* Typing cursor effect - single visible cursor */
+.typing::after {
+  content: '|';
+  color: var(--primary-color);
+  font-weight: 400;
+  animation: blink-cursor 0.5s infinite;
+  margin-left: 2px;
+  display: inline-block;
+}
+
+#summary-p1.typing::after,
+#summary-p2.typing::after,
+#summary-p3.typing::after {
+  content: '|';
+  color: var(--primary-color);
+  font-weight: 400;
+  animation: blink-cursor 0.5s infinite;
+  margin-left: 2px;
+  display: inline-block;
+}
+
+/* Cursor blink animation */
+@keyframes blink-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}

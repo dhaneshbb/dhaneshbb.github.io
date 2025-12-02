@@ -1,0 +1,654 @@
+/* RESPONSIVE DESIGN */
+@media (width <= 1200px) {
+  .explore-title {
+    font-size: 2rem;
+  }
+
+  .explore-container {
+    padding: 2.5rem;
+  }
+}
+
+@media (width <= 992px) {
+  .explore-container {
+    padding: 2.5rem;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .specialization-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .specialization-card {
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+    padding: 1.125rem 0.625rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    overflow: hidden !important;
+  }
+
+  .specialization-card .spec-icon {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    font-size: 1.125rem !important;
+    margin: 0 !important;
+  }
+
+  .specialization-card h4 {
+    font-size: 0.875rem !important;
+    margin: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+  .specialization-card p {
+    font-size: 0.65rem !important;
+    line-height: 1.35 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    margin: 0 !important;
+  }
+}
+
+@media (width <= 1024px) {
+  /* Get In Touch contact cards - match specialization card style */
+  .contact-methods {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .contact-method-link {
+    display: block !important;
+  }
+
+  .contact-method,
+  .contact-method-link .contact-method,
+  a.contact-method-link .contact-method {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+    padding: 0.75rem 0.625rem !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    box-sizing: border-box !important;
+    transform: translateY(0) !important;
+  }
+
+  .contact-method:hover,
+  .contact-method-link:hover .contact-method {
+    transform: translateY(0) !important;
+  }
+
+  .contact-method .contact-icon,
+  .contact-icon {
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    margin: 0 !important;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    font-size: 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .contact-method h4 {
+    font-size: 0.8125rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+  }
+
+  .contact-method p {
+    font-size: 0.65rem !important;
+    line-height: 1.4 !important;
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .contact-method .contact-link,
+  .contact-link {
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0.7rem !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+  }
+
+  /* Career Evolution cards - match specialization card style */
+  .career-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .career-card {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+    padding: 0.75rem 0.625rem !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .career-card .career-icon {
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    margin: 0 !important;
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    font-size: 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .career-card .career-title,
+  .career-card h3 {
+    font-size: 0.8125rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+  }
+
+  .career-card .career-description,
+  .career-card p {
+    font-size: 0.65rem !important;
+    line-height: 1.4 !important;
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4 !important;
+    -webkit-box-orient: vertical !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Specialization cards - match contact card style */
+  .specialization-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem 0.75rem !important;
+  }
+
+  .specialization-card {
+    height: 200px !important;
+    min-height: 200px !important;
+    max-height: 200px !important;
+    padding: 0.75rem 0.625rem !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .specialization-card .spec-icon {
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    margin: 0 !important;
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+    font-size: 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .specialization-card h4 {
+    font-size: 0.8125rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+  }
+
+  .specialization-card p {
+    font-size: 0.65rem !important;
+    line-height: 1.4 !important;
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 4 !important;
+    -webkit-box-orient: vertical !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Professional Skills Development cards */
+
+  .skill-category-card .skill-tags {
+    gap: 0.375rem !important;
+  }
+
+  .skill-category-card .skill-tag {
+    font-size: 0.625rem !important;
+    padding: 0.25rem 0.5rem !important;
+  }
+}
+
+@media (width <= 768px) {
+  .hero-section {
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .profile-background,
+  .profile-ring {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .profile-image {
+    width: 15rem;
+    height: 15rem;
+    margin-top: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 2.25rem;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
+
+  .skill-category {
+    padding: 2rem;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .highlight-box,
+  .timeline-content,
+  .achievement-item,
+  .achievement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-section {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+
+  .footer-bottom .row > div {
+    text-align: center !important;
+  }
+
+  .timeline-line {
+    left: 1.875rem;
+  }
+
+  .experience-item:nth-child(odd) .experience-content,
+  .experience-item:nth-child(even) .experience-content {
+    margin-left: 4.375rem;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .experience-marker {
+    left: 1.875rem;
+  }
+
+  .experience-item:nth-child(odd) .company-logo {
+    margin-left: 0;
+  }
+
+  .experience-item:nth-child(odd) .achievements li {
+    padding-left: 1.5rem;
+    padding-right: 0;
+  }
+
+  .experience-item:nth-child(odd) .achievements li::before {
+    left: 0;
+    right: auto;
+    content: '▶';
+  }
+
+  .experience-item:nth-child(odd) .skill-tags {
+    justify-content: flex-start;
+  }
+
+  .experience-content {
+    padding: 2rem;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-card {
+    padding: 2.5rem;
+  }
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-method-link {
+    display: block !important;
+  }
+
+  .contact-method,
+  .contact-method-link .contact-method,
+  a.contact-method-link .contact-method {
+    height: 300px !important;
+    min-height: 300px !important;
+    max-height: 300px !important;
+    padding: 1.75rem 1.5rem !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 0.875rem !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+  }
+
+  .contact-method:hover,
+  .contact-method-link:hover .contact-method {
+    transform: none !important;
+  }
+
+  .contact-method .contact-icon,
+  .contact-icon {
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    margin: 0 !important;
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+    font-size: 1.25rem !important;
+  }
+
+  .contact-method h4 {
+    font-size: 1.125rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+  }
+
+  .contact-method p {
+    font-size: 0.875rem !important;
+    line-height: 1.45 !important;
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    max-height: 3.8rem !important;
+    width: 100% !important;
+  }
+
+  .contact-method .contact-link,
+  .contact-link {
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .social-links.contact-variant {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .social-link.contact-variant {
+    padding: 1.5rem 1rem;
+  }
+
+  .social-link.contact-variant i {
+    font-size: 2rem;
+  }
+
+  .specialization-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .specialization-card {
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+    padding: 1.125rem 0.625rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .specialization-card .spec-icon {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    font-size: 1.125rem !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .specialization-card h4 {
+    font-size: 0.875rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+    flex-shrink: 0 !important;
+  }
+
+  .specialization-card p {
+    font-size: 0.65rem !important;
+    line-height: 1.35 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-grow: 0 !important;
+    flex-shrink: 1 !important;
+  }
+
+  .explore-title {
+    font-size: 2.25rem;
+  }
+
+  .explore-container {
+    padding: 2rem;
+    margin: 0 1rem;
+  }
+}
+
+@media (width <= 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.875rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .stat-number {
+    font-size: 2.25rem;
+  }
+
+  .highlight-box,
+  .timeline-content,
+  .achievement-item,
+  .skill-category {
+    padding: 1.5rem;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-section {
+    padding: 3rem 0;
+  }
+
+  .projects-section {
+    padding: 3rem 0;
+  }
+
+  .explore-container {
+    padding: 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .explore-title {
+    font-size: 2rem;
+  }
+
+  .contact-methods {
+    gap: 1rem;
+  }
+
+  .contact-method,
+  .contact-method-link .contact-method,
+  a.contact-method-link .contact-method {
+    padding: 1.5rem 1.25rem !important;
+    height: 280px !important;
+    min-height: 280px !important;
+    max-height: 280px !important;
+    gap: 0.75rem !important;
+  }
+
+  .contact-method h4 {
+    font-size: 1.05rem !important;
+  }
+
+  .contact-method p {
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+    max-height: 3.36rem !important;
+  }
+
+  .contact-method .contact-icon,
+  .contact-icon {
+    width: 3.25rem !important;
+    height: 3.25rem !important;
+    font-size: 1.125rem !important;
+  }
+
+  .contact-method .contact-link,
+  .contact-link {
+    font-size: 0.85rem !important;
+  }
+
+  .contact-card {
+    padding: 2rem;
+  }
+
+  .social-links.contact-variant {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .social-title,
+  .specializations-title {
+    font-size: 2rem;
+  }
+}
+
+/* -- ACCESSIBILITY -- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    --border-color: #000;
+    --text-light: #000;
+    --card-bg: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+  }
+}
+
+/* PRINT STYLES */
+@media print {
+  .navbar,
+  .page-header {
+    background: none;
+    color: #000;
+  }
+}

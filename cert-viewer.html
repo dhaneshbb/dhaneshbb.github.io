@@ -1,0 +1,51 @@
+<!doctype html>
+<!--
+  Copyright (c) 2025 Dhanesh B.B. All Rights Reserved.
+  Certificate Viewer
+-->
+<html lang="en">
+  <head>
+    <link rel="icon" type="image/svg+xml" href="media/favicon.svg" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Viewer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles/pages/cert-viewer.css" />
+    <script src="scripts/core/resume-theme-init.js"></script>
+  </head>
+  <body>
+    <div id="toolbar">
+      <span id="certTitle">Certificate</span>
+      <button id="zoomOutBtn"><i class="fas fa-search-minus"></i></button>
+      <span id="zoomInfo">100%</span>
+      <button id="zoomInBtn"><i class="fas fa-search-plus"></i></button>
+      <button id="fitWidthBtn" title="Fit to Width"><i class="fas fa-arrows-alt-h"></i></button>
+      <button id="fitPageBtn" title="Fit Page"><i class="fas fa-expand"></i></button>
+      <button id="resetBtn" title="Reset (100%)"><i class="fas fa-undo"></i></button>
+      <button id="closeBtn">Close</button>
+    </div>
+
+    <div id="viewer">
+      <div id="imageWrapper">
+        <img id="certImage" alt="Certificate" />
+      </div>
+    </div>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZYLYR0091"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-5ZYLYR0091');
+    </script>
+
+    <script type="module" src="scripts/pages/cert-viewer.js"></script>
+  </body>
+</html>

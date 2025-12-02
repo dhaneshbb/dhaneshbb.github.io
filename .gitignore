@@ -4,7 +4,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json 
+package-lock.json
 yarn.lock
 
 # Runtime data
@@ -332,3 +332,9 @@ tramp
 !.github/
 !.vscode/settings.json
 !.editorconfig
+
+
+.backup/
+downloads/
+.chrome.record/
+scripts-build/

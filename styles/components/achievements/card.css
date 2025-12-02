@@ -1,0 +1,305 @@
+/* CERTIFICATIONS */
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (width >= 768px) {
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width >= 992px) {
+  .cert-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cert-card {
+  background: white;
+  padding: 0;
+  border-radius: var(--border-radius-2xl);
+  box-shadow:
+    0 4px 16px rgb(0 0 0 / 0.1),
+    0 2px 8px rgb(0 0 0 / 0.08);
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+  max-height: 650px;
+}
+
+/* Small laptops (1366x768) - decrease card size */
+@media (width >= 1024px) and (width <= 1600px), (width >= 1024px) and (height <= 900px) {
+  .cert-card {
+    height: 500px;
+    max-height: 500px;
+  }
+}
+
+.cert-image-preview {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--border-radius-2xl) var(--border-radius-2xl) 0 0;
+  background: var(--bg-light);
+  position: relative;
+  z-index: 1;
+}
+
+.cert-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.cert-card:hover .cert-image-preview img {
+  transform: scale(1.1) translateZ(0);
+}
+
+.cert-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  flex: 1;
+  background: white;
+  border-top: 2px solid var(--border-color);
+  overflow: hidden auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(0 0 0 / 0.2) transparent;
+}
+
+.cert-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cert-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cert-content::-webkit-scrollbar-thumb {
+  background: rgb(0 0 0 / 0.2);
+  border-radius: 3px;
+}
+
+.cert-content::-webkit-scrollbar-thumb:hover {
+  background: rgb(0 0 0 / 0.3);
+}
+
+.cert-card-kaggle {
+  background: white;
+  padding: 0;
+}
+
+.cert-card-kaggle .cert-content {
+  background: white;
+  border-top: 2px solid var(--border-color);
+}
+
+/* Kaggle Certificate Preview Carousel */
+.kaggle-cert-preview {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, rgb(32 190 255 / 0.05), rgb(105 0 199 / 0.03));
+}
+
+.kaggle-cert-scroll {
+  display: flex;
+  gap: 1rem;
+  animation: scrollKaggle 60s linear infinite;
+  width: max-content;
+}
+
+.kaggle-cert-scroll:hover {
+  animation-play-state: paused;
+}
+
+.kaggle-cert-scroll img {
+  height: 180px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+  transition: transform 0.3s ease;
+  margin: 10px 0;
+}
+
+.kaggle-cert-scroll img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.25);
+}
+
+@keyframes scrollKaggle {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.cert-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 40px rgb(0 0 0 / 0.12),
+    0 10px 24px rgb(0 0 0 / 0.1);
+  border-color: var(--primary-color);
+  background: white;
+}
+
+.cert-card:hover::before {
+  transform: scaleX(1);
+}
+
+.cert-title {
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.cert-org {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cert-date {
+  color: var(--text-light);
+  font-size: 0.875rem;
+  font-family: var(--font-family-monospace);
+  margin-bottom: 1.5rem;
+}
+
+.cert-credential {
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
+}
+
+.credential-label {
+  color: var(--text-light);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.credential-id {
+  color: var(--text-dark);
+  font-family: var(--font-family-monospace);
+  font-weight: 600;
+  background: var(--bg-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius);
+  font-size: 0.75rem;
+  display: inline-block;
+}
+
+.cert-url {
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+}
+
+.url-label {
+  color: var(--text-light);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.cert-url-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.cert-url-link:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.cert-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  text-decoration: none;
+  border-radius: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.cert-view-btn:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgb(0 97 242 / 0.3);
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  text-decoration: none;
+}
+
+.kaggle-certs-list {
+  margin-top: 1.5rem;
+  line-height: 1.8;
+}
+
+.kaggle-cert-item {
+  display: inline;
+}
+
+.kaggle-cert-item:not(:last-child)::after {
+  content: ' • ';
+  color: var(--text-light);
+  font-weight: 400;
+  margin: 0 0.25rem;
+}
+
+.kaggle-cert-link {
+  display: inline;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.kaggle-cert-link:hover {
+  color: var(--secondary-color);
+  text-decoration: none;
+  border-bottom: 1px solid var(--secondary-color);
+}

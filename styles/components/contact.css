@@ -1,0 +1,88 @@
+/* CONTACT PAGE SECTIONS */
+
+/* Contact Profile Picture */
+.contact-intro-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.contact-profile-side {
+  flex-shrink: 0;
+}
+
+.contact-profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--primary-color);
+  box-shadow:
+    0 10px 40px rgb(0 0 0 / 0.15),
+    0 0 0 10px rgb(71 142 255 / 0.05);
+  transition: transform 0.3s ease;
+}
+
+.contact-profile-image:hover {
+  transform: scale(1.05);
+}
+
+.contact-text-side {
+  flex: 1;
+}
+
+.contact-text-side h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.contact-text-side p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.contact-text-side .btn {
+  margin-top: 10px;
+}
+
+@media (width <= 768px) {
+  .contact-intro-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.contact-icon.github {
+  background: linear-gradient(135deg, #333, #24292e);
+}
+
+.contact-icon.python {
+  background: linear-gradient(135deg, #306998, #4b8bbe);
+}
+
+.contact-icon.kaggle {
+  background: linear-gradient(135deg, #20beff, #1da1f2);
+}
+
+/* Resume Buttons */
+.resume-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 10px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.resume-buttons .btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-dark);
+  border: 2px solid var(--border-color);
+}
+
+.resume-buttons .btn-secondary:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}

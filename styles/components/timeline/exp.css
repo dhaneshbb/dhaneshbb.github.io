@@ -1,0 +1,397 @@
+/* EXPERIENCE TIMELINE (EXPERIENCE PAGE) */
+
+.experience-section {
+  padding: 5rem 0;
+  background: var(--bg-light);
+}
+
+.experience-timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+/* ---------- Final timeline polish ---------- */
+:root {
+  --timeline-gap: calc(50% + 2rem);
+  --card-width: 44%;
+  --card-max-width: 520px;
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: 3.5rem;
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* Right side (even): place card to the right of center line */
+.experience-item:nth-child(even) {
+  justify-content: flex-start;
+}
+
+.experience-item:nth-child(even) .experience-content {
+  margin-left: var(--timeline-gap);
+  margin-right: 0;
+  width: var(--card-width);
+  max-width: var(--card-max-width);
+  box-sizing: border-box;
+}
+
+/* Left side (odd): place card to the left of center line */
+.experience-item:nth-child(odd) {
+  justify-content: flex-end;
+}
+
+.experience-item:nth-child(odd) .experience-content {
+  margin-right: var(--timeline-gap);
+  margin-left: 0;
+  width: var(--card-width);
+  max-width: var(--card-max-width);
+  box-sizing: border-box;
+}
+
+/* Badges hidden - no content displayed */
+.experience-item:nth-child(even)::before,
+.experience-item:nth-child(odd)::after {
+  display: none;
+}
+
+.experience-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow:
+    0 4px 16px rgb(0 0 0 / 0.1),
+    0 8px 24px rgb(0 97 242 / 0.06),
+    0 2px 8px rgb(0 0 0 / 0.08);
+  border: 1px solid var(--border-color);
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    border-width 0.3s ease;
+  width: auto;
+  max-width: var(--card-max-width);
+  max-height: 520px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* Logo + header wrapper */
+.company-logo-top {
+  float: left;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.company-logo-top.company-logo-right {
+  float: right;
+  margin-right: 0;
+  margin-left: 1.5rem;
+}
+
+.company-logo-top img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
+  border: 2px solid var(--primary-color);
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.company-logo-top img:hover {
+  transform: scale(1.05);
+}
+
+.experience-content:hover {
+  box-shadow:
+    0 12px 40px rgb(0 0 0 / 0.14),
+    0 16px 48px rgb(0 97 242 / 0.14),
+    0 6px 20px rgb(0 0 0 / 0.12);
+  border-color: var(--primary-color);
+  border-width: 2px;
+}
+
+.current-role:hover {
+  box-shadow: 0 6px 24px rgb(5 150 105 / 0.18);
+}
+
+.experience-marker {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 5px rgb(0 97 242 / 0.15);
+  z-index: 10;
+  transition: top 0.18s ease;
+}
+
+.job-title {
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.company-name {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.job-duration {
+  color: var(--text-light);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.job-location {
+  color: var(--text-light);
+  font-size: 0.8125rem;
+  margin-bottom: 1.25rem;
+}
+
+.job-description {
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+  line-height: 1.65;
+  font-size: 0.9375rem;
+  clear: both;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.key-results {
+  background: var(--bg-light);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+  border-left: 0.25rem solid var(--success-color);
+}
+
+.key-results h6 {
+  color: var(--success-color);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
+  gap: 1rem;
+  text-align: center;
+}
+
+.result-item {
+  padding: 0.75rem;
+}
+
+.result-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--success-color);
+  margin-bottom: 0.25rem;
+}
+
+.result-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  line-height: 1.2;
+}
+
+.achievements {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.achievements li {
+  padding: 0.625rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+  border-bottom: 0.0625rem solid rgb(0 0 0 / 0.05);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.achievements li:last-child {
+  border-bottom: none;
+}
+
+.achievements li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  top: 0.625rem;
+  color: var(--primary-color);
+  font-size: 0.7rem;
+}
+
+/* Scrollbar styling - reduced contrast and shadow overlap */
+.experience-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.experience-content::-webkit-scrollbar-thumb {
+  background: rgb(60 80 110 / 0.08);
+  border-radius: 6px;
+}
+
+.experience-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Hide duplicate marker pseudo if present inside this section to avoid double circles */
+.experience-section .timeline-item::before {
+  display: none;
+}
+
+.skills-used {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 0.0625rem solid var(--border-color);
+}
+
+.skills-used h6 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  font-size: 0.875rem;
+}
+
+.current-role {
+  border: 2px solid var(--success-color);
+  background: linear-gradient(135deg, rgb(5 150 105 / 0.03), rgb(5 150 105 / 0.08));
+  box-shadow: 0 4px 20px rgb(5 150 105 / 0.15);
+}
+
+.current-role .experience-marker {
+  background: white;
+  border-color: var(--success-color);
+  box-shadow: 0 0 0 4px rgb(5 150 105 / 0.15);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgb(5 150 105 / 0.15);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgb(5 150 105 / 0.1);
+  }
+}
+
+/* Optional: slightly wider cards on very large screens for better balance */
+@media (width >= 1600px) {
+  :root {
+    --card-width: 40%;
+    --card-max-width: 640px;
+  }
+}
+
+/* Responsive Design */
+@media (width <= 1200px) {
+  .experience-timeline {
+    --card-width: 48%;
+    --card-max-width: 540px;
+  }
+
+  .experience-content {
+    max-width: 540px;
+  }
+}
+
+@media (width <= 900px) {
+  .experience-timeline {
+    padding: 2rem 1rem;
+  }
+
+  .timeline-line {
+    left: 2rem;
+    transform: none;
+  }
+
+  .experience-marker {
+    left: 2rem;
+    transform: none;
+  }
+
+  .experience-item {
+    padding-left: 4rem !important;
+    padding-right: 0 !important;
+    justify-content: flex-start !important;
+    margin-bottom: 3rem;
+  }
+
+  .experience-item::before,
+  .experience-item::after {
+    display: none;
+  }
+
+  .experience-content {
+    max-width: 100%;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 1.5rem;
+  }
+}
+
+@media (width <= 600px) {
+  .experience-timeline {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .experience-content {
+    padding: 1.5rem;
+  }
+
+  .company-logo-top img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .job-title {
+    font-size: 1.1rem;
+  }
+
+  .company-name {
+    font-size: 0.95rem;
+  }
+}

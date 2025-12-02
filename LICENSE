@@ -1,9 +1,89 @@
-Portfolio License
+Copyright (c) 2025 Dhanesh B.B. All Rights Reserved.
 
-This portfolio is for demonstration purposes only.
-You may view and learn from the code, but may not:
-- Use the design or code for commercial purposes
-- Copy the content, projects, or personal information
-- Redistribute without explicit permission
+Effective Date: December 2, 2025
 
-© 2025 Dhanesh B.B. All rights reserved.
+PORTFOLIO LICENSE
+
+This portfolio website and all of its contents are the intellectual property
+of Dhanesh B.B. and are protected by copyright law.
+
+PERMITTED USE:
+- Viewing the source code for educational purposes
+- Learning from code structure and techniques
+- Reference for potential employers and collaborators
+
+PROHIBITED USE:
+- Copying, reproducing, or redistributing any part of this project
+- Using the design, layout, or visual elements for any purpose
+- Using the content, personal information, or project descriptions
+- Commercial use of any kind without explicit written permission
+- Creating derivative works based on this portfolio
+- Removing or modifying copyright notices
+
+For permission requests, contact: dhaneshbb5@gmail.com
+
+THIRD-PARTY SERVICES AND LIBRARIES:
+This project uses third-party services and libraries loaded from CDNs. Each is
+governed by its own license and terms:
+
+- Bootstrap v5.3.3 (MIT License)
+  https://github.com/twbs/bootstrap/blob/main/LICENSE
+
+- Font Awesome v6.4.0 Free
+  Icons: CC BY 4.0 License
+  Fonts: SIL OFL 1.1 License
+  Code: MIT License
+  https://fontawesome.com/license/free
+
+- Google Fonts (Inter, JetBrains Mono)
+  SIL Open Font License 1.1 / Apache License 2.0
+  https://fonts.google.com/
+
+- PDF.js (Apache License 2.0)
+  https://github.com/mozilla/pdf.js
+
+- Google Analytics (Google Terms of Service)
+  https://marketingplatform.google.com/about/analytics/terms/us/
+
+- Devicon v2.16.0 (MIT License)
+  Programming language and tool icons
+  https://github.com/devicons/devicon
+  https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/
+
+- CDN Services (jsDelivr, cdnjs)
+  Various licenses based on hosted content
+
+These third-party services remain under their respective licenses and terms.
+The owner is not responsible for their data practices, availability, security,
+or any issues arising from their use.
+
+TRADEMARK ACKNOWLEDGMENTS:
+This website uses Font Awesome icons and Devicon programming tool icons.
+All product names, logos, and brands displayed are property of their respective
+owners and are used for identification purposes only.
+
+Technical skill logos (Python, TensorFlow, AWS, Azure, Docker, etc.) are used
+to identify the owner's technical competencies and do not imply endorsement,
+affiliation, or sponsorship by these companies or projects.
+
+Social platform trademarks:
+- LinkedIn® is a registered trademark of LinkedIn Corporation
+- GitHub® is a registered trademark of GitHub, Inc.
+- Kaggle® is a trademark of Google LLC
+- Python® and PyPI® are registered trademarks of the Python Software Foundation
+
+No affiliation, endorsement, or sponsorship by any company is implied.
+
+DISCLAIMER AND LIMITATION OF LIABILITY:
+This portfolio is provided "AS IS" without warranties of any kind, express or
+implied. The owner makes no guarantees regarding accuracy, functionality,
+availability, or security.
+
+The owner is not responsible for:
+- Third-party service data practices, security breaches, or failures
+- Any damages arising from use of this website
+- Accuracy or completeness of information provided
+- Availability or uptime of the website
+
+Use of this website and any third-party services integrated within it is
+entirely at your own risk.

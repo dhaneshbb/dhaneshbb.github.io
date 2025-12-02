@@ -1,0 +1,25 @@
+/* TIMELINE */
+
+.timeline-date {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+  font-family: var(--font-family-monospace);
+}
+
+.timeline-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.timeline-subtitle {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  font-weight: 500;
+}

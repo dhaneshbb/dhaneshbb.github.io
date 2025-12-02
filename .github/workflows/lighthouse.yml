@@ -1,13 +1,13 @@
 name: Lighthouse CI - Mobile & Desktop
-on: 
+on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   lighthouse-mobile:
-    name: 📱 Lighthouse Mobile
+    name: Lighthouse Mobile
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,16 +30,16 @@ jobs:
           
       - name: Print Mobile Report Links
         run: |
-          echo "🔗 MOBILE LIGHTHOUSE REPORT LINKS"
+          echo "MOBILE LIGHTHOUSE REPORT LINKS"
           echo "=================================="
           echo ""
-          echo "📱 Mobile reports completed successfully!"
-          echo "📱 Check the 'Run Lighthouse CI - Mobile' step above for report links"
+          echo "Mobile reports completed successfully!"
+          echo "Check the 'Run Lighthouse CI - Mobile' step above for report links"
           echo ""
           echo "=================================="
 
   lighthouse-desktop:
-    name: 💻 Lighthouse Desktop  
+    name: Lighthouse Desktop  
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -80,44 +80,44 @@ jobs:
           
       - name: Print Desktop Report Links
         run: |
-          echo "🔗 DESKTOP LIGHTHOUSE REPORT LINKS"
+          echo "DESKTOP LIGHTHOUSE REPORT LINKS"
           echo "==================================="
           echo ""
-          echo "💻 Desktop reports completed successfully!"
-          echo "💻 Check the 'Run Lighthouse CI - Desktop' step above for report links"
+          echo "Desktop reports completed successfully!"
+          echo "Check the 'Run Lighthouse CI - Desktop' step above for report links"
           echo ""
           echo "==================================="
 
   print-summary:
-    name: 📋 Report Summary
+    name: Report Summary
     runs-on: ubuntu-latest
     needs: [lighthouse-mobile, lighthouse-desktop]
     if: always()
     steps:
       - name: Print Complete Summary
         run: |
-          echo "🎯 LIGHTHOUSE REPORTS COMPLETE"
+          echo "LIGHTHOUSE REPORTS COMPLETE"
           echo "=============================="
           echo ""
-          echo "✅ Mobile testing: Check 📱 Lighthouse Mobile job"
-          echo "✅ Desktop testing: Check 💻 Lighthouse Desktop job"
+          echo "Mobile testing: Check Lighthouse Mobile job"
+          echo "Desktop testing: Check Lighthouse Desktop job"
           echo ""
-          echo "📊 TO VIEW INDIVIDUAL REPORT LINKS:"
-          echo "1. Click on '📱 Lighthouse Mobile' job above"
+          echo "TO VIEW INDIVIDUAL REPORT LINKS:"
+          echo "1. Click on 'Lighthouse Mobile' job above"
           echo "2. Expand 'Run Lighthouse CI - Mobile' step"
           echo "3. Look for 'View report at: https://...' links"
           echo ""
-          echo "4. Click on '💻 Lighthouse Desktop' job above"
-          echo "5. Expand 'Run Lighthouse CI - Desktop' step"  
+          echo "4. Click on 'Lighthouse Desktop' job above"
+          echo "5. Expand 'Run Lighthouse CI - Desktop' step"
           echo "6. Look for 'View report at: https://...' links"
           echo ""
-          echo "⬇️ DOWNLOAD REPORTS:"
+          echo "DOWNLOAD REPORTS:"
           echo "- Scroll up to 'Artifacts' section"
           echo "- Download 'lighthouse-mobile-results' for mobile reports"
           echo "- Download 'lighthouse-desktop-results' for desktop reports"
           echo "- Both contain HTML reports for offline viewing"
           echo ""
-          echo "🔄 COMPARISON:"
+          echo "COMPARISON:"
           echo "- Compare mobile vs desktop scores"
           echo "- Identify device-specific issues"
           echo "- Focus on mobile performance improvements"

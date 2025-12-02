@@ -1,0 +1,97 @@
+/* -- PAGE HEADER -- */
+
+.page-header {
+  padding: 120px 0 0;
+  background: #f8fafc;
+  color: var(--text-dark);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 50%, rgb(0 97 242 / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgb(105 0 199 / 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgb(253 126 20 / 0.1) 0%, transparent 50%);
+  animation: header-float 20s ease-in-out infinite;
+}
+
+/* Fog fade effect at bottom of page header - removes hard line with soft blend */
+.page-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgb(248 250 252 / 0.2) 20%,
+    rgb(248 250 252 / 0.5) 50%,
+    rgb(248 250 252 / 0.8) 75%,
+    #f8fafc 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.page-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+  color: #000;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  opacity: 0.8;
+  font-weight: 400;
+  position: relative;
+  z-index: 2;
+  color: var(--text-light);
+  padding-bottom: 2rem;
+}
+
+/* -- DARK MODE OVERRIDES -- */
+
+[data-theme='dark'] .page-header {
+  background: var(--bg-secondary);
+}
+
+[data-theme='dark'] .page-header::before {
+  background:
+    radial-gradient(circle at 20% 50%, rgb(96 165 250 / 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgb(167 139 250 / 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgb(251 146 60 / 0.08) 0%, transparent 50%);
+}
+
+[data-theme='dark'] .page-header::after {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgb(45 55 72 / 0.2) 20%,
+    rgb(45 55 72 / 0.5) 50%,
+    rgb(45 55 72 / 0.8) 75%,
+    var(--bg-secondary) 100%
+  );
+}
+
+[data-theme='dark'] .page-title {
+  color: var(--text-dark);
+}
+
+/* MAIN CONTENT */
+
+.main-content {
+  padding: 5rem 0;
+}

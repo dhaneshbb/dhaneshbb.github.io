@@ -1,0 +1,302 @@
+/* -- SKILLS SECTION -- */
+
+.skills-section {
+  padding: 6rem 0;
+  background: var(--bg-light);
+}
+
+#skillset {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: none;
+  will-change: auto;
+  isolation: isolate;
+  overflow: visible;
+  contain: layout paint;
+}
+
+/* Allow animations on skill-category elements */
+#skillset *:not(.skill-category),
+#skillset *:not(.skill-category)::before,
+#skillset *:not(.skill-category)::after {
+  will-change: auto;
+  transition: none !important;
+  animation: none !important;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+}
+
+#tools,
+#technologies {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
+}
+
+#tools,
+#technologies {
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.skillset-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  transform: translate3d(0, 0, 0);
+  contain: layout paint;
+}
+
+.skillset-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-category {
+  /* Remove contain to allow animations */
+  isolation: isolate;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #000;
+  position: relative;
+  z-index: 2;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.subsection-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  margin-top: 1rem;
+  color: #000;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.subsection-subtitle {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skill-category {
+  background: transparent;
+  border-radius: 0;
+  padding: 0.3rem 0;
+  margin-bottom: 0.15rem;
+  border: none;
+  position: relative;
+  overflow: visible;
+  box-shadow: none;
+  pointer-events: auto;
+
+  /* Remove transition/animation blocks to allow animations */
+
+  /* Remove opacity: 1 to allow animation initial state */
+}
+
+.skill-category:hover {
+  /* Allow animated transforms */
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+.skill-category::before,
+.skill-category::after {
+  display: none !important;
+}
+
+.skill-category:hover::before,
+.skill-category:hover::after {
+  display: none !important;
+}
+
+.skill-category:hover .skill-category-icon {
+  /* Allow animations */
+}
+
+/* Technologies section - same styling as Tools section (no cards) */
+#technologies .skill-category {
+  background: transparent;
+  border-radius: 0;
+  padding: 0.3rem 0;
+  margin-bottom: 0.15rem;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+
+  /* Allow animations for technologies section too */
+}
+
+#technologies .skill-category:hover {
+  /* Allow animated transforms */
+  box-shadow: none;
+  background: transparent;
+  border-color: transparent;
+}
+
+#technologies .skill-category::before {
+  display: none;
+}
+
+#technologies .skill-category:hover::before {
+  display: none;
+}
+
+#technologies .skill-category:hover .skill-category-icon {
+  /* Allow animations */
+}
+
+#technologies .skill-category h4 {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.skill-category-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+  transition: all 0.15s ease;
+}
+
+.skill-category h4 {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.35rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--border-color);
+  width: 100%;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.skill-tag {
+  color: var(--text-dark);
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: none !important;
+  cursor: default;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  position: relative;
+  padding-left: 12px;
+  transform: translateZ(0);
+}
+
+.skill-tag::before {
+  content: '• ';
+  color: var(--primary-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.skill-tag:hover {
+  border-bottom: 2px solid transparent !important;
+}
+
+/* Logo-based skills styling */
+.skill-tags-logo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: flex-start;
+  margin-top: 0.3rem;
+}
+
+.skill-tag-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  transition: none !important;
+  width: 50px;
+  transform: translateZ(0);
+}
+
+.logo-box {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 0;
+  transition: none !important;
+  border: none;
+  padding: 0.2rem;
+  box-shadow: none;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+.skill-tag-logo:hover .logo-box {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.logo-box img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+  transform: translate3d(0, 0, 0);
+  image-rendering: auto;
+  will-change: auto;
+}
+
+.skill-name {
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+  width: 100%;
+  line-height: 1.1;
+  word-wrap: break-word;
+}
+
+/* DARK MODE OVERRIDES */
+
+[data-theme='dark'] .section-title {
+  color: var(--text-dark);
+}
+
+[data-theme='dark'] .subsection-title {
+  color: var(--text-dark);
+}
+
+[data-theme='dark'] .skill-category h4 {
+  color: var(--text-dark);
+}

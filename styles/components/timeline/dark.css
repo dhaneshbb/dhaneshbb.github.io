@@ -1,0 +1,81 @@
+/* -- DARK MODE OVERRIDES -- */
+
+[data-theme='dark'] .timeline-title {
+  color: var(--text-dark);
+}
+
+[data-theme='dark'] .experience-content {
+  background: var(--bg-primary);
+}
+
+[data-theme='dark'] .company-logo-top img {
+  background: var(--bg-tertiary);
+}
+
+[data-theme='dark'] .experience-marker {
+  background: var(--bg-primary);
+}
+
+[data-theme='dark'] .current-role .experience-marker {
+  background: var(--bg-primary);
+}
+
+[data-theme='dark'] .timeline-section {
+  background: var(--bg-secondary);
+}
+
+[data-theme='dark'] .timeline-section::before {
+  background: linear-gradient(
+    to top,
+    transparent 0%,
+    rgb(45 55 72 / 0.3) 30%,
+    rgb(45 55 72 / 0.6) 60%,
+    var(--bg-secondary) 100%
+  );
+}
+
+[data-theme='dark'] .journey-timeline-container::before {
+  background: linear-gradient(to bottom, var(--bg-secondary), transparent);
+}
+
+[data-theme='dark'] .journey-timeline-container::after {
+  background: linear-gradient(to top, var(--bg-secondary), transparent);
+}
+
+[data-theme='dark'] .journey-marker {
+  background: var(--bg-primary);
+}
+
+[data-theme='dark'] .journey-content {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+  box-shadow:
+    0 4px 8px rgb(0 0 0 / 0.3),
+    0 0 0 1px rgb(74 85 104 / 0.5),
+    inset 0 1px 0 rgb(255 255 255 / 0.05),
+    inset 0 -1px 0 rgb(255 255 255 / 0.05);
+}
+
+[data-theme='dark'] .journey-content:hover {
+  background: var(--bg-secondary);
+  border-color: #6366f1;
+  box-shadow:
+    0 30px 80px rgb(0 0 0 / 0.4),
+    0 15px 40px rgb(99 102 241 / 0.3),
+    0 0 0 1px rgb(99 102 241 / 0.6),
+    inset 0 1px 0 rgb(255 255 255 / 0.1),
+    inset 0 -1px 0 rgb(255 255 255 / 0.1);
+}
+
+[data-theme='dark'] .journey-logo-top img {
+  background: var(--bg-secondary);
+  border-color: #60a5fa;
+}
+
+[data-theme='dark'] .journey-company {
+  color: #60a5fa;
+}
+
+[data-theme='dark'] .journey-title {
+  color: #e2e8f0;
+}

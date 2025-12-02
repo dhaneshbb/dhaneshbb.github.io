@@ -1,0 +1,405 @@
+/* EXPLORE SECTION (PROJECTS PAGE) */
+
+.explore-section {
+  padding: 1rem 0 3rem;
+  background: var(--bg-light);
+  position: relative;
+}
+
+.explore-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-3xl);
+  padding: 3rem;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.explore-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.explore-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgb(0 0 0 / 0.1);
+  border-color: var(--primary-color);
+}
+
+.explore-container:hover::before {
+  transform: scaleX(1);
+}
+
+.explore-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.explore-description {
+  font-size: 1.125rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -- CTA SECTION -- */
+
+.cta-btn {
+  padding: 1rem 2.5rem;
+  border-radius: 3rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  border: none;
+}
+
+.skills-development {
+  padding: 6rem 0;
+  background: var(--bg-light);
+}
+
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.2), transparent);
+  transition: left 0.5s;
+  z-index: 1;
+}
+
+.cta-btn:hover::before {
+  left: 100%;
+}
+
+.cta-btn.primary {
+  background: white;
+  color: var(--primary-color);
+  border: 2px solid white;
+}
+
+.cta-btn.primary:hover {
+  background: var(--bg-secondary);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 1rem 2rem rgb(0 0 0 / 0.3);
+  color: var(--primary-color);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgb(255 255 255 / 0.5);
+}
+
+.cta-btn.secondary:hover {
+  background: rgb(255 255 255 / 0.1);
+  border-color: white;
+  color: white;
+  transform: translateY(-5px);
+}
+
+/* -- DARK MODE OVERRIDES -- */
+
+[data-theme='dark'] .career-title {
+  color: var(--text-dark);
+}
+
+[data-theme='dark'] .career-description {
+  color: var(--text-light);
+}
+
+[data-theme='dark'] .highlight-box .lead {
+  color: var(--text-dark);
+}
+
+[data-theme='dark'] .highlight-box p {
+  color: var(--text-light);
+}
+
+[data-theme='dark'] .highlight-box p strong {
+  color: var(--text-dark);
+}
+
+[data-theme='dark'] .specializations-title,
+[data-theme='dark'] h2.section-title,
+[data-theme='dark'] h3.section-title {
+  color: var(--text-dark);
+}
+
+[data-theme='dark'] .career-highlights .highlight-item {
+  background: var(--bg-primary);
+}
+
+/* ABOUT PAGE - ANIMATION DELAYS AND INLINE STYLES */
+
+/* Experience items animation delays */
+.experience-item:nth-child(1)[data-animation='left'] {
+  animation-delay: 0s;
+}
+
+.experience-item:nth-child(2)[data-animation='right'] {
+  animation-delay: 0.3s;
+}
+
+/* Career cards animation delays */
+.career-card:nth-child(1)[data-animation='left'] {
+  animation-delay: 0s;
+}
+
+.career-card:nth-child(2)[data-animation='top'] {
+  animation-delay: 0.2s;
+}
+
+.career-card:nth-child(3)[data-animation='right'] {
+  animation-delay: 0.4s;
+}
+
+/* Certification cards animation delays */
+.cert-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.cert-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.cert-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.cert-card:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.cert-card:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+.cert-card:nth-child(6) {
+  animation-delay: 0.75s;
+}
+
+/* Skillset section styles */
+#skillset {
+  margin-top: 6rem;
+}
+
+/* Subsection subtitle styles */
+.subsection-subtitle-style {
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+/* Contact page - Specialization cards animation delays */
+.specialization-card:nth-child(1)[data-animation='left'] {
+  animation-delay: 0s;
+}
+
+.specialization-card:nth-child(2)[data-animation='top'] {
+  animation-delay: 0.15s;
+}
+
+.specialization-card:nth-child(3)[data-animation='right'] {
+  animation-delay: 0.3s;
+}
+
+.specialization-card:nth-child(4)[data-animation='left'] {
+  animation-delay: 0.45s;
+}
+
+.specialization-card:nth-child(5)[data-animation='bottom'] {
+  animation-delay: 0.6s;
+}
+
+.specialization-card:nth-child(6)[data-animation='right'] {
+  animation-delay: 0.75s;
+}
+
+/* Contact method cards animation delays */
+.contact-method:nth-child(1)[data-animation='left'] {
+  animation-delay: 0s;
+}
+
+.contact-method:nth-child(2)[data-animation='top'] {
+  animation-delay: 0.15s;
+}
+
+.contact-method:nth-child(3),
+.contact-method:nth-child(4),
+.contact-method:nth-child(5),
+.contact-method:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.contact-method:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.contact-method:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+.contact-method:nth-child(6) {
+  animation-delay: 0.75s;
+}
+
+/* Experience page - Philosophy quote styles */
+.quote-background-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 80% 20%, rgb(0 97 242 / 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.quote-blockquote {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  font-style: italic;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
+}
+
+.quote-mark {
+  position: absolute;
+  top: 1.5rem;
+  left: 3rem;
+  font-size: 4rem;
+  color: var(--primary-color);
+  opacity: 0.1;
+  font-family: Georgia, serif;
+  z-index: 1;
+}
+
+[data-theme='dark'] .cta-btn.primary {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme='dark'] .cta-btn.primary:hover {
+  background: var(--bg-tertiary);
+}
+
+[data-theme='dark'] .career-card {
+  border-color: var(--border-color);
+}
+
+[data-theme='dark'] .skills-scroll-container::before {
+  background: linear-gradient(to right, var(--bg-secondary), transparent);
+}
+
+[data-theme='dark'] .skills-scroll-container::after {
+  background: linear-gradient(to left, var(--bg-secondary), transparent);
+}
+
+/* -- DARK MODE - EXPLORE SECTION -- */
+
+[data-theme='dark'] .explore-section {
+  background: var(--bg-secondary);
+}
+
+[data-theme='dark'] .explore-container {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme='dark'] .explore-container:hover {
+  box-shadow: 0 20px 40px rgb(0 0 0 / 0.3);
+}
+
+[data-theme='dark'] .explore-title {
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .explore-description {
+  color: #cbd5e0;
+}
+
+/* -- DARK MODE - CONTACT METHODS -- */
+
+[data-theme='dark'] .contact-method {
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow);
+}
+
+[data-theme='dark'] .contact-method:hover,
+[data-theme='dark'] .contact-method-link:hover .contact-method {
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme='dark'] .contact-method h4 {
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .contact-method p {
+  color: #cbd5e0;
+}
+
+/* -- DARK MODE - SPECIALIZATIONS -- */
+
+[data-theme='dark'] .specializations-section {
+  background: var(--bg-secondary);
+}
+
+[data-theme='dark'] .specializations-subtitle {
+  color: #a0aec0;
+}
+
+[data-theme='dark'] .specialization-card {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+[data-theme='dark'] .specialization-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme='dark'] .specialization-card h4 {
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .specialization-card p {
+  color: #cbd5e0;
+}
+
+/* DARK MODE - AVAILABILITY BADGE */
+
+[data-theme='dark'] .availability-badge {
+  background: var(--bg-tertiary);
+  color: #10b981;
+  border-color: #10b981;
+}

@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2021",
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "checkJs": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@styles/*": ["./styles/*"],
+      "@scripts/*": ["./scripts/*"],
+      "@components/*": ["./components/*"],
+      "@media/*": ["./media/*"]
+    }
+  },
+  "include": ["scripts/**/*", "*.html"],
+  "exclude": ["node_modules", ".bkup", ".scripts-build", "dist"]
+}

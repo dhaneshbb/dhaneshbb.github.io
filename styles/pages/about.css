@@ -1,0 +1,110 @@
+/* SKILLSET TWO-COLUMN LAYOUT (ABOUT PAGE) */
+
+.skillset-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.skillset-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Skills Logo Grid - Two Row Scrolling Animation */
+.skills-scroll-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Fog effect on left and right edges */
+.skills-scroll-container::before,
+.skills-scroll-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.skills-scroll-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-light), transparent);
+}
+
+.skills-scroll-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-light), transparent);
+}
+
+.skills-logo-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4rem;
+  align-items: center;
+  width: max-content;
+  animation: scroll-left-to-right 30s linear infinite;
+}
+
+.skills-logo-grid:hover {
+  animation-play-state: paused;
+}
+
+.skills-logo-grid:nth-child(1) {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.skills-logo-grid:nth-child(2) {
+  animation-direction: reverse;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+@keyframes scroll-left-to-right {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Featured Projects Scrolling Animation */
+
+.projects-scroll-container::before,
+.project-card-wrapper {
+  min-width: 400px;
+  max-width: 400px;
+  flex-shrink: 0;
+}
+
+.project-card-wrapper .project-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes scroll-projects {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (width <= 991px) {
+  .skillset-two-column {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,119 @@
+/* PERFORMANCE OPTIMIZATIONS FOR SCROLL */
+
+/* Sections - isolate paint/layout */
+section {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+/* Hero section animations */
+.hero-section,
+.hero-background {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Profile animations */
+.profile-background {
+  will-change: transform;
+}
+
+.profile-ring {
+  will-change: transform;
+}
+
+.profile-image {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Scrolling carousels - critical for performance */
+.journey-timeline-scroll,
+.skills-logo-grid,
+.certifications-scroll-grid,
+.projects-scroll-grid-horizontal {
+  will-change: scroll-position;
+  contain: layout style paint;
+  transform: translateZ(0);
+}
+
+/* Individual scroll items */
+.journey-item,
+.skill-tag-logo,
+.cert-card-new,
+.project-card-new {
+  contain: layout paint;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Cards with hover effects */
+.contact-method,
+.specialization-card,
+.cert-card,
+.project-card,
+.achievement-card {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Navigation - fixed position */
+nav,
+.navbar {
+  will-change: transform;
+  transform: translateZ(0);
+  contain: layout style;
+}
+
+/* Fade-in animations */
+.fade-in {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+}
+
+/* Images - lazy loading optimization */
+img[loading='lazy'],
+.cert-image-lazy {
+  content-visibility: auto;
+  contain-intrinsic-size: 300px;
+}
+
+/* Timeline elements */
+.timeline-line,
+.timeline-line-journey {
+  will-change: transform;
+  contain: strict;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    will-change: auto !important;
+  }
+}
+
+/* Force GPU layers for smooth animations */
+@keyframes force-gpu {
+  from {
+    transform: translateZ(0);
+  }
+
+  to {
+    transform: translateZ(0);
+  }
+}
+
+.hero-background,
+.profile-ring,
+.profile-background {
+  animation: force-gpu 0.001s;
+}
