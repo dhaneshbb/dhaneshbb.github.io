@@ -180,11 +180,24 @@
 }
 
 .cert-title {
+  display: block;
   font-weight: 700;
   color: #000;
   margin-bottom: 0.75rem;
   font-size: 1.125rem;
   line-height: 1.4;
+}
+
+.cert-description {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.cert-description strong {
+  color: var(--text-light);
+  font-weight: 600;
 }
 
 .cert-org {
@@ -254,6 +267,8 @@
   gap: 0.5rem;
   padding: 0.6rem 1.2rem;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  position: sticky;
+  bottom: 0;
   color: white;
   text-decoration: none;
   border-radius: 1.5rem;
@@ -261,7 +276,7 @@
   font-weight: 600;
   transition: all 0.3s ease;
   margin-top: auto;
-  align-self: flex-start;
+  align-self: flex-end;
 }
 
 .cert-view-btn:hover {

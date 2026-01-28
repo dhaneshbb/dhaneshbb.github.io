@@ -3,13 +3,15 @@
 /* INDEX PAGE - FEATURED PROJECTS SECTION STYLES */
 
 .projects-section-featured {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .projects-scroll-container-horizontal {
   width: 100%;
   padding: 2rem 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .projects-scroll-grid-horizontal {
@@ -30,6 +32,29 @@
 .loading-text {
   margin-top: 1rem;
   color: #6c757d;
+}
+
+.projects-error {
+  width: 100%;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border: 1px dashed #d0d7de;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  color: #475569;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.projects-error-icon {
+  font-size: 2.5rem;
+  color: #6366f1;
+  margin-bottom: 0.75rem;
+}
+
+.projects-error-text {
+  margin-bottom: 1.25rem;
+  font-weight: 600;
 }
 
 /* PROJECTS SHOWCASE SECTION */
@@ -71,6 +96,7 @@
 
 .projects-scroll-container-horizontal {
   overflow-x: hidden !important;
+  overflow-y: visible !important;
   width: 100% !important;
   position: relative !important;
   padding: 2rem 0;
@@ -102,10 +128,12 @@
   display: flex !important;
   gap: 1.5rem !important;
   width: max-content !important;
-  animation: scrollProjectsHorizontal 120s linear infinite;
+  animation: scrollProjectsHorizontal 60s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
-  transform: translateZ(0);
+  transform: translateX(0);
+  overflow: visible;
+  padding: 1rem 0;
 }
 
 .projects-scroll-container-horizontal:hover .projects-scroll-grid-horizontal {
@@ -114,11 +142,11 @@
 
 @keyframes scrollProjectsHorizontal {
   0% {
-    transform: translateX(0) translateZ(0);
+    transform: translateX(0);
   }
 
   100% {
-    transform: translateX(-50%) translateZ(0);
+    transform: translateX(-50%);
   }
 }
 
@@ -137,11 +165,47 @@
   border: 1px solid #d0d7de !important;
   border-radius: 16px !important;
   filter: none !important;
-  backface-visibility: hidden;
-  transform: translateZ(0);
+  backface-visibility: visible;
+  transform: none !important;
+  transform-style: flat;
+  will-change: auto;
   overflow: hidden !important;
   flex-shrink: 0;
   flex-grow: 0;
+  position: relative;
+  top: 0;
+  transition:
+    top 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.projects-scroll-grid-horizontal .project-card-new:hover {
+  transform: none !important;
+  top: -12px;
+  border-color: #6366f1 !important;
+  box-shadow:
+    0 18px 40px rgb(0 0 0 / 0.12),
+    0 8px 20px rgb(99 102 241 / 0.18) !important;
+}
+
+.projects-scroll-grid-horizontal .project-card-new::before {
+  opacity: 0;
+  background: linear-gradient(135deg, rgb(99 102 241 / 0.15), rgb(139 92 246 / 0.15));
+}
+
+.projects-scroll-grid-horizontal .project-card-new:hover::before {
+  opacity: 1;
+}
+
+.projects-scroll-grid-horizontal .project-card-new::after {
+  opacity: 0;
+  background: linear-gradient(135deg, rgb(99 102 241 / 0.25), rgb(236 72 153 / 0.2));
+  filter: blur(14px);
+}
+
+.projects-scroll-grid-horizontal .project-card-new:hover::after {
+  opacity: 0.6;
 }
 
 .projects-scroll-grid-horizontal .project-card-new .card-body-new {
@@ -158,10 +222,24 @@
 .projects-scroll-grid-horizontal .project-card-new img,
 .projects-scroll-grid-horizontal .project-card-new .repo-card {
   filter: none !important;
-  backface-visibility: hidden !important;
-  transform: translateZ(0) !important;
-  image-rendering: optimize-contrast !important;
-  image-rendering: crisp-edges !important;
+  transform: none !important;
+  image-rendering: auto !important;
+}
+
+/* Remove highlight backgrounds in Featured Projects descriptions */
+.projects-scroll-grid-horizontal .project-description-new strong,
+.projects-scroll-grid-horizontal .project-description-new .highlight {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.projects-scroll-grid-horizontal .project-description-new strong:hover,
+.projects-scroll-grid-horizontal .project-description-new .highlight:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
 }
 
 /* Responsive */

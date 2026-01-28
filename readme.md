@@ -28,8 +28,8 @@ Deployed on GitHub Pages.
 
 ## Key Features
 
-- Animations: Typing effects, scroll-triggered fade-ins, directional slides, 3D
-  card tilts, staggered transitions
+- Animations: Typing effects, scroll-triggered fade-ins, directional slides,
+  staggered transitions, and interactive hover effects
 - Component System: Dynamic nav/footer loading, project filtering with keyboard
   navigation, infinite scroll carousels
 - Theme Switching: Light/dark mode with localStorage persistence and FOUC
@@ -53,15 +53,6 @@ Deployed on GitHub Pages.
 | :---------------------------------------------------------------------------------------------------------------------------: |
 |                                            ![Home Demo](media/demo/home-demo.gif)                                             |
 | Homepage featuring dynamic typing animation, infinite scroll carousels for skills and projects, and smooth reveal animations. |
-
-</div>
-
-<div align="center">
-
-|                                Light Theme                                 |                                     Dark Theme                                      |
-| :------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
-|                ![Light Theme](media/demo/light-pr-card.gif)                |                     ![Dark Theme](media/demo/dark-pr-card.gif)                      |
-| Light mode interface with clean, modern design and optimized color scheme. | Dark mode interface with reduced eye strain and persistent user preference storage. |
 
 </div>
 

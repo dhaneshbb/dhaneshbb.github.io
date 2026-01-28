@@ -6,6 +6,11 @@ section {
   will-change: transform;
 }
 
+/* Allow featured project hover to render outside card bounds */
+.projects-section-featured {
+  contain: layout style;
+}
+
 /* Hero section animations */
 .hero-section,
 .hero-background {
@@ -32,11 +37,16 @@ section {
 /* Scrolling carousels - critical for performance */
 .journey-timeline-scroll,
 .skills-logo-grid,
-.certifications-scroll-grid,
-.projects-scroll-grid-horizontal {
+.certifications-scroll-grid {
   will-change: scroll-position;
-  contain: layout style paint;
+  contain: layout style;
   transform: translateZ(0);
+}
+
+.projects-scroll-grid-horizontal {
+  will-change: auto;
+  contain: layout style;
+  transform: translateX(0);
 }
 
 /* Individual scroll items */
@@ -45,8 +55,8 @@ section {
 .cert-card-new,
 .project-card-new {
   contain: layout paint;
-  will-change: transform;
-  transform: translateZ(0);
+  will-change: auto;
+  transform: none;
 }
 
 /* Cards with hover effects */
@@ -55,9 +65,9 @@ section {
 .cert-card,
 .project-card,
 .achievement-card {
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
+  will-change: auto;
+  transform: none;
+  backface-visibility: visible;
 }
 
 /* Navigation - fixed position */

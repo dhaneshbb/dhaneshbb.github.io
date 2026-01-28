@@ -7,6 +7,8 @@
   --button-bg: #4a4a4a;
   --button-hover: #5a5a5a;
   --toolbar-text: #fff;
+  --viewer-bg: #f0f0f0;
+  --page-shadow: 0 4px 20px rgb(0 0 0 / 0.5);
 }
 
 [data-theme='dark'] {
@@ -14,6 +16,8 @@
   --button-bg: #2d3142;
   --button-hover: #3d4152;
   --toolbar-text: #e2e8f0;
+  --viewer-bg: #1a1c24;
+  --page-shadow: 0 6px 28px rgb(0 0 0 / 0.6);
 }
 
 [data-theme='light'] {
@@ -21,6 +25,8 @@
   --button-bg: #e9ecef;
   --button-hover: #dee2e6;
   --toolbar-text: #212529;
+  --viewer-bg: #f7f7f9;
+  --page-shadow: 0 4px 16px rgb(0 0 0 / 0.35);
 }
 
 * {
@@ -31,7 +37,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-  background: #525252;
+  background: var(--viewer-bg);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -47,9 +53,11 @@ body {
   box-shadow: 0 2px 8px rgb(0 0 0 / 0.3);
   min-height: 56px;
   z-index: 10;
+  flex-wrap: wrap;
 }
 
-#toolbar button {
+#toolbar button,
+#toolbar .toolbar-link {
   background: var(--button-bg);
   border: none;
   color: var(--toolbar-text);
@@ -57,13 +65,26 @@ body {
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-#toolbar button:hover:not(:disabled) {
+#toolbar .toolbar-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+#toolbar button:hover:not(:disabled),
+#toolbar .toolbar-link:hover {
   background: var(--button-hover);
 }
 
-#toolbar button:disabled {
+#toolbar button:disabled,
+#toolbar .toolbar-link:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
@@ -91,25 +112,77 @@ body {
 #viewer {
   flex: 1;
   overflow: auto;
-  background: #525252;
+  background: var(--viewer-bg);
   text-align: center;
   padding: 20px;
 }
 
 #canvasContainer {
-  display: inline-block;
-  transition: transform 0.1s ease-out;
-  transform-origin: center center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 0 40px;
 }
 
-#pdfCanvas {
-  display: block;
-  box-shadow: 0 4px 20px rgb(0 0 0 / 0.5);
+#nativeWrapper {
+  display: none;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  padding: 20px 0 32px;
+}
+
+#nativeViewer {
+  width: min(1024px, 100%);
+  height: calc(100vh - 140px);
+  border: none;
+  box-shadow: var(--page-shadow);
   background: white;
+}
+
+.page-wrapper {
+  position: relative;
+  background: white;
+  box-shadow: var(--page-shadow);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.page-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgb(0 0 0 / 0.55);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+#pdfCanvas,
+.pdf-page {
+  display: block;
+  background: white;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 #closeBtn {
   margin-left: auto;
+}
+
+/* Native mode hides canvas UI and shows embed */
+body.native-mode #canvasControls,
+body.native-mode #pageInfo,
+body.native-mode #zoomInfo,
+body.native-mode #canvasContainer {
+  display: none !important;
+}
+
+body.native-mode #nativeWrapper {
+  display: flex;
 }
 
 /* Responsive mobile design */
@@ -141,6 +214,15 @@ body {
 
   #viewer {
     padding: 10px;
+  }
+
+  #canvasContainer {
+    gap: 16px;
+    padding: 8px 0 24px;
+  }
+
+  #nativeViewer {
+    height: calc(100vh - 120px);
   }
 
   #closeBtn {

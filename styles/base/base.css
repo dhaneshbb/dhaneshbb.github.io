@@ -25,10 +25,7 @@ body {
   text-rendering: optimizelegibility;
   overflow-x: hidden;
 
-  /* GPU acceleration for smoother scrolling */
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+  backface-visibility: visible;
 }
 
 /* Desktop zoom - responsive based on screen size */

@@ -9,10 +9,9 @@ async function initIndexPage() {
   const typingElement = document.getElementById('typingText');
   if (typingElement) {
     const typingTexts = [
-      'by DataMites, IABAC, NASSCOM',
+      '(IABAC & NASSCOM)',
+      '& M.A. Economics',
       '& Data Science Consultant',
-      '& Coordinator',
-      '& Data Analyst',
     ];
     let textIndex = 0;
     let charIndex = 0;
@@ -51,9 +50,9 @@ async function initIndexPage() {
   const descriptionCursor = document.querySelector('.hero-description-typing .typing-cursor');
 
   if (subtitleElement && descriptionElement && subtitleCursor && descriptionCursor) {
-    const subtitleText = 'Transforming Data into Actionable Business Insights'.trim();
+    const subtitleText = 'Bengaluru, Karnataka, India • IST (UTC +5:30)'.trim();
     const descriptionText =
-      "Certified Data Scientist with Master's in Economics. Specialized in Python, Machine Learning, and Big Data Analytics. Creator of InsightfulPy with 25+ automated EDA functions.".trim();
+      'Certified Data Scientist (IABAC, NASSCOM) with M.A. in Economics. Built 15 projects: 6 ML models, 2 PyPI packages, 2 desktop apps, and data analysis tools.'.trim();
 
     let subtitleIndex = 0;
     let descriptionIndex = 0;
@@ -181,12 +180,42 @@ async function initIndexPage() {
     tag.addEventListener('click', () => {});
   });
 
-  loadProjects();
+  await loadProjects();
   loadCertificateImages();
+}
+
+function showRepoFallback(img) {
+  const link = img.closest('a');
+  const container = img.closest('.repo-card-container');
+  if (!container) return;
+
+  const href = link?.href || '';
+  const repoName = href.split('/').filter(Boolean).slice(-2).join('/') || 'Repository';
+
+  container.innerHTML = `
+    <a href="${href}" target="_blank" rel="noopener" class="repo-card-fallback">
+      <i class="fab fa-github"></i>
+      <span>${repoName}</span>
+    </a>
+  `;
 }
 
 async function loadProjects() {
   const container = document.getElementById('projects-scroll-wrapper');
+
+  const showProjectsFallback = message => {
+    if (!container) return;
+    container.classList.add('projects-error-state');
+    container.innerHTML = `
+      <div class="projects-error">
+        <div class="projects-error-icon"><i class="fas fa-image-slash"></i></div>
+        <p class="projects-error-text">${message}</p>
+        <a class="btn btn-primary" href="projects.html" target="_blank" rel="noopener">
+          <i class="fas fa-arrow-right me-2"></i>Open Projects Page
+        </a>
+      </div>
+    `;
+  };
 
   try {
     const projectCards = await fetchHTMLElements('projects.html', '.project-card-new');
@@ -218,10 +247,26 @@ async function loadProjects() {
 
     projectCards.forEach(addCard);
     projectCards.forEach(addCard);
+
+    // handle repo preview images - show on load, show fallback on error
+    container.querySelectorAll('.repo-card').forEach(img => {
+      img.addEventListener('load', () => img.classList.add('loaded'));
+      img.addEventListener('error', () => showRepoFallback(img));
+      if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
+    });
+
   } catch (error) {
     console.error('Error loading projects:', error);
+
+    const isFileProtocol = window.location.protocol === 'file:';
+    const fallbackMessage = isFileProtocol
+      ? 'Project previews need a local server to load (run "npm run dev" or open https://dhaneshbb.github.io/projects.html).'
+      : 'Projects preview is unavailable right now. Please open the full Projects page.';
+
+    showProjectsFallback(fallbackMessage);
   }
 }
+
 
 async function loadSkills() {
   const skillItems = await fetchHTMLElements('about.html', '#skillset .skill-tag-logo');

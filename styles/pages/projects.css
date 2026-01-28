@@ -107,13 +107,10 @@
   position: relative;
   z-index: 2;
   box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-  transition: all 0.3s ease;
-  backface-visibility: hidden;
-  transform: translateZ(0);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .repo-card-container:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
 }
 
@@ -127,19 +124,67 @@
   height: auto;
   display: block;
   border-radius: var(--border-radius-lg);
-  transition: all 0.3s ease;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-  image-rendering: optimize-contrast;
-  image-rendering: crisp-edges;
+  transition: opacity 0.25s ease;
+  image-rendering: auto;
+  -webkit-image-rendering: auto;
+  will-change: auto;
+  opacity: 0;
+  filter: none;
+  transform: none;
+  backface-visibility: visible;
+}
+
+.repo-card.loaded {
+  opacity: 1;
+}
+
+/* Fallback when OpenGraph image fails */
+.repo-card-fallback {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  color: var(--text-light);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.repo-card-fallback:hover {
+  background: var(--bg-tertiary);
+}
+
+.repo-card-fallback i {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.repo-card-fallback span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.repo-card-private {
+  justify-content: center;
+  color: var(--text-muted);
+  border: 1px dashed var(--border-color);
+  background: transparent;
+  cursor: default;
+}
+
+
+.repo-card-private:hover {
+  background: transparent;
 }
 
 /* Prevent blur on hover */
-.project-card:hover .repo-card-container,
 .project-card:hover .repo-card,
-.project-card-new:hover .repo-card-container,
 .project-card-new:hover .repo-card {
-  filter: none;
-  backface-visibility: hidden;
-  transform: translateZ(0);
+  filter: none !important;
+  image-rendering: auto;
 }

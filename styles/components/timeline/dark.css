@@ -34,6 +34,16 @@
   );
 }
 
+[data-theme='dark'] .timeline-section::after {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgb(45 55 72 / 0.3) 30%,
+    rgb(45 55 72 / 0.6) 60%,
+    var(--bg-secondary) 100%
+  );
+}
+
 [data-theme='dark'] .journey-timeline-container::before {
   background: linear-gradient(to bottom, var(--bg-secondary), transparent);
 }

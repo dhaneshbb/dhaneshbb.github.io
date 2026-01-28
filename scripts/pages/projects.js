@@ -1,5 +1,5 @@
 import { createObserver } from '../core/utils.js';
-import { ANIMATION, INTERSECTION_OBSERVER, TRANSFORM_3D } from '../core/constants.js';
+import { ANIMATION, INTERSECTION_OBSERVER } from '../core/constants.js';
 
 function initProjectsPage() {
   initFilterTabs();
@@ -10,6 +10,29 @@ function initProjectsPage() {
   initKeyboardNavigation();
   addRippleStyles();
   initThemeAwareImages();
+  initRepoCardImages();
+}
+
+function initRepoCardImages() {
+  document.querySelectorAll('.repo-card').forEach(img => {
+    img.addEventListener('load', () => img.classList.add('loaded'));
+    img.addEventListener('error', () => {
+      const link = img.closest('a');
+      const container = img.closest('.repo-card-container');
+      if (!container) return;
+
+      const href = link?.href || '';
+      const repoName = href.split('/').filter(Boolean).slice(-2).join('/') || 'Repository';
+
+      container.innerHTML = `
+        <a href="${href}" target="_blank" rel="noopener" class="repo-card-fallback">
+          <i class="fab fa-github"></i>
+          <span>${repoName}</span>
+        </a>
+      `;
+    });
+    if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
+  });
 }
 
 function initFilterTabs() {
@@ -145,56 +168,6 @@ function initCardInteractions() {
   const projectCards = document.querySelectorAll('.project-card-new, .project-card');
 
   for (const card of projectCards) {
-    let tiltTimeout;
-    card.style.willChange = 'transform, box-shadow';
-
-    card.addEventListener('mousemove', function (e) {
-      if (tiltTimeout) return;
-
-      tiltTimeout = setTimeout(() => {
-        tiltTimeout = null;
-      }, ANIMATION.MOUSEMOVE_THROTTLE);
-
-      const rect = this.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * TRANSFORM_3D.ROTATION_MULTIPLIER_NEGATIVE;
-      const rotateY = ((x - centerX) / centerX) * TRANSFORM_3D.ROTATION_MULTIPLIER;
-      const translateZ = TRANSFORM_3D.TRANSLATE_Z;
-
-      this.style.transition = 'none';
-      this.style.transform = `
-        translateY(-20px)
-        translateZ(${translateZ}px)
-        rotateX(${rotateX}deg)
-        rotateY(${rotateY}deg)
-        scale(1.03)
-      `;
-
-      const shine = this.querySelector('.card-shine') || document.createElement('div');
-      if (!shine.classList.contains('card-shine')) {
-        shine.className = 'card-shine';
-        this.appendChild(shine);
-      }
-      const percentX = (x / rect.width) * 100;
-      const percentY = (y / rect.height) * 100;
-      shine.style.background = `radial-gradient(circle at ${percentX}% ${percentY}%, rgba(255,255,255,0.08) 0%, transparent 80%)`;
-    });
-
-    card.addEventListener('mouseleave', function () {
-      this.style.transition = 'all 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-      this.style.transform = 'translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg) scale(1)';
-
-      const shine = this.querySelector('.card-shine');
-      if (shine) {
-        shine.style.opacity = '0';
-        setTimeout(() => shine.remove(), ANIMATION.SHINE_REMOVE_DELAY);
-      }
-    });
-
     card.addEventListener('click', function (e) {
       if (e.target.tagName !== 'A' && !e.target.closest('a') && !e.target.closest('button')) {
         const githubLink = this.querySelector('.btn-link.github, .btn-link');

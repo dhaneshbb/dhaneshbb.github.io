@@ -183,7 +183,11 @@
 
 /* Project date text */
 [data-theme='dark'] .project-date {
-  color: #a0aec0;
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .project-card-new.compact .project-date {
+  color: #e2e8f0;
 }
 
 /* DARK MODE BORDERS AND BADGES */

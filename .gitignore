@@ -338,3 +338,5 @@ tramp
 downloads/
 .chrome.record/
 scripts-build/
+
+data/

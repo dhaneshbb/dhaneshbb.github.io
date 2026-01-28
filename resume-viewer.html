@@ -20,20 +20,50 @@
   <body>
     <div id="toolbar">
       <span id="docTitle">Resume - Dhanesh B.B.</span>
-      <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-      <span id="pageInfo"><span id="pageNum">1</span> / <span id="pageCount">-</span></span>
-      <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
-      <button id="zoomOutBtn"><i class="fas fa-search-minus"></i></button>
-      <span id="zoomInfo">100%</span>
-      <button id="zoomInBtn"><i class="fas fa-search-plus"></i></button>
-      <button id="fitWidthBtn" title="Fit to Width"><i class="fas fa-arrows-alt-h"></i></button>
-      <button id="fitPageBtn" title="Fit Page"><i class="fas fa-expand"></i></button>
+      <div id="canvasControls" class="toolbar-group">
+        <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+        <span id="pageInfo"><span id="pageNum">1</span> / <span id="pageCount">-</span></span>
+        <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        <button id="zoomOutBtn"><i class="fas fa-search-minus"></i></button>
+        <span id="zoomInfo">100%</span>
+        <button id="zoomInBtn"><i class="fas fa-search-plus"></i></button>
+        <button id="fitWidthBtn" title="Fit to Width"><i class="fas fa-arrows-alt-h"></i></button>
+        <button id="fitPageBtn" title="Fit Page"><i class="fas fa-expand"></i></button>
+      </div>
+      <a
+        id="openPdfBtn"
+        class="toolbar-link"
+        href="media/doc/Dhanesh_BB_Data_Scientist.pdf"
+        target="_blank"
+        rel="noopener"
+        title="Open original PDF in new tab"
+      >
+        <i class="fas fa-file-pdf"></i> Open PDF
+      </a>
+      <a
+        id="downloadBtn"
+        class="toolbar-link"
+        href="media/doc/Dhanesh_BB_Data_Scientist.pdf"
+        download
+        target="_blank"
+        rel="noopener"
+        title="Download PDF"
+      >
+        <i class="fas fa-download"></i> Download
+      </a>
       <button id="closeBtn">Close</button>
     </div>
 
     <div id="viewer">
+      <div id="nativeWrapper">
+        <iframe
+          id="nativeViewer"
+          src="media/doc/Dhanesh_BB_Data_Scientist.pdf#view=FitH"
+          title="Resume PDF - native viewer"
+          loading="lazy"
+        ></iframe>
+      </div>
       <div id="canvasContainer">
-        <canvas id="pdfCanvas"></canvas>
       </div>
     </div>
 

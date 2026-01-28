@@ -20,6 +20,6 @@
       "@media/*": ["./media/*"]
     }
   },
-  "include": ["scripts/**/*", "*.html"],
+  "include": ["scripts/**/*", "*.html", ".backup/resume.js"],
   "exclude": ["node_modules", ".bkup", ".scripts-build", "dist"]
 }
