@@ -1,5 +1,14 @@
 import { createObserver, fetchHTMLElements } from '../core/utils.js';
 import { ANIMATION, SCROLL, PROJECT_CARD } from '../core/constants.js';
+import { PROJECT_DATA } from '../data/projects.js';
+
+const PROJECT_SOURCES = PROJECT_DATA.map(project => ({
+  ...project,
+  matches: project.matches || [project.displayName, project.title],
+}));
+
+const previewIntervals = new Map();
+let previewKeyCounter = 0;
 
 async function initIndexPage() {
   await loadSkills();
@@ -248,6 +257,29 @@ async function loadProjects() {
     projectCards.forEach(addCard);
     projectCards.forEach(addCard);
 
+    // Attach preview slider images from embedded project data (data URIs)
+    const cardLookup = new Map();
+    container.querySelectorAll('.project-card-new').forEach(card => {
+      const titleText =
+        card.querySelector('.project-title-new, .project-title')?.textContent?.trim() || '';
+      const normalized = normalizeTitle(titleText);
+      if (!normalized) return;
+      if (!cardLookup.has(normalized)) cardLookup.set(normalized, []);
+      cardLookup.get(normalized).push(card);
+    });
+
+    const sortedSources = [...PROJECT_SOURCES].sort((a, b) =>
+      a.displayName.localeCompare(b.displayName)
+    );
+
+    sortedSources.forEach(source => {
+      const cards = findMatchingCards(cardLookup, source.matches);
+      if (!cards.length) return;
+      const imageUrls = buildImageUrls(source);
+      if (!imageUrls.length) return;
+      cards.forEach(card => attachPreviewBackdrop(card, source.key, imageUrls));
+    });
+
     // handle repo preview images - show on load, show fallback on error
     container.querySelectorAll('.repo-card').forEach(img => {
       img.addEventListener('load', () => img.classList.add('loaded'));
@@ -265,6 +297,136 @@ async function loadProjects() {
 
     showProjectsFallback(fallbackMessage);
   }
+}
+
+function normalizeTitle(text) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, '');
+}
+
+function findMatchingCards(cardLookup, matches = []) {
+  const results = [];
+
+  matches.forEach(match => {
+    const normalized = normalizeTitle(match);
+    const exact = cardLookup.get(normalized);
+    if (exact && exact.length) {
+      results.push(...exact);
+    }
+  });
+
+  if (results.length) return results;
+
+  for (const [normalizedCard, cards] of cardLookup.entries()) {
+    for (const match of matches) {
+      const normalizedMatch = normalizeTitle(match);
+      if (normalizedCard.includes(normalizedMatch)) {
+        results.push(...cards);
+      }
+    }
+  }
+
+  return results;
+}
+
+function extractNumber(filename) {
+  const match = filename.match(/(\d+)/);
+  return match ? Number.parseInt(match[1], 10) : 0;
+}
+
+function buildImageUrls(source) {
+  const imgs = [...(source.images || [])];
+  if (imgs.length && typeof imgs[0] === 'string' && imgs[0].startsWith('data:image')) {
+    return imgs; // already ordered data URIs
+  }
+  return imgs.sort((a, b) => extractNumber(a) - extractNumber(b));
+}
+
+function attachPreviewBackdrop(card, key, imageUrls) {
+  const repoContainer = card.querySelector('.repo-card-container');
+  if (!repoContainer || repoContainer.querySelector('.project-preview-repo')) return;
+
+  const previewKey = `${key}-${++previewKeyCounter}`;
+
+  const slider = document.createElement('div');
+  slider.className = 'project-preview-repo';
+  slider.innerHTML = `
+    <div class="project-preview-frame">
+      <img class="project-preview-image" alt="Project preview" loading="lazy" />
+      <div class="project-preview-dots-inline"></div>
+    </div>
+  `;
+
+  const repoLink = repoContainer.querySelector('a');
+  if (repoLink) {
+    repoLink.innerHTML = '';
+    repoLink.appendChild(slider);
+  } else {
+    repoContainer.innerHTML = '';
+    repoContainer.appendChild(slider);
+  }
+
+  const sliderImg = slider.querySelector('.project-preview-image');
+  const sliderDots = slider.querySelector('.project-preview-dots-inline');
+
+  startPreviewRotation(previewKey, imageUrls, sliderImg, sliderDots, card);
+}
+
+function startPreviewRotation(key, images, sliderImg, sliderDotsContainer, card) {
+  if (!images.length) return;
+
+  const clearExisting = () => {
+    if (previewIntervals.has(key)) {
+      clearInterval(previewIntervals.get(key));
+      previewIntervals.delete(key);
+    }
+  };
+
+  let index = 0;
+  const ensureSliderDots = () => {
+    if (!sliderDotsContainer) return [];
+    sliderDotsContainer.innerHTML = '';
+    return images.map((_, idx) => {
+      const dot = document.createElement('span');
+      if (idx === 0) dot.classList.add('active');
+      sliderDotsContainer.appendChild(dot);
+      return dot;
+    });
+  };
+
+  const sliderDots = ensureSliderDots();
+
+  const updateFrame = nextIndex => {
+    index = nextIndex;
+    if (sliderImg) {
+      sliderImg.style.opacity = '0';
+      sliderImg.style.transform = 'translateX(10px)';
+      sliderImg.onload = () => {
+        sliderImg.style.opacity = '1';
+        sliderImg.style.transform = 'translateX(0)';
+      };
+      sliderImg.src = images[index];
+      sliderImg.alt = `Preview ${index + 1} of ${images.length}`;
+    }
+    if (sliderDots && sliderDots.length) {
+      sliderDots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === index));
+    }
+  };
+
+  const startInterval = () => {
+    clearExisting();
+    if (images.length <= 1) return;
+    const id = setInterval(() => {
+      const next = (index + 1) % images.length;
+      updateFrame(next);
+    }, 3400);
+    previewIntervals.set(key, id);
+  };
+
+  startInterval();
+  updateFrame(0);
+
+  card?.addEventListener('mouseenter', clearExisting);
+  card?.addEventListener('mouseleave', startInterval);
 }
 
 

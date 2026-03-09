@@ -1,4 +1,4 @@
-/* CONTACT PAGE SECTIONS */
+﻿/* CONTACT PAGE SECTIONS */
 
 .contact-section {
   padding: 5rem 0;
@@ -180,6 +180,13 @@
   text-decoration: none;
 }
 
+.contact-row-title {
+  margin: 2.5rem 0 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
 .contact-link::after {
   content: '';
   position: absolute;
@@ -349,3 +356,4 @@
 .location-details strong {
   color: var(--text-dark);
 }
+
