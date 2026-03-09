@@ -1,8 +1,8 @@
-import { initCertificates } from './certificates.js';
 import { createObserver } from '../core/utils.js';
 import { ANIMATION, STAGGER } from '../core/constants.js';
 
-function initAboutPage() {
+async function initAboutPage() {
+  const { initCertificates } = await import('./certificates.js');
   initCertificates();
 
   function animateCounters() {

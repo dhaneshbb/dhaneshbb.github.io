@@ -13,11 +13,6 @@ import {
 } from './core/utils.js';
 import { initTheme, initThemeToggle } from './core/theme.js';
 import { ANIMATION } from './core/constants.js';
-import { initIndexPage } from './pages/index.js';
-import { initAboutPage } from './pages/about.js';
-import { initProjectsPage } from './pages/projects.js';
-import { initExperiencePage } from './pages/experience.js';
-import { initContactPage } from './pages/contact.js';
 
 initTheme();
 
@@ -36,14 +31,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   const page = window.location.pathname.split('/').pop();
 
   if (!page || page === '' || page === 'index.html' || page === '/') {
+    const { initIndexPage } = await import('./pages/index.js');
     initIndexPage();
     initSmoothReveal(300);
   } else if (page === 'about.html') {
+    const { initAboutPage } = await import('./pages/about.js');
     initAboutPage();
     initSmoothReveal(300);
   } else if (page === 'projects.html') {
+    const { initProjectsPage } = await import('./pages/projects.js');
     initProjectsPage();
   } else if (page === 'experience.html') {
+    const { initExperiencePage } = await import('./pages/experience.js');
     initExperiencePage();
     window.addEventListener('load', () => {
       document.querySelectorAll('.fade-in').forEach((element, index) => {
@@ -51,6 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       });
     });
   } else if (page === 'contact.html') {
+    const { initContactPage } = await import('./pages/contact.js');
     initContactPage();
     initSmoothReveal(300);
   }
