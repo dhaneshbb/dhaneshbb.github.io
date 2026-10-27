@@ -47,6 +47,18 @@ Deployed on GitHub Pages.
 
 ### Demo
 
+<p align="center">
+  <img src="media/thumbnail/1.png" alt="Portfolio website preview 1">
+</p>
+
+<p align="center">
+  <img src="media/thumbnail/2.png" alt="Portfolio website preview 2">
+</p>
+
+<p align="center">
+  <img src="media/thumbnail/3.png" alt="Portfolio website preview 3">
+</p>
+
 <div align="center">
 
 |                                                           Homepage                                                            |
